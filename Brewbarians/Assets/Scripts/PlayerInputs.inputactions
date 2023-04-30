@@ -33,9 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Click",
+                    "name": "Inventory",
                     "type": "Button",
-                    "id": "5f5ed17c-7325-4e5c-baf5-beac860bf578",
+                    "id": "5e9ca079-dc16-439f-843f-b1e44e5d4411",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -122,12 +122,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5eb1c115-aed1-4ee5-9102-67c2ca5b429f",
-                    "path": "<Mouse>/leftButton",
+                    "id": "4d91717e-d056-44db-bcae-ff8b0d4b14ca",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Click",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
