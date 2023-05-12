@@ -8,6 +8,9 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
     [Header("Field Types")]
     [SerializeField] private GameObject HoedField;
     [SerializeField] private GameObject WetField;
+    public Item shovelItem;
+    public Item waterItem;
+    public HandManager handManager;
 
     private string[] fieldStates = { "default", "hoed", "wet" };
 
@@ -20,13 +23,13 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        HoeField();
+        ShovelField();
         WaterField();
     }
 
-    public void HoeField()
+    public void ShovelField()
     {
-        if(currentFieldState == fieldStates[0])
+        if(currentFieldState == fieldStates[0] && handManager.handItem == shovelItem )
         {
             Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation);
             currentFieldState = fieldStates[1];
@@ -35,7 +38,7 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
 
     public void WaterField()
     {
-        if (currentFieldState == fieldStates[1])
+        if (currentFieldState == fieldStates[1] && handManager.handItem == waterItem)
         {
             Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation);
             currentFieldState = fieldStates[2];
