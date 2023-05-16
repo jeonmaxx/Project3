@@ -31,7 +31,7 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
     {
         if(currentFieldState == fieldStates[0] && handManager.handItem == shovelItem )
         {
-            Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             currentFieldState = fieldStates[1];
         }
     }
@@ -40,7 +40,7 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
     {
         if (currentFieldState == fieldStates[1] && handManager.handItem == waterItem)
         {
-            Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             currentFieldState = fieldStates[2];
         }
     }
