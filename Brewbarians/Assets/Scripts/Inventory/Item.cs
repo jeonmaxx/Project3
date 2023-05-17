@@ -24,4 +24,4 @@ public class Item : ScriptableObject
 
 public enum ItemType { BuildingBlock, Tool, Seed }
 
-public enum ActionType { Dig, Water, Plant }
+public enum ActionType { Dig, Water, Plant, None }

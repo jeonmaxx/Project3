@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7035118373089366859}
   - component: {fileID: 7035118373089366861}
-  - component: {fileID: 7035118373089366860}
   - component: {fileID: 7035118373089366862}
+  - component: {fileID: 7035118373089366860}
   - component: {fileID: -7801536117982871121}
   m_Layer: 0
   m_Name: Field
@@ -87,24 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7035118373089366860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7035118373089366858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb0edf7bac74844a9a390a62e988f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HoedField: {fileID: 2203468978233888871, guid: 77c549f30da93ad4eb2a51abc414a443, type: 3}
-  WetField: {fileID: 5273630765728430113, guid: c56d7cd08cc56b2479f1196677b3ebfc, type: 3}
-  shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
-  waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
-  handManager: {fileID: 0}
-  currentFieldState: 
 --- !u!61 &7035118373089366862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,6 +113,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7035118373089366860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035118373089366858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb0edf7bac74844a9a390a62e988f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoedField: {fileID: 2203468978233888871, guid: 77c549f30da93ad4eb2a51abc414a443, type: 3}
+  WetField: {fileID: 5273630765728430113, guid: c56d7cd08cc56b2479f1196677b3ebfc, type: 3}
+  shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
+  waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
+  handManager: {fileID: 0}
+  currentFieldState: 
 --- !u!114 &-7801536117982871121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1c8e11d4ffc324a8e3a37c43f9283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlantState: 

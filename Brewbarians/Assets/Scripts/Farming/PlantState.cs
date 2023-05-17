@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantState : MonoBehaviour
 {
-    private string[] plantStates = {"noPlant", "Phase01", "Phase02", "Phase03"};
+    [HideInInspector] public string[] plantStates = {"noPlant", "Phase01", "Phase02", "Phase03"};
     public string currentPlantState;
 
     public void Start()
