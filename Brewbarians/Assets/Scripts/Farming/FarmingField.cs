@@ -12,7 +12,7 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
     public Item waterItem;
     public HandManager handManager;
 
-    private string[] fieldStates = { "default", "hoed", "wet" };
+    [HideInInspector] public string[] fieldStates = { "default", "hoed", "wet" };
 
     public string currentFieldState;
 

@@ -6,6 +6,7 @@ public class HandManager : MonoBehaviour
 {
     public InventoryManager inventoryManager;
     public Item handItem;
+    public int count;
 
     public void Update()
     {
@@ -18,10 +19,12 @@ public class HandManager : MonoBehaviour
         if (selectedItem != null)
         {
             handItem = selectedItem;
+            count = inventoryManager.itemInSlot.count;            
         }
         else
         {
             handItem = null;
+            count = 0;
         }
     }
 }

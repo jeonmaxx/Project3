@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     public int maxStackedItems = 4;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+    [HideInInspector] public InventoryItem itemInSlot;
 
     private int selectedSlot = -1;
 
@@ -42,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null && 
                 itemInSlot.item == item && 
                 itemInSlot.count < maxStackedItems &&
@@ -58,7 +59,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if(itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
@@ -81,7 +82,7 @@ public class InventoryManager : MonoBehaviour
     public Item GetSelectedItem(bool use)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
-        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot != null)
         {
             Item item = itemInSlot.item;

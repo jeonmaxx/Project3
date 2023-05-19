@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,7 +844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7197,12 +7197,12 @@ MonoBehaviour:
   playerTran: {x: 0, y: 0, z: 0}
   handManager: {fileID: 1555428667}
   fields:
-  - {fileID: 463042649}
-  - {fileID: 340836850}
-  - {fileID: 145878165}
   - {fileID: 1303325263}
   - {fileID: 1873546572}
   - {fileID: 519061936}
+  - {fileID: 145878165}
+  - {fileID: 340836850}
+  - {fileID: 463042649}
   seedInHand: 0
   input: {fileID: 599579887}
   inventoryManager: {fileID: 1555428666}
@@ -7439,7 +7439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9165,12 +9165,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 463042650}
-  - {fileID: 340836851}
-  - {fileID: 145878166}
   - {fileID: 1303325264}
   - {fileID: 1873546573}
   - {fileID: 519061937}
+  - {fileID: 145878166}
+  - {fileID: 340836851}
+  - {fileID: 463042650}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10280,6 +10280,7 @@ MonoBehaviour:
   - {fileID: 324942120}
   - {fileID: 1523057593}
   inventoryItemPrefab: {fileID: 3460233328290774467, guid: d7f4712029161994e829471412b85be1, type: 3}
+  itemInSlot: {fileID: 0}
 --- !u!114 &1555428667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10294,6 +10295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 1555428666}
   handItem: {fileID: 0}
+  count: 0
 --- !u!1001 &1567235110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10449,7 +10451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11185,7 +11187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7035118373089366859, guid: e466a35dcd124b2458f3b03211639775, type: 3}
       propertyPath: m_LocalPosition.x
