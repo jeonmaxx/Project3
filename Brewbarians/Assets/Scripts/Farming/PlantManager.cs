@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlantManager : PlayerNear
 {
+    //Momentan nicht genutzt.
     public HandManager handManager;
     private ActionType handType;
     private bool inHand = false;
@@ -41,6 +42,7 @@ public class PlantManager : PlayerNear
 
     }
 
+    //Automatische Bepflanzung durchs Interagieren mit dem Schild
     public void OnInteract()
     {
         int seedCount = handManager.count;
@@ -74,11 +76,6 @@ public class PlantManager : PlayerNear
                 {
                     Debug.Log("Not enough seeds/space");
                 }
-
-                //ToDo:
-                //Get itemCount von den Seeds in der Hand
-                //Bei jedem wo PlantState[0] ist planten, solange man noch Seeds hat
-                //Fields, welche einen anderen PlantState haben überspringen
             }
         }
     }

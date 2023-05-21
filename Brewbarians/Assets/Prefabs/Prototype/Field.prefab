@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7035118373089366861}
   - component: {fileID: 7035118373089366862}
   - component: {fileID: 7035118373089366860}
+  - component: {fileID: 5005192462053227496}
   - component: {fileID: -7801536117982871121}
   m_Layer: 0
   m_Name: Field
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7035118373089366858}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -130,7 +131,25 @@ MonoBehaviour:
   shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
   waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
   handManager: {fileID: 0}
+  fieldStates:
+  - default
+  - hoed
+  - wet
   currentFieldState: 
+--- !u!114 &5005192462053227496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035118373089366858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82b8319cc8401e43842b2c6b8758e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handManager: {fileID: 0}
+  seedInHand: 0
 --- !u!114 &-7801536117982871121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1c8e11d4ffc324a8e3a37c43f9283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantStates:
+  - noPlant
+  - Phase01
+  - Phase02
+  - Phase03
   currentPlantState: 
