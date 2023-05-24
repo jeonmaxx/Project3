@@ -18,10 +18,10 @@ public class Item : ScriptableObject
     [Header("Both")]
     public Sprite image;
 
-    [Header("If ItemType Seed")]
+    [Header("ItemType Seed")]
     public Seed seed;
 }
 
-public enum ItemType { BuildingBlock, Tool, Seed }
+public enum ItemType { BuildingBlock, Tool, Seed, Product }
 
-public enum ActionType { Dig, Water, Plant, None }
+public enum ActionType { None, Dig, Water, Plant, Harvest }

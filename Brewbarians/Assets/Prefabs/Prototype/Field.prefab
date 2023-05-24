@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5496446500131982949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423363277710726287}
+  m_Layer: 0
+  m_Name: PlantEmpty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423363277710726287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5496446500131982949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1466.4473, y: 805.32733, z: 3.08978}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7035118373089366859}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7035118373089366858
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +42,8 @@ GameObject:
   - component: {fileID: 7035118373089366859}
   - component: {fileID: 7035118373089366861}
   - component: {fileID: 7035118373089366862}
-  - component: {fileID: 7035118373089366860}
-  - component: {fileID: 5005192462053227496}
-  - component: {fileID: -7801536117982871121}
+  - component: {fileID: 2906932538403923746}
+  - component: {fileID: 7891155228039247606}
   m_Layer: 0
   m_Name: Field
   m_TagString: Field
@@ -32,7 +62,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 423363277710726287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,7 +145,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7035118373089366860
+--- !u!114 &2906932538403923746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,48 +154,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 7035118373089366858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb0edf7bac74844a9a390a62e988f80, type: 3}
+  m_Script: {fileID: 11500000, guid: 94f81f3e49a28374abba8e95b06daba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoedField: {fileID: 2203468978233888871, guid: 77c549f30da93ad4eb2a51abc414a443, type: 3}
-  WetField: {fileID: 5273630765728430113, guid: c56d7cd08cc56b2479f1196677b3ebfc, type: 3}
-  shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
-  waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
-  handManager: {fileID: 0}
+  currentFieldState: 
   fieldStates:
   - default
   - hoed
   - wet
-  currentFieldState: 
---- !u!114 &5005192462053227496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7035118373089366858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82b8319cc8401e43842b2c6b8758e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handManager: {fileID: 0}
-  seedInHand: 0
---- !u!114 &-7801536117982871121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7035118373089366858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1c8e11d4ffc324a8e3a37c43f9283c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  currentPlantState: 
   plantStates:
   - noPlant
   - Phase01
   - Phase02
   - Phase03
-  currentPlantState: 
+  handManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  HoedField: {fileID: 2203468978233888871, guid: 77c549f30da93ad4eb2a51abc414a443, type: 3}
+  WetField: {fileID: 5273630765728430113, guid: c56d7cd08cc56b2479f1196677b3ebfc, type: 3}
+  seedInHand: 0
+  sign: {fileID: 0}
+  shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
+  waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
+  harvestItem: {fileID: 11400000, guid: 04ad89d01f04be047a0838bd08c88a65, type: 2}
+--- !u!114 &7891155228039247606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035118373089366858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e37077e4a41e5d409d33121cde6e3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase2Points: 5
+  phase3Points: 10
+  currentPoints: 0

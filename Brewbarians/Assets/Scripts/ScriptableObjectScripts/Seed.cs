@@ -10,4 +10,5 @@ public class Seed : ScriptableObject
     public GameObject Ph01;
     public GameObject Ph02;
     public GameObject Ph03;
+    public Item Product;
 }

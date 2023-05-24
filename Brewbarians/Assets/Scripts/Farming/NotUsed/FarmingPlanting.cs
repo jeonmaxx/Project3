@@ -13,7 +13,7 @@ public class FarmingPlanting : MonoBehaviour, IPointerDownHandler
     private bool inHand = false;
     public bool seedInHand;
     private PlantState plantState;
-    private FarmingField fieldState;
+    private FieldState fieldState;
     private Seed seed;
     public GameObject sign;
     private FarmSign farmSign;
@@ -21,7 +21,7 @@ public class FarmingPlanting : MonoBehaviour, IPointerDownHandler
     public void Start()
     {
         farmSign = sign.GetComponent<FarmSign>();
-        fieldState = GetComponent<FarmingField>();
+        fieldState = GetComponent<FieldState>();
         plantState = GetComponent<PlantState>();
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Playables;
 
 public class FarmingField : MonoBehaviour, IPointerDownHandler
 {
@@ -11,14 +12,11 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
     public Item shovelItem;
     public Item waterItem;
     public HandManager handManager;
+    private FieldState fieldState;
 
-    [HideInInspector] public string[] fieldStates = { "default", "hoed", "wet" };
-
-    public string currentFieldState;
-
-    public void Awake()
+    public void Start()
     {
-        currentFieldState = fieldStates[0];
+        fieldState = GetComponent<FieldState>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -29,19 +27,19 @@ public class FarmingField : MonoBehaviour, IPointerDownHandler
 
     public void ShovelField()
     {
-        if(currentFieldState == fieldStates[0] && handManager.handItem == shovelItem )
+        if(fieldState.currentFieldState == fieldState.fieldStates[0] && handManager.handItem == shovelItem )
         {
             Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
-            currentFieldState = fieldStates[1];
+            fieldState.currentFieldState = fieldState.fieldStates[1];
         }
     }
 
     public void WaterField()
     {
-        if (currentFieldState == fieldStates[1] && handManager.handItem == waterItem)
+        if (fieldState.currentFieldState == fieldState.fieldStates[1] && handManager.handItem == waterItem)
         {
             Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
-            currentFieldState = fieldStates[2];
+            fieldState.currentFieldState = fieldState.fieldStates[2];
         }
     }
 

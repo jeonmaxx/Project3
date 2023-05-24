@@ -14,7 +14,7 @@ public class PlantManager : PlayerNear
     public bool seedInHand;
     public PlayerInput input;
     private PlantState plantState;
-    private FarmingField fieldState;
+    private FieldState fieldState;
     private Seed seed;
     public InventoryManager inventoryManager;
 
@@ -52,7 +52,7 @@ public class PlantManager : PlayerNear
             for(int i = 0; i < fields.Length; i++)
             {
                 plantState = fields[i].GetComponent<PlantState>();
-                fieldState = fields[i].GetComponent<FarmingField>();
+                fieldState = fields[i].GetComponent<FieldState>();
 
                 if (!seedInHand)
                      return;

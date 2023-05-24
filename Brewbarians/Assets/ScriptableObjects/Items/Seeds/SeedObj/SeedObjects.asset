@@ -15,3 +15,4 @@ MonoBehaviour:
   Ph01: {fileID: 5544991132756787303, guid: c9aa281cca9e2264792961097dc6896e, type: 3}
   Ph02: {fileID: 8032992765348870521, guid: dfab2820b910eaa4f9f1aca9ba9f335b, type: 3}
   Ph03: {fileID: 3208266511399466789, guid: ab42028f034258249b4141b3afdad95e, type: 3}
+  Product: {fileID: 11400000, guid: d05506aade67dd0479338905460a716b, type: 2}

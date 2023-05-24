@@ -11,7 +11,6 @@ public class FarmSign : PlayerNear
     private bool inHand = false;
     public bool seedInHand;
     public PlayerInput input;
-    private Seed seed;
 
     public Item signSeed;
 
@@ -34,9 +33,9 @@ public class FarmSign : PlayerNear
             inHand = false;
 
 
-        if ((int)handType == 2 && inHand)
+        if ((int)handType == 3 && inHand)
             seedInHand = true;
-        else if ((int)handType != 2 || !inHand)
+        else if ((int)handType != 3 || !inHand)
             seedInHand = false;
 
     }
