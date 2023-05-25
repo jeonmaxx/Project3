@@ -8,8 +8,10 @@ using UnityEngine.Playables;
 public class Planting : MonoBehaviour, IPointerDownHandler
 {
     [Header("States")]
+    [ShowOnly]
     public string currentFieldState;
     [HideInInspector] public string[] fieldStates = { "default", "hoed", "wet" };
+    [ShowOnly]
     public string currentPlantState;
     [HideInInspector] public string[] plantStates = { "noPlant", "Phase01", "Phase02", "Phase03" };
     
@@ -20,21 +22,22 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [Header("Fields")]
     [SerializeField] private GameObject HoedField;
     [SerializeField] private GameObject WetField;
+    [HideInInspector] public GameObject hoed;
+    [HideInInspector] public GameObject wet;
 
     [Header("Planting")]
     public bool seedInHand;
     private ActionType handType;
     private bool inHand = false;
     private Seed seed;
-    public GameObject sign;
+    [SerializeField] private GameObject sign;
     private FarmSign farmSign;
+    private GameObject plant;
 
     [Header("Tools")]
-    public Item shovelItem;
-    public Item waterItem;
-    public Item harvestItem;
-
-    private GameObject plantFolder;
+    [SerializeField] private Item shovelItem;
+    [SerializeField] private Item waterItem;
+    [SerializeField] private Item harvestItem;    
 
     public void Start()
     {
@@ -42,8 +45,6 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         currentPlantState = plantStates[0];
 
         farmSign = sign.GetComponent<FarmSign>();
-
-        plantFolder = transform.GetChild(0).gameObject;
     }
 
     public void Update()
@@ -65,7 +66,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         if (currentFieldState == fieldStates[0] 
             && handManager.handItem == shovelItem)
         {
-            Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+            hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             currentFieldState = fieldStates[1];
         }
     }
@@ -75,7 +76,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         if (currentFieldState == fieldStates[1] 
             && handManager.handItem == waterItem)
         {
-            Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+            wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             currentFieldState = fieldStates[2];
         }
     }
@@ -90,7 +91,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
                 && currentPlantState == plantStates[0]
                 && handManager.handItem == farmSign.signSeed)
             {
-                Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, plantFolder.transform);
+                plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                 currentPlantState = plantStates[1];
                 Item receivedItem = inventoryManager.GetSelectedItem(true);
             }
@@ -101,14 +102,14 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     {
         if(currentPlantState == plantStates[2])
         {
-            Destroy(plantFolder.transform.GetChild(0).gameObject);
-            Instantiate(seed.Ph02, gameObject.transform.position, gameObject.transform.rotation, plantFolder.transform);
+            Destroy(plant);
+            plant = Instantiate(seed.Ph02, gameObject.transform.position, gameObject.transform.rotation, this.transform);
         }
 
         if (currentPlantState == plantStates[3])
         {
-            Destroy(plantFolder.transform.GetChild(0).gameObject);
-            Instantiate(seed.Ph03, gameObject.transform.position, gameObject.transform.rotation, plantFolder.transform);
+            Destroy(plant);
+            plant = Instantiate(seed.Ph03, gameObject.transform.position, gameObject.transform.rotation, this.transform);
         }
     }
 
@@ -120,7 +121,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             //Item prod = seed.Product;
 
             bool result = inventoryManager.AddItem(seed.Product);
-            Destroy(plantFolder.transform.GetChild(0).gameObject);
+            Destroy(plant);
             currentPlantState = plantStates[0];
 
         }

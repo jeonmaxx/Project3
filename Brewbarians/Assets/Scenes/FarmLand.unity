@@ -11930,6 +11930,10 @@ PrefabInstance:
       propertyPath: handManager
       value: 
       objectReference: {fileID: 1555428667}
+    - target: {fileID: 7891155228039247606, guid: e466a35dcd124b2458f3b03211639775, type: 3}
+      propertyPath: fieldPoints
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e466a35dcd124b2458f3b03211639775, type: 3}
 --- !u!1001 &1914691112
