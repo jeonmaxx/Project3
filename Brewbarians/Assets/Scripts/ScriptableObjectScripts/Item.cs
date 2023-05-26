@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Scriptable object/Item")]
 public class Item : ScriptableObject
@@ -22,6 +19,6 @@ public class Item : ScriptableObject
     public Seed seed;
 }
 
-public enum ItemType { BuildingBlock, Tool, Seed, Product }
+public enum ItemType { BuildingBlock, Tool, Seed, HarvestProd, Drink }
 
 public enum ActionType { None, Dig, Water, Plant, Harvest }
