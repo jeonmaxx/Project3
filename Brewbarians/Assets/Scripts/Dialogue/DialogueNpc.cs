@@ -3,33 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DialogueNpc : MonoBehaviour
+public class DialogueNpc : PlayerNear
 {
     public PlayerInput Input;
     public DialogueTrigger trigger;
-    public bool playerNear = false;
+
+    private void Update()
+    {
+        CalcDistance();
+    }
 
     public void OnInteract()
     {
-        if (playerNear == true)
+        if (isPlayerNear)
         {
             trigger.StartDialogue();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            playerNear = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if (col.gameObject.tag == "Player")
+    //    {
+    //        playerNear = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            playerNear = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D col)
+    //{
+    //    if (col.gameObject.tag == "Player")
+    //    {
+    //        playerNear = false;
+    //    }
+    //}
 }
