@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23932929b0f841f40bbaaf112b17f99f, type: 3}
-  m_Name: HarvestTool
+  m_Name: SeedPouch
   m_EditorClassIdentifier: 
   obj: {fileID: 0}
   type: 1
-  actionType: 4
+  actionType: 3
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: ed5ce024c84dbdb42ac5037d03e7c039, type: 3}
+  image: {fileID: -423876227, guid: f283abc7c5d08eb4c83c6079c45345d5, type: 3}
   seed: {fileID: 0}

@@ -11,15 +11,35 @@ public class FarmSign : PlayerNear
     private bool inHand = false;
     public bool seedInHand;
     public PlayerInput input;
+    public RectTransform seedWheel;
+    private SeedWheelManager seedWheelManager;
 
     public Item signSeed;
 
     public SpriteRenderer signSprite;
 
+    public bool wheelOpen = false;
+
+    public void Awake()
+    {
+        seedWheel.transform.localScale = Vector3.zero;
+    }
+
     public void Update()
     {
         CheckHand();
         CalcDistance();
+
+        if(wheelOpen && !isPlayerNear)
+        {
+            signSeed = seedWheelManager.chosenSeed;
+            if (signSeed != null)
+            {
+                signSprite.sprite = signSeed.image;
+            }
+            seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            wheelOpen = false;
+        }
     }
 
     public void CheckHand()
@@ -42,10 +62,27 @@ public class FarmSign : PlayerNear
 
     public void OnInteract()
     {
-        if (isPlayerNear && seedInHand)
+        if (isPlayerNear && seedInHand && !wheelOpen)
         {
-            signSeed = handManager.handItem;
-            signSprite.sprite = handManager.handItem.image;
+            seedWheel.LeanScale(Vector3.one, 0.5f);
+            seedWheelManager = seedWheel.GetComponent<SeedWheelManager>();
+            signSeed = seedWheelManager.chosenSeed;
+            if (signSeed != null)
+            {
+                signSprite.sprite = signSeed.image;
+            }
+            wheelOpen = true;
+        }
+
+        else if (wheelOpen)
+        {
+            signSeed = seedWheelManager.chosenSeed;
+            if (signSeed != null)
+            {
+                signSprite.sprite = signSeed.image;
+            }
+            seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            wheelOpen = false;
         }
     }
 }

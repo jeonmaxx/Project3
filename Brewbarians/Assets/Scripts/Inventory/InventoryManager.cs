@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     public int maxStackedItems = 4;
     public InventorySlot[] inventorySlots;
+    public InventorySlot[] seedWheel;
     public GameObject inventoryItemPrefab;
     [HideInInspector] public InventoryItem itemInSlot;
 
@@ -28,7 +32,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void ChangeSelectedSlot(int newValue)
+    public void ChangeSelectedSlot(int newValue)
     {
         if(selectedSlot >= 0)
             inventorySlots[selectedSlot].Deselect();
@@ -39,31 +43,65 @@ public class InventoryManager : MonoBehaviour
 
     public bool AddItem(Item item)
     {
-        //Check if any slot has the same item with count lower than max
-        for (int i = 0; i < inventorySlots.Length; i++)
+        if (item.type != ItemType.Seed)
         {
-            InventorySlot slot = inventorySlots[i];
-            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null && 
-                itemInSlot.item == item && 
-                itemInSlot.count < maxStackedItems &&
-                itemInSlot.item.stackable == true)
+            //Check if any slot has the same item with count lower than max
+            for (int i = 0; i < inventorySlots.Length; i++)
             {
-                itemInSlot.count++;
-                itemInSlot.RefreshCount();
-                return true;
+                InventorySlot slot = inventorySlots[i];
+                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                if (itemInSlot != null &&
+                    itemInSlot.item == item &&
+                    itemInSlot.count < maxStackedItems &&
+                    itemInSlot.item.stackable == true)
+                {
+                    itemInSlot.count++;
+                    itemInSlot.RefreshCount();
+                    return true;
+                }
+            }
+
+            //Find any empty slot
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                InventorySlot slot = inventorySlots[i];
+                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                if (itemInSlot == null)
+                {
+                    SpawnNewItem(item, slot);
+                    return true;
+                }
             }
         }
 
-        //Find any empty slot
-        for (int i = 0; i < inventorySlots.Length; i++)
+        if (item.type == ItemType.Seed)
         {
-            InventorySlot slot = inventorySlots[i];
-            itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if(itemInSlot == null)
+            //Check if any slot has the same item with count lower than max
+            for (int i = 0; i < seedWheel.Length; i++)
             {
-                SpawnNewItem(item, slot);
-                return true;
+                InventorySlot slot = seedWheel[i];
+                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                if (itemInSlot != null &&
+                    itemInSlot.item == item &&
+                    itemInSlot.count < maxStackedItems &&
+                    itemInSlot.item.stackable == true)
+                {
+                    itemInSlot.count++;
+                    itemInSlot.RefreshCount();
+                    return true;
+                }
+            }
+
+            //Find any empty slot
+            for (int i = 0; i < seedWheel.Length; i++)
+            {
+                InventorySlot slot = seedWheel[i];
+                itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+                if (itemInSlot == null)
+                {
+                    SpawnNewItem(item, slot);
+                    return true;
+                }
             }
         }
 
@@ -86,7 +124,7 @@ public class InventoryManager : MonoBehaviour
         if (itemInSlot != null)
         {
             Item item = itemInSlot.item;
-            if(use == true)
+            if(use)
             {
                 itemInSlot.count--;
                 if(itemInSlot.count <= 0)

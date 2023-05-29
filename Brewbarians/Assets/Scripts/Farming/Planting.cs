@@ -18,6 +18,8 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [Header("Manager")]
     public HandManager handManager;
     public InventoryManager inventoryManager;
+    public GameObject seedWheel;
+    private SeedWheelManager seedWheelManager;
 
     [Header("Fields")]
     [SerializeField] private GameObject HoedField;
@@ -45,6 +47,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         currentPlantState = plantStates[0];
 
         farmSign = sign.GetComponent<FarmSign>();
+        seedWheelManager = seedWheel.GetComponent<SeedWheelManager>();
     }
 
     public void Update()
@@ -89,11 +92,25 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             if ((currentFieldState == fieldStates[1]
                 || currentFieldState == fieldStates[2])
                 && currentPlantState == plantStates[0]
-                && handManager.handItem == farmSign.signSeed)
+                && handManager.handItem.actionType == ActionType.Plant
+                && seedWheelManager.chosenSeed != null)
             {
                 plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                 currentPlantState = plantStates[1];
-                Item receivedItem = inventoryManager.GetSelectedItem(true);
+
+
+                //Uses Seeds
+                InventoryItem seedItem;
+                seedItem = seedWheel.GetComponentInChildren<InventoryItem>();
+                seedItem.count--;
+                if (seedItem.count <= 0)
+                {
+                    Destroy(seedItem.gameObject);
+                }
+                else
+                {
+                    seedItem.RefreshCount();
+                }
             }
         }
     }
