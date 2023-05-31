@@ -35,6 +35,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject sign;
     private FarmSign farmSign;
     private GameObject plant;
+    private Item currentPlant;
 
     [Header("Tools")]
     [SerializeField] private Item shovelItem;
@@ -62,6 +63,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         WaterField();
         PlantField();
         Harvest();
+        DestroyField();
     }
 
     public void ShovelField()
@@ -97,7 +99,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             {
                 plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                 currentPlantState = plantStates[1];
-
+                currentPlant = farmSign.signSeed;
 
                 //Uses Seeds
                 InventoryItem seedItem;
@@ -144,6 +146,17 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    public void DestroyField()
+    {
+        if (handManager.handItem == shovelItem
+            && (currentPlantState != plantStates[0] 
+            && currentPlantState != plantStates[3])
+            && currentPlant != farmSign.signSeed)
+        {
+            Destroy(plant);
+            currentPlantState = plantStates[0];
+        }
+    }
 
     public void CheckHand()
     {
