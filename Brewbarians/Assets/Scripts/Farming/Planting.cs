@@ -55,6 +55,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     {
         CheckHand();
         PlantGrowing();
+        currentPlant = farmSign.signSeed;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -95,13 +96,14 @@ public class Planting : MonoBehaviour, IPointerDownHandler
                 || currentFieldState == fieldStates[2])
                 && currentPlantState == plantStates[0]
                 && handManager.handItem.actionType == ActionType.Plant
-                && seedWheelManager.chosenSeed != null)
+                && seedWheelManager.chosenSeed != null
+                && farmSign.signSeed == seedWheelManager.chosenSeed)
             {
                 plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                 currentPlantState = plantStates[1];
-                currentPlant = farmSign.signSeed;
 
                 //Uses Seeds
+                //nimmt nicht die Seeds die auf dem Schild sind sondern irgendwelche. !!!! Beheben !!!!!
                 InventoryItem seedItem;
                 seedItem = seedWheel.GetComponentInChildren<InventoryItem>();
                 seedItem.count--;
