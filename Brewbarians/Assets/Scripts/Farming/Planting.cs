@@ -34,7 +34,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     private Seed seed;
     [SerializeField] private GameObject sign;
     private FarmSign farmSign;
-    private GameObject plant;
+    [SerializeField] private GameObject plant;
     private Item currentPlant;
 
     [Header("Tools")]
@@ -89,31 +89,38 @@ public class Planting : MonoBehaviour, IPointerDownHandler
 
     public void PlantField()
     {
-        if (farmSign.signSeed != null)
+        InventoryItem[] seedItem;
+        seedItem = seedWheel.GetComponentsInChildren<InventoryItem>();
+
+        for (int i = 0; i < seedItem.Length; i++)
         {
-            seed = farmSign.signSeed.seed;
             if ((currentFieldState == fieldStates[1]
                 || currentFieldState == fieldStates[2])
                 && currentPlantState == plantStates[0]
                 && handManager.handItem.actionType == ActionType.Plant
-                && seedWheelManager.chosenSeed != null
-                && farmSign.signSeed == seedWheelManager.chosenSeed)
+                && farmSign.signSeed != null)
             {
-                plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
-                currentPlantState = plantStates[1];
+                seed = farmSign.signSeed.seed;
 
-                //Uses Seeds
-                //nimmt nicht die Seeds die auf dem Schild sind sondern irgendwelche. !!!! Beheben !!!!!
-                InventoryItem seedItem;
-                seedItem = seedWheel.GetComponentInChildren<InventoryItem>();
-                seedItem.count--;
-                if (seedItem.count <= 0)
+                if (seedItem[i] != null
+                    && seedItem[i].item == farmSign.signSeed)
                 {
-                    Destroy(seedItem.gameObject);
-                }
-                else
-                {
-                    seedItem.RefreshCount();
+                    //planted und rechnet einen seed count runter
+                    plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                    currentPlantState = plantStates[1];
+                    seedItem[i].count--;
+
+                    //wenn der counter bei 0 ist, wird das childobject gelöscht
+                    if (seedItem[i].count <= 0)
+                    {
+                        Destroy(seedItem[i].gameObject);
+                        return;
+                    }
+                    else
+                    {
+                        seedItem[i].RefreshCount();
+                        return;
+                    }
                 }
             }
         }
