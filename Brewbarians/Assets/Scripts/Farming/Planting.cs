@@ -19,7 +19,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     public HandManager handManager;
     public InventoryManager inventoryManager;
     public GameObject seedWheel;
-    private SeedWheelManager seedWheelManager;
+    //private SeedWheelManager seedWheelManager;
 
     [Header("Fields")]
     [SerializeField] private GameObject HoedField;
@@ -48,7 +48,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         currentPlantState = plantStates[0];
 
         farmSign = sign.GetComponent<FarmSign>();
-        seedWheelManager = seedWheel.GetComponent<SeedWheelManager>();
+        //seedWheelManager = seedWheel.GetComponent<SeedWheelManager>();
     }
 
     public void Update()
@@ -148,7 +148,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         {
             //Item prod = seed.Product;
 
-            bool result = inventoryManager.AddItem(seed.Product);
+             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             currentPlantState = plantStates[0];
 

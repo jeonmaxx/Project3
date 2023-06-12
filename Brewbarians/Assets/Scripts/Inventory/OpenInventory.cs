@@ -4,18 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+
 public class OpenInventory : MonoBehaviour
 {
     public PlayerInput input;
     public bool inventoryActive = false;
     public GameObject inventoryBox;
     public GameObject toolBar;
-    private Vector3 toolBarPos;
+    [HideInInspector] public Vector3 toolBarPos;
     public Vector3 newToolBarPos;
+    [ShowOnly] public Windows windows;
 
     public void Start()
     {
         toolBarPos = new Vector3(toolBar.GetComponent<RectTransform>().anchoredPosition.x, toolBar.GetComponent<RectTransform>().anchoredPosition.y, 0);
+        windows = Windows.Inventory;
     }
 
     public void OnInventory()
@@ -23,7 +26,10 @@ public class OpenInventory : MonoBehaviour
         if(inventoryActive == false)
         {
             inventoryBox.GetComponent<Canvas>().enabled = true;
-            toolBar.GetComponent<RectTransform>().anchoredPosition = new Vector3(newToolBarPos.x, newToolBarPos.y, 0);
+
+            if(windows == Windows.Inventory)
+                toolBar.GetComponent<RectTransform>().anchoredPosition = new Vector3(newToolBarPos.x, newToolBarPos.y, 0);
+
             inventoryActive = true;
         }
         else
