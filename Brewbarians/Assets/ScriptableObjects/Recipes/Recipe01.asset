@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d617a0ccfc77af41987e1a4706db448, type: 3}
   m_Name: Recipe01
   m_EditorClassIdentifier: 
+  DrinkName: DrinkOne
   Product1Amount: 1
   Product1: {fileID: 11400000, guid: d05506aade67dd0479338905460a716b, type: 2}
   Product2Amount: 1

@@ -12,6 +12,7 @@ public class ItemEditor : Editor
     private SerializedProperty _range;
     private SerializedProperty _stackable;
     private SerializedProperty _image;
+    private SerializedProperty _name;
     private SerializedProperty _seed;
 
     private void OnEnable()
@@ -22,6 +23,7 @@ public class ItemEditor : Editor
         _range = serializedObject.FindProperty(nameof(Item.range));
         _stackable = serializedObject.FindProperty(nameof(Item.stackable));
         _image = serializedObject.FindProperty(nameof(Item.image));
+        _name = serializedObject.FindProperty(nameof(Item.itemName));
         _seed = serializedObject.FindProperty(nameof(Item.seed));
     }
 
@@ -34,6 +36,7 @@ public class ItemEditor : Editor
         EditorGUILayout.PropertyField(_range);
         EditorGUILayout.PropertyField(_stackable);
         EditorGUILayout.PropertyField(_image);
+        EditorGUILayout.PropertyField (_name);
 
         if ((int)item.type == 2)
         {
