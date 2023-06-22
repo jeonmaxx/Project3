@@ -15,27 +15,53 @@ public class OpenInventory : MonoBehaviour
     public Vector3 newToolBarPos;
     [ShowOnly] public Windows windows;
 
+    public RectTransform mainInventory;
+    public RectTransform map;
+    public RectTransform recipe;
+
     public void Start()
     {
         toolBarPos = new Vector3(toolBar.GetComponent<RectTransform>().anchoredPosition.x, toolBar.GetComponent<RectTransform>().anchoredPosition.y, 0);
         windows = Windows.Inventory;
     }
 
-    public void OnInventory()
+    public void Update()
     {
-        if(inventoryActive == false)
+        if (!inventoryActive)
+        {
+            inventoryBox.GetComponent<Canvas>().enabled = false;
+            toolBar.GetComponent<RectTransform>().anchoredPosition = new Vector3(toolBarPos.x, toolBarPos.y, 0);
+        }
+        else
         {
             inventoryBox.GetComponent<Canvas>().enabled = true;
 
-            if(windows == Windows.Inventory)
+            if (windows == Windows.Inventory)
                 toolBar.GetComponent<RectTransform>().anchoredPosition = new Vector3(newToolBarPos.x, newToolBarPos.y, 0);
+        }
 
+        switch (windows)
+        {
+            case Windows.Inventory:
+                mainInventory.SetSiblingIndex(1);
+                break;
+            //case Windows.Map:
+            //    map.SetSiblingIndex(1);
+            //    break;
+            case Windows.Recipe:
+                recipe.SetSiblingIndex(1);
+                break;
+        }
+    }
+
+    public void OnInventory()
+    {
+        if(!inventoryActive)
+        {
             inventoryActive = true;
         }
         else
         {
-            inventoryBox.GetComponent<Canvas>().enabled = false;
-            toolBar.GetComponent<RectTransform>().anchoredPosition = new Vector3(toolBarPos.x, toolBarPos.y, 0);
             inventoryActive = false;
         }
     }
