@@ -5,13 +5,23 @@ using UnityEngine.EventSystems;
 
 public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 {
-    //To-do:
-    //ein bool, was auf true gesetzt wird, sobald man die Rezepte anklicken kann
-    //dieses bool muss in chooseRecipe auf true gesetzt werden
-    //dort eine Liste mit den gesammelten Rezepten anlegen? (ähnlich wie im letzten Projekt)
-    //beim schließen des brew-recipe Menus müssen die bools wieder auf false gesetzt werden
+    public bool clickable = false;
+    public GameObject recipeSlot;
+    private ChooseRecipe choose;
+    private RecipeItem recipeItem;
+
+    public Recipe rec;
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("recipe added");
+        if(clickable && recipeSlot != null)
+        {
+            recipeItem = GetComponent<RecipeItem>();
+            choose = recipeSlot.GetComponent<ChooseRecipe>();
+            choose.chosenRecipe = recipeItem.recipe;
+            
+            //wenn auf das Recipe gedrückt wurde, muss sich das Inventar wieder schließen
+
+            Debug.Log("recipe added");
+        }
     }
 }

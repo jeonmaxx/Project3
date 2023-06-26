@@ -11,6 +11,8 @@ public class OpenBrewing : PlayerNear
     public bool menuOpen = false;
     public bool choosing = false;
 
+    public PlayerMovement movement;
+
     public void Awake()
     {
         brewMenu.transform.localScale = Vector3.zero;
@@ -22,16 +24,18 @@ public class OpenBrewing : PlayerNear
 
         if (menuOpen && !isPlayerNear)
         {
-            brewMenu.LeanScale(Vector3.zero, 0.1f);
+            brewMenu.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
             menuOpen = false;
         }
         else if (menuOpen && isPlayerNear)
         {
-            brewMenu.LeanScale(Vector3.one, 0.1f);
+            brewMenu.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
+            movement.enabled = false;
         }
         else if (!menuOpen)
         {
-            brewMenu.LeanScale(Vector3.zero, 0.1f);
+            brewMenu.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
+            movement.enabled = true;
         }
     }
 

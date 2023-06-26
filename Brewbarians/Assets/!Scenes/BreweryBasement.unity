@@ -7549,6 +7549,7 @@ MonoBehaviour:
   brewMenu: {fileID: 901205181}
   menuOpen: 0
   choosing: 0
+  movement: {fileID: 506596161}
 --- !u!114 &610968923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13592,6 +13593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeHolder: {fileID: 1648269872}
   recipePrefab: {fileID: 5132080182686494265, guid: 6614964a7658abd429be53dcb5164681, type: 3}
+  brewingStaion: 1
+  chooseRecipe: {fileID: 8828545608607396330}
+  recipeSlot: {fileID: 8828545608607396329}
 --- !u!114 &1564375874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -16551,3 +16555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brewStation: {fileID: 610968916}
   manager: {fileID: 1555428662}
+  recipeHolder: {fileID: 1648269872}
+  recipeClicked: []
+  chosenRecipe: {fileID: 0}

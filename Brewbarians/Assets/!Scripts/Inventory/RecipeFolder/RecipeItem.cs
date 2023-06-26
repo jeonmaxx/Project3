@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RecipeItem : MonoBehaviour
 {
-    //public Recipe rec;
+    public Recipe recipe;
     public Text drinkName;
     public Text prodcut01Name;
     public Text prodcut02Name;

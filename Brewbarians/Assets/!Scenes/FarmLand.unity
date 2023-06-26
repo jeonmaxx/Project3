@@ -14801,6 +14801,9 @@ MonoBehaviour:
   toolBarPos: {x: 0, y: 0, z: 0}
   newToolBarPos: {x: -3, y: 770, z: 0}
   windows: 0
+  mainInventory: {fileID: 386943817}
+  map: {fileID: 0}
+  recipe: {fileID: 303038735}
 --- !u!4 &1555428665
 Transform:
   m_ObjectHideFlags: 0
@@ -14910,6 +14913,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeHolder: {fileID: 1174332100}
   recipePrefab: {fileID: 5132080182686494265, guid: 6614964a7658abd429be53dcb5164681, type: 3}
+  brewingStaion: 0
+  chooseRecipe: {fileID: 0}
+  recipeSlot: {fileID: 0}
 --- !u!224 &1578930555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5890542726086359915, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
