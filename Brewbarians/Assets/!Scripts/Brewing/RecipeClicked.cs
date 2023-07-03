@@ -11,6 +11,7 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
     private RecipeItem recipeItem;
 
     public Recipe rec;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if(clickable && recipeSlot != null)
@@ -18,8 +19,7 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
             recipeItem = GetComponent<RecipeItem>();
             choose = recipeSlot.GetComponent<ChooseRecipe>();
             choose.chosenRecipe = recipeItem.recipe;
-            
-            //wenn auf das Recipe gedrückt wurde, muss sich das Inventar wieder schließen
+            choose.recipeChosen = true;
 
             Debug.Log("recipe added");
         }

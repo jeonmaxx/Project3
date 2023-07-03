@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static Unity.VisualScripting.Metadata;
+using UnityEngine.UI;
 
 public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
 {
@@ -13,16 +13,20 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
     private OpenBrewing openBrewing;
     private BrewingManager brewingManager;
     [SerializeField] private GameObject manager;
-    private OpenInventory inventory;
     [SerializeField] private GameObject recipeHolder;
     [HideInInspector] public List<RecipeClicked> recipeClicked;
     public Recipe chosenRecipe;
+    private OpenInventory inventory;
+    private Image slotImage;
+
+    [HideInInspector] public bool recipeChosen = false;
 
     private void Start()
     {
+        slotImage = GetComponent<Image>();
+        inventory = manager.GetComponent<OpenInventory>();
         openBrewing = brewStation.GetComponent<OpenBrewing>();
-        brewingManager = brewStation.GetComponent<BrewingManager>();
-        inventory = manager.GetComponent<OpenInventory>();        
+        brewingManager = brewStation.GetComponent<BrewingManager>();        
     }
 
     private void Update()
@@ -41,6 +45,16 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
                 recipeClicked[i].clickable = false;
             }
         }
+
+        brewingManager.chosenRecipe = chosenRecipe;
+
+        if (!openBrewing.menuOpen && recipeChosen)
+        {
+            inventory.inventoryActive = false;
+            openBrewing.menuOpen = true;
+            openBrewing.choosing = false;
+            slotImage.sprite = chosenRecipe.Drink.image;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -51,10 +65,8 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
             inventory.inventoryActive = true;
             openBrewing.menuOpen = false;
             openBrewing.choosing = true;
+            recipeChosen = false;
         }
-        //maybe eine Klasse machen, von der geerbt wird
-        //wo es eine Methode gibt, mit der man das Inventar auf und zu machen kann
-
     }
 }
 

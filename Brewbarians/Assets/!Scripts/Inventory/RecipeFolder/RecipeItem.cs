@@ -9,10 +9,10 @@ public class RecipeItem : MonoBehaviour
     public Text drinkName;
     public Text prodcut01Name;
     public Text prodcut02Name;
-    public Text prodcut01Amount;
-    public Text prodcut02Amount;
+    public Text product01Amount;
+    public Text product02Amount;
 
     public Image drinkSprite;
-    public Image prodcut01Sprite;
-    public Image prodcut02Sprite;
+    public Image product01Sprite;
+    public Image product02Sprite;
 }

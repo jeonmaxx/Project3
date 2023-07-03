@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3992052934649969437}
   - component: {fileID: 6034216422749625723}
   m_Layer: 5
-  m_Name: Prdouct01Sprite
+  m_Name: Product01Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,14 +575,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03662e155db4b7f4e928338652f6e2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipe: {fileID: 0}
   drinkName: {fileID: 1422280953627731913}
   prodcut01Name: {fileID: 7876950888407833953}
   prodcut02Name: {fileID: 8143794945298260246}
-  prodcut01Amount: {fileID: 2418202340816866202}
-  prodcut02Amount: {fileID: 3982644940090203245}
+  product01Amount: {fileID: 2418202340816866202}
+  product02Amount: {fileID: 3982644940090203245}
   drinkSprite: {fileID: 397669521740393437}
-  prodcut01Sprite: {fileID: 6034216422749625723}
-  prodcut02Sprite: {fileID: 6951186140385018086}
+  product01Sprite: {fileID: 6034216422749625723}
+  product02Sprite: {fileID: 6951186140385018086}
 --- !u!114 &1673581495894502793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickable: 0
   recipeSlot: {fileID: 0}
+  rec: {fileID: 0}
 --- !u!1 &5335380639594901488
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +767,7 @@ GameObject:
   - component: {fileID: 684125410900140409}
   - component: {fileID: 6951186140385018086}
   m_Layer: 5
-  m_Name: Prdouct02Sprite
+  m_Name: Product02Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

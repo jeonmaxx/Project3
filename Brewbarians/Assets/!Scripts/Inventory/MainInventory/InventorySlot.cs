@@ -12,6 +12,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     private ToolBarNumber toolBarNumber;
     public InventoryManager inventoryManager;
 
+    public bool brewingSlot = false;
+
     private void Awake()
     {
         Deselect();
@@ -33,7 +35,17 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         if(transform.childCount == 0)
         {
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-            inventoryItem.parentAfterDrag = transform;
+            if (brewingSlot)
+            {
+                if (inventoryItem.item.type == ItemType.HarvestProd) 
+                {
+                    inventoryItem.parentAfterDrag = transform;
+                }
+            }
+            else if(!brewingSlot)
+            {
+                inventoryItem.parentAfterDrag = transform;
+            }
         }
     }
 
