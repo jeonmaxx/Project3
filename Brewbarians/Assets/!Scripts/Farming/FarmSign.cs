@@ -20,7 +20,7 @@ public class FarmSign : PlayerNear
 
     public bool wheelOpen = false;
 
-    public void Awake()
+    public void Start()
     {
         seedWheel.transform.localScale = Vector3.zero;
     }

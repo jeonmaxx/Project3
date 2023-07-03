@@ -12,8 +12,15 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 
     public Recipe rec;
 
+    public GameObject manager;
+    public GameObject brewingStation;
+    private OpenInventory inventory;
+    private OpenBrewing openBrewing;
+
     public void OnPointerClick(PointerEventData eventData)
     {
+        inventory = manager.GetComponent<OpenInventory>();
+        openBrewing = brewingStation.GetComponent<OpenBrewing>();
         if(clickable && recipeSlot != null)
         {
             recipeItem = GetComponent<RecipeItem>();
@@ -22,6 +29,12 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
             choose.recipeChosen = true;
 
             Debug.Log("recipe added");
+
+            if (!openBrewing.menuOpen && choose.recipeChosen)
+            {
+                openBrewing.Open();
+                choose.slotImage.sprite = choose.chosenRecipe.Drink.image;
+            }
         }
     }
 }

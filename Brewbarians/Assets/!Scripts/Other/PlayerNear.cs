@@ -9,7 +9,7 @@ public class PlayerNear : MonoBehaviour
     [HideInInspector] public GameObject player;
     [HideInInspector] public Vector3 playerTran;
 
-    public void Start()
+    public void Awake()
     {
         player = GameObject.FindWithTag("Player");
     }

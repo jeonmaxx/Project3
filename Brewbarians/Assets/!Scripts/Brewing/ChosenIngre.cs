@@ -29,6 +29,10 @@ public class ChosenIngre : MonoBehaviour
             invenItem = GetComponentInChildren<InventoryItem>();
             chosenItem = invenItem.item;
         }
+        else if(transform.childCount == 0)
+        {
+            chosenItem = null;
+        }
 
         if(product == Product.One)
         {

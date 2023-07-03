@@ -13,21 +13,19 @@ public class OpenBrewing : PlayerNear
 
     public PlayerMovement movement;
 
-    public void Awake()
+    public OpenInventory inventory;
+
+    public void Start()
     {
         brewMenu.transform.localScale = Vector3.zero;
+        LeanTween.init(800);
     }
 
     public void Update()
     {
         CalcDistance();
 
-        if (menuOpen && !isPlayerNear)
-        {
-            brewMenu.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
-            menuOpen = false;
-        }
-        else if (menuOpen && isPlayerNear)
+        if (menuOpen && isPlayerNear)
         {
             brewMenu.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
             movement.enabled = false;
@@ -45,10 +43,24 @@ public class OpenBrewing : PlayerNear
         {
             menuOpen = true;
         }
-        else
+        else if (menuOpen)
         {
             menuOpen = false;
         }
+    }
+
+    public void Open()
+    {
+        inventory.inventoryActive = false;
+        menuOpen = true;
+        choosing = false;
+    }
+
+    public void Close()
+    {
+        inventory.inventoryActive = true;
+        menuOpen = false;
+        choosing = true;
     }
 
 

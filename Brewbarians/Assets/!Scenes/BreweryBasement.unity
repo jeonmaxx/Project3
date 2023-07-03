@@ -7764,6 +7764,7 @@ MonoBehaviour:
   menuOpen: 0
   choosing: 0
   movement: {fileID: 506596161}
+  inventory: {fileID: 1555428664}
 --- !u!114 &610968923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7776,9 +7777,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89feff16c77e204b9b081b2e9500fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 1555428666}
   chosenRecipe: {fileID: 0}
   itemOne: {fileID: 0}
   itemTwo: {fileID: 0}
+  allThere: 0
+  itemSlot: {fileID: 1312667551}
+  inventoryItems: []
 --- !u!114 &630305156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -11794,7 +11799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1248059665}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 610968923}
+        m_TargetAssemblyTypeName: BrewingManager, Assembly-CSharp
+        m_MethodName: BrewButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1248059665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13814,6 +13831,7 @@ MonoBehaviour:
   brewingStaion: 1
   chooseRecipe: {fileID: 8828545608607396330}
   recipeSlot: {fileID: 8828545608607396329}
+  brewingStation: {fileID: 610968916}
 --- !u!114 &1564375874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -16806,8 +16824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brewStation: {fileID: 610968916}
+  openBrewing: {fileID: 0}
+  brewingManager: {fileID: 0}
   manager: {fileID: 1555428662}
   recipeHolder: {fileID: 1648269872}
   recipeClicked: []
   chosenRecipe: {fileID: 0}
+  slotImage: {fileID: 0}
   recipeChosen: 0

@@ -12,7 +12,7 @@ public class RecipeManager : MonoBehaviour
     [Header ("Only if brewingStation true")]
     [SerializeField] private ChooseRecipe chooseRecipe;
     [SerializeField] private GameObject recipeSlot;
-
+    public GameObject brewingStation;
 
     public void AddRecipe(Recipe recipe)
     {
@@ -36,6 +36,8 @@ public class RecipeManager : MonoBehaviour
         {
             RecipeClicked recipeClicked = obj.GetComponent<RecipeClicked>();
             chooseRecipe.recipeClicked.Add(recipeClicked);
+            recipeClicked.manager = gameObject;
+            recipeClicked.brewingStation = brewingStation;
             recipeClicked.recipeSlot = recipeSlot;
         }
     }

@@ -148,7 +148,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         {
             //Item prod = seed.Product;
 
-             inventoryManager.AddItem(seed.Product);
+            inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             currentPlantState = plantStates[0];
 

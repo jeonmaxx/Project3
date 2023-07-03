@@ -10,14 +10,14 @@ using UnityEngine.UI;
 public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject brewStation;
-    private OpenBrewing openBrewing;
-    private BrewingManager brewingManager;
+    [HideInInspector] public OpenBrewing openBrewing;
+    [HideInInspector] public BrewingManager brewingManager;
     [SerializeField] private GameObject manager;
     [SerializeField] private GameObject recipeHolder;
     [HideInInspector] public List<RecipeClicked> recipeClicked;
     public Recipe chosenRecipe;
     private OpenInventory inventory;
-    private Image slotImage;
+    [HideInInspector] public Image slotImage;
 
     [HideInInspector] public bool recipeChosen = false;
 
@@ -48,13 +48,13 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
 
         brewingManager.chosenRecipe = chosenRecipe;
 
-        if (!openBrewing.menuOpen && recipeChosen)
-        {
-            inventory.inventoryActive = false;
-            openBrewing.menuOpen = true;
-            openBrewing.choosing = false;
-            slotImage.sprite = chosenRecipe.Drink.image;
-        }
+        //if (!openBrewing.menuOpen && recipeChosen)
+        //{
+        //    inventory.inventoryActive = false;
+        //    openBrewing.menuOpen = true;
+        //    openBrewing.choosing = false;
+        //    slotImage.sprite = chosenRecipe.Drink.image;
+        //}
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -62,9 +62,7 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
         if(openBrewing.menuOpen)
         {
             inventory.windows = Windows.Recipe;
-            inventory.inventoryActive = true;
-            openBrewing.menuOpen = false;
-            openBrewing.choosing = true;
+            openBrewing.Close();
             recipeChosen = false;
         }
     }
