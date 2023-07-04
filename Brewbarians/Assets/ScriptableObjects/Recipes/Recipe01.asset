@@ -15,6 +15,6 @@ MonoBehaviour:
   DrinkName: DrinkOne
   Product1Amount: 1
   Product1: {fileID: 11400000, guid: d05506aade67dd0479338905460a716b, type: 2}
-  Product2Amount: 1
+  Product2Amount: 2
   Product2: {fileID: 11400000, guid: 08645c23bd2549148be7944c4755a3cf, type: 2}
   Drink: {fileID: 11400000, guid: 001ec0d38b860984d921479a8c3b80b3, type: 2}
