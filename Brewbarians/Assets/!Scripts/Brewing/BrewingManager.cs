@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BrewingManager : MonoBehaviour
@@ -9,11 +8,11 @@ public class BrewingManager : MonoBehaviour
     public InventoryManager inventoryManager;
 
     [HideInInspector] public Recipe chosenRecipe;
-    /*[HideInInspector]*/ public Item itemOne;
-    /*[HideInInspector]*/ public Item itemTwo;
+    [HideInInspector] public Item itemOne;
+    [HideInInspector] public Item itemTwo;
 
-    public Item neededOne;
-    public Item neededTwo;
+    [HideInInspector] public Item neededOne;
+    [HideInInspector] public Item neededTwo;
 
     public TMP_Text ingreOneText;
     public TMP_Text ingreTwoText;

@@ -47,14 +47,6 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
         }
 
         brewingManager.chosenRecipe = chosenRecipe;
-
-        //if (!openBrewing.menuOpen && recipeChosen)
-        //{
-        //    inventory.inventoryActive = false;
-        //    openBrewing.menuOpen = true;
-        //    openBrewing.choosing = false;
-        //    slotImage.sprite = chosenRecipe.Drink.image;
-        //}
     }
 
     public void OnPointerClick(PointerEventData eventData)

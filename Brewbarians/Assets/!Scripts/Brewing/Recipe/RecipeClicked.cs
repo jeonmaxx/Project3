@@ -14,12 +14,10 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 
     public GameObject manager;
     public GameObject brewingStation;
-    private OpenInventory inventory;
     private OpenBrewing openBrewing;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        inventory = manager.GetComponent<OpenInventory>();
         openBrewing = brewingStation.GetComponent<OpenBrewing>();
         if(clickable && recipeSlot != null)
         {

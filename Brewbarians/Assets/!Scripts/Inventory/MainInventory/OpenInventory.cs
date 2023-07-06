@@ -43,13 +43,13 @@ public class OpenInventory : MonoBehaviour
         switch (windows)
         {
             case Windows.Inventory:
-                recipe.SetSiblingIndex(1);
+                mainInventory.SetSiblingIndex(2);
                 break;
             //case Windows.Map:
             //    map.SetSiblingIndex(1);
             //    break;
             case Windows.Recipe:
-                mainInventory.SetSiblingIndex(1);
+                recipe.SetSiblingIndex(2);
                 break;
         }
     }
