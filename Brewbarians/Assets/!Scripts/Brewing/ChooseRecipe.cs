@@ -62,7 +62,7 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
         if(openBrewing.menuOpen)
         {
             inventory.windows = Windows.Recipe;
-            openBrewing.Close();
+            openBrewing.Close(true);
             recipeChosen = false;
         }
     }

@@ -7869,14 +7869,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496265050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039978027, y: 1.1099854, z: -7.08}
+  m_LocalPosition: {x: -2.0599976, y: 8.630005, z: -7.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 817842337}
   - {fileID: 1496927342}
-  m_Father: {fileID: 506596158}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &497501425 stripped
 RectTransform:
@@ -8030,10 +8030,9 @@ Transform:
   m_LocalPosition: {x: -2.0999756, y: 7.5200195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 496265051}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &506596159
 Animator:
@@ -9295,7 +9294,7 @@ Transform:
   m_Children:
   - {fileID: 511778263}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &599579887
 MonoBehaviour:
@@ -9432,7 +9431,7 @@ Transform:
   - {fileID: 250380709}
   - {fileID: 1234382111}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &641222191 stripped
 RectTransform:
@@ -10080,7 +10079,7 @@ Transform:
   m_Children:
   - {fileID: 418248292}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &772452294
 GameObject:
@@ -12484,7 +12483,7 @@ RectTransform:
   - {fileID: 906570792}
   - {fileID: 520657536}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13079,7 +13078,7 @@ Transform:
   - {fileID: 340836851}
   - {fileID: 463042650}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1347218705 stripped
 GameObject:
@@ -14916,6 +14915,7 @@ MonoBehaviour:
   brewingStaion: 0
   chooseRecipe: {fileID: 0}
   recipeSlot: {fileID: 0}
+  brewingStation: {fileID: 0}
 --- !u!224 &1578930555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5890542726086359915, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -14975,7 +14975,7 @@ Transform:
   m_Children:
   - {fileID: 414243197}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1606308841
 PrefabInstance:
