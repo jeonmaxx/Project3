@@ -25,20 +25,19 @@ public class AmountDisplay : MonoBehaviour
 
     public void CheckIngre()
     {
-        if (brewManager.allThere)
+        if (brewManager.chosenRecipe != null)
         {
-            if (ingredient.chosenItem == brewManager.chosenRecipe.Product1)
+            if (ingredient.product == Product.One)
             {
                 neededAmount = (brewManager.chosenRecipe.Product1Amount * brewManager.quantity);
-                amount.SetText(neededAmount.ToString());
-                CheckQuantity(neededAmount);
             }
-            else if (ingredient.chosenItem == brewManager.chosenRecipe.Product2)
+            else if (ingredient.product == Product.Two)
             {
                 neededAmount = (brewManager.chosenRecipe.Product2Amount * brewManager.quantity);
-                amount.SetText(neededAmount.ToString());
-                CheckQuantity(neededAmount);
             }
+
+            amount.SetText(neededAmount.ToString());
+            CheckQuantity(neededAmount);
         }
         else
             amount.SetText("");

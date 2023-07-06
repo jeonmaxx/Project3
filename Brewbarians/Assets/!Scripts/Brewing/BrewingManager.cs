@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BrewingManager : MonoBehaviour
@@ -7,21 +9,33 @@ public class BrewingManager : MonoBehaviour
     public InventoryManager inventoryManager;
 
     [HideInInspector] public Recipe chosenRecipe;
-    [HideInInspector] public Item itemOne;
-    [HideInInspector] public Item itemTwo;
+    /*[HideInInspector]*/ public Item itemOne;
+    /*[HideInInspector]*/ public Item itemTwo;
 
-    private Item neededOne;
-    private Item neededTwo;
+    public Item neededOne;
+    public Item neededTwo;
+
+    public TMP_Text ingreOneText;
+    public TMP_Text ingreTwoText;
 
     public bool allThere = false;
-    private bool enough = false;
+    private bool enoughOne = false;
+    private bool enoughTwo = false;
 
     public GameObject itemOneObj;
     public GameObject itemTwoObj;
-    private InventoryItem inventoryItemOne;
-    private InventoryItem inventoryItemTwo;
+    public InventoryItem inventoryItemOne;
+    public InventoryItem inventoryItemTwo;
+
+    private OpenBrewing open;
+    private bool brewing = false;
 
     public int quantity;
+
+    private void Start()
+    {
+        open = GetComponent<OpenBrewing>();
+    }
 
     public void Update()
     {
@@ -34,52 +48,81 @@ public class BrewingManager : MonoBehaviour
         if(chosenRecipe != null)
         {
             neededOne = chosenRecipe.Product1;
+            ingreOneText.SetText(chosenRecipe.Product1.itemName);
             neededTwo = chosenRecipe.Product2;
+            ingreTwoText.SetText(chosenRecipe.Product2.itemName);
         }
     }
 
     public void CheckIngredients()
     {
-        if (chosenRecipe != null && itemOne != null && itemTwo != null)
+        if (chosenRecipe != null)
         {
-            if (itemOne == neededOne && itemTwo == neededTwo)
+            if (itemOne == neededOne)
             {
-                allThere = true;
                 inventoryItemOne = itemOneObj.GetComponentInChildren<InventoryItem>();
+            }
+            if(itemTwo == neededTwo)
+            {
                 inventoryItemTwo = itemTwoObj.GetComponentInChildren<InventoryItem>();
-            }
-            else if (itemOne == neededTwo && itemTwo == neededOne)
-            {
-                allThere = true;
-                inventoryItemTwo = itemOneObj.GetComponentInChildren<InventoryItem>();
-                inventoryItemOne = itemTwoObj.GetComponentInChildren<InventoryItem>();
-            }
-            else
-            {
-                allThere = false;
             }
 
             int amountOne = chosenRecipe.Product1Amount * quantity;
             int amountTwo = chosenRecipe.Product2Amount * quantity;
 
-            if (inventoryItemOne != null && inventoryItemTwo != null)
+            if (inventoryItemOne != null)
             {
-                if (inventoryItemOne.count >= amountOne && inventoryItemTwo.count >= amountTwo)
-                    enough = true;
+                if (inventoryItemOne.count >= amountOne)
+                    enoughOne = true;
                 else
-                    enough = false;
+                    enoughOne = false;
+            }
+
+            if (inventoryItemTwo != null)
+            {
+                if (inventoryItemTwo.count >= amountTwo)
+                    enoughTwo = true;
+                else
+                    enoughTwo = false;
             }
         }
-        else
-            allThere = false;
 
+    }
+
+    public void ConfirmRecipeButton(int brew)
+    {
+        if(brew == 0 && chosenRecipe != null && quantity != 0 && !brewing)
+        {
+            open.Close(false);
+            open.currentRect = open.menus[1];
+            open.Open(false);
+        }
+
+        else if(brew == 1 && itemOne == neededOne && enoughOne)
+        {
+            open.Close(false);
+            open.currentRect = open.menus[2];
+            open.Open(false);
+        }
+
+        else if(brew == 2 && itemTwo == neededTwo && enoughTwo)
+        {
+            open.Close(false);
+            open.currentRect = open.menus[0];
+            open.Open(false);
+
+
+            //hier eigentlich Brauzeit und dann wird gedroppt
+            //brewing = true;
+            BrewButton();
+        }
     }
 
     public void BrewButton()
     {
         //Durch den Knopfdruck müsste QTE getriggert werden
 
-        if (allThere && enough)
+        if (enoughOne && enoughTwo)
         {
             for (int i = 0; i < quantity; i++)
             {
@@ -93,6 +136,29 @@ public class BrewingManager : MonoBehaviour
 
                 RefreshItems(inventoryItemOne);
                 RefreshItems(inventoryItemTwo);
+
+                //Items die noch drin sind werden danach zurück gegeben
+                if (inventoryItemOne.count != 0)
+                {
+                    int temp = inventoryItemOne.count;
+                    for (int i = 0; i < temp; i++)
+                    {
+                        inventoryManager.AddItem(itemOne);
+                        inventoryItemOne.count--;
+                    }
+                    RefreshItems(inventoryItemOne);
+                }
+
+                if (inventoryItemTwo.count != 0)
+                {
+                    int temp = inventoryItemTwo.count;
+                    for (int i = 0; i < temp; i++)
+                    {
+                        inventoryManager.AddItem(itemTwo);
+                        inventoryItemTwo.count--;
+                    }
+                    RefreshItems(inventoryItemTwo);
+                }
             }
         }
     }

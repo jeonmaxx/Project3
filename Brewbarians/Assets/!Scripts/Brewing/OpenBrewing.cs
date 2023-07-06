@@ -6,7 +6,13 @@ using UnityEngine.InputSystem;
 public class OpenBrewing : PlayerNear
 {
     public PlayerInput input;
-    public RectTransform brewMenu;
+    //public RectTransform brewMenu;
+    //public RectTransform ingreOne;
+    //public RectTransform ingreTwo;
+
+    public RectTransform[] menus;
+
+    public RectTransform currentRect;
 
     public bool menuOpen = false;
     public bool choosing = false;
@@ -17,7 +23,11 @@ public class OpenBrewing : PlayerNear
 
     public void Start()
     {
-        brewMenu.transform.localScale = Vector3.zero;
+        currentRect = menus[0];
+        for(int i = 0;  i < menus.Length; i++)
+        {
+            menus[i].transform.localScale = Vector3.zero;
+        }
         LeanTween.init(800);
     }
 
@@ -27,12 +37,20 @@ public class OpenBrewing : PlayerNear
 
         if (menuOpen && isPlayerNear)
         {
-            brewMenu.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
+            currentRect.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
             movement.enabled = false;
+
+            foreach(RectTransform rectTransform in menus)
+            {
+                if(rectTransform != currentRect)
+                {
+                    rectTransform.transform.localScale = Vector3.zero;
+                }
+            }
         }
         else if (!menuOpen)
         {
-            brewMenu.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
+            currentRect.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
             movement.enabled = true;
         }
     }
@@ -49,18 +67,26 @@ public class OpenBrewing : PlayerNear
         }
     }
 
-    public void Open()
+    public void Open(bool inventoryToo)
     {
-        inventory.inventoryActive = false;
+        if (inventoryToo)
+        {
+            inventory.inventoryActive = false;
+            choosing = false;
+        }
+
         menuOpen = true;
-        choosing = false;
     }
 
-    public void Close()
+    public void Close(bool inventoryToo)
     {
-        inventory.inventoryActive = true;
+        if(inventoryToo)
+        {
+            inventory.inventoryActive = true;
+            choosing = true;
+        }
+
         menuOpen = false;
-        choosing = true;
     }
 
 

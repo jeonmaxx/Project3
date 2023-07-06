@@ -32,7 +32,7 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 
             if (!openBrewing.menuOpen && choose.recipeChosen)
             {
-                openBrewing.Open();
+                openBrewing.Open(true);
                 choose.slotImage.sprite = choose.chosenRecipe.Drink.image;
             }
         }
