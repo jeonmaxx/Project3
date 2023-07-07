@@ -1558,6 +1558,8 @@ GameObject:
   - component: {fileID: 209048173}
   - component: {fileID: 209048175}
   - component: {fileID: 209048174}
+  - component: {fileID: 209048176}
+  - component: {fileID: 209048177}
   m_Layer: 5
   m_Name: YellowZone
   m_TagString: Untagged
@@ -1583,7 +1585,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 80}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209048174
 MonoBehaviour:
@@ -1623,6 +1625,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209048172}
   m_CullTransparentMesh: 1
+--- !u!65 &209048176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209048172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 260, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &209048177
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209048172}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &226069910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12105,7 +12136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -22.7, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062307016 stripped
@@ -12668,7 +12699,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 80}
+  m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149718837
 MonoBehaviour:
@@ -13276,6 +13307,8 @@ GameObject:
   - component: {fileID: 1195971682}
   - component: {fileID: 1195971684}
   - component: {fileID: 1195971683}
+  - component: {fileID: 1195971685}
+  - component: {fileID: 1195971686}
   m_Layer: 5
   m_Name: GreenZone
   m_TagString: Untagged
@@ -13301,7 +13334,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195971683
 MonoBehaviour:
@@ -13341,6 +13374,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195971681}
   m_CullTransparentMesh: 1
+--- !u!65 &1195971685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195971681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 90, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1195971686
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195971681}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1203016035
 GameObject:
   m_ObjectHideFlags: 0
@@ -14146,6 +14208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1273151455}
   - component: {fileID: 1273151456}
+  - component: {fileID: 1273151457}
   m_Layer: 5
   m_Name: BarQTE
   m_TagString: Untagged
@@ -14191,10 +14254,43 @@ MonoBehaviour:
   kind: 0
   goodZone: {fileID: 1027282619}
   player: {fileID: 1781454296}
-  playerSpeed: 500
-  xPosition: {x: -200, y: 200}
+  playerSpeed: 850
+  xPosition: {x: -175, y: 175}
   playerZone: {x: -300, y: 300}
   position: {x: 0, y: 0}
+  moving: 1
+  playerQte: {fileID: 1781454299}
+  input: {fileID: 1273151457}
+--- !u!114 &1273151457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273151454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 63bed2b80e5848f43a9ca8dce790a838, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: InGame
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1335538322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17765,6 +17861,8 @@ GameObject:
   - component: {fileID: 1781454296}
   - component: {fileID: 1781454298}
   - component: {fileID: 1781454297}
+  - component: {fileID: 1781454300}
+  - component: {fileID: 1781454299}
   m_Layer: 5
   m_Name: PlayerBar
   m_TagString: Untagged
@@ -17789,8 +17887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -164, y: 0}
-  m_SizeDelta: {x: 10, y: 80}
+  m_AnchoredPosition: {x: 198.2001, y: 0}
+  m_SizeDelta: {x: 10, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781454297
 MonoBehaviour:
@@ -17830,6 +17928,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781454295}
   m_CullTransparentMesh: 1
+--- !u!114 &1781454299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781454295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3af420f587fc345a9d1798db5940c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yellowZoneObj: {fileID: 209048172}
+  greenZoneObj: {fileID: 1195971681}
+  greenZone: 0
+  yellowZone: 0
+--- !u!65 &1781454300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781454295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1793669981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}

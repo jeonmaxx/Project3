@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum QteKind { Bar }
 public class QTE : MonoBehaviour
 {
-    public QteKind kind;
-    public RectTransform goodZone;
-    public RectTransform player;
-    public int playerSpeed;
-    public Vector2 xPosition;
-    public Vector2 playerZone;
+    [SerializeField] private QteKind kind;
+    [SerializeField] private RectTransform goodZone;
+    [SerializeField] private RectTransform player;
+    [SerializeField] private int playerSpeed;
+    [SerializeField] private Vector2 xPosition;
+    [SerializeField] private Vector2 playerZone;
     private float xPos;
-    public Vector2 position;
+    [SerializeField] private Vector2 position;
+    public bool moving = true;
+    private bool movingRight = true;
+    [SerializeField] private PlayerQte playerQte;
+    [SerializeField] private PlayerInput input;
+
     void Start()
     {
         switch (kind)
@@ -28,7 +34,8 @@ public class QTE : MonoBehaviour
 
     public void Update()
     {
-        PlayerMoving();
+        if(moving)
+            PlayerMoving();
     }
 
     private float ZonePos(Vector2 position)
@@ -39,17 +46,38 @@ public class QTE : MonoBehaviour
     private void PlayerMoving()
     {
         //einfache Links rechts bewegung
-        //klappt noch nicht
-        //kleiner größer zeichen fehler?
+
         position = player.anchoredPosition;
-        if (position.x < playerZone.x && position.x >= playerZone.y)
+        if (position.x <= playerZone.x)
+        {
+            movingRight = true;
+        }
+        else if (position.x >= playerZone.y)
+        {
+            movingRight = false;
+        }
+
+        if (movingRight)
         {
             position.x += playerSpeed * Time.deltaTime;
         }
-        else if(position.x <= playerZone.y && position.x > playerZone.x)
+        else if(!movingRight)
         {
             position.x -= playerSpeed * Time.deltaTime;
         }
+
         player.anchoredPosition = position;
+    }
+
+    private void OnQte()
+    {
+        if (moving)
+            moving = false;
+        //else if(!moving)
+        //    moving = true;
+
+        if (playerQte.greenZone) Debug.Log("Green Zone hit!");
+        else if (playerQte.yellowZone) Debug.Log("Yellow Zone hit!");
+        else Debug.Log("No Zone hit :(");
     }
 }

@@ -20,6 +20,6 @@ public class Item : ScriptableObject
     public Seed seed;
 }
 
-public enum ItemType { BuildingBlock, Tool, Seed, HarvestProd, Drink }
+public enum ItemType { None, Tool, Seed, HarvestProd, Drink }
 
 public enum ActionType { None, Dig, Water, Plant, Harvest }
