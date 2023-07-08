@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class BrewingManager : MonoBehaviour
@@ -30,6 +31,10 @@ public class BrewingManager : MonoBehaviour
     private bool brewing = false;
 
     public int quantity;
+
+    public QTE qte;
+
+    public int bonusPoints;
 
     private void Start()
     {
@@ -90,31 +95,32 @@ public class BrewingManager : MonoBehaviour
 
     public void ConfirmRecipeButton(int brew)
     {
-        if(brew == 0 && chosenRecipe != null && quantity != 0 && !brewing)
+        if(brew == 0 && chosenRecipe != null && quantity != 0)
         {
-            open.Close(false);
-            open.currentRect = open.menus[1];
-            open.Open(false);
+            ChangingScreen(1);
         }
 
         else if(brew == 1 && itemOne == neededOne && enoughOne)
         {
-            open.Close(false);
-            open.currentRect = open.menus[2];
-            open.Open(false);
+            //qte.QteMethode();
+            ChangingScreen(2);
         }
 
         else if(brew == 2 && itemTwo == neededTwo && enoughTwo)
         {
-            open.Close(false);
-            open.currentRect = open.menus[0];
-            open.Open(false);
-
+            //qte.QteMethode();
+            ChangingScreen(3);
 
             //hier eigentlich Brauzeit und dann wird gedroppt
-            //brewing = true;
-            BrewButton();
+            brewing = true;
         }
+    }
+
+    private void ChangingScreen(int menu)
+    {
+        open.Close(false);
+        open.currentRect = open.menus[menu];
+        open.Open(false);
     }
 
     public void BrewButton()
@@ -123,7 +129,7 @@ public class BrewingManager : MonoBehaviour
 
         if (enoughOne && enoughTwo)
         {
-            for (int i = 0; i < quantity; i++)
+            for (int i = 0; i < (quantity + bonusPoints); i++)
             {
                 inventoryManager.AddItem(chosenRecipe.Drink);
             }
@@ -159,6 +165,9 @@ public class BrewingManager : MonoBehaviour
                     RefreshItems(inventoryItemTwo);
                 }
             }
+
+            brewing = false;
+            ChangingScreen(0);
         }
     }
 

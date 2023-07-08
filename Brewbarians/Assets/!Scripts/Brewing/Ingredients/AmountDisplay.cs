@@ -39,8 +39,6 @@ public class AmountDisplay : MonoBehaviour
             amount.SetText(neededAmount.ToString());
             CheckQuantity(neededAmount);
         }
-        else
-            amount.SetText("");
     }
 
     public void CheckQuantity(int productAmount)

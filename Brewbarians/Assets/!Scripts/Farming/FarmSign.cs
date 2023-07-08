@@ -18,11 +18,14 @@ public class FarmSign : PlayerNear
 
     public SpriteRenderer signSprite;
 
+    private Color color;
+
     public bool wheelOpen = false;
 
     public void Start()
     {
         seedWheel.transform.localScale = Vector3.zero;
+        color = signSprite.color;
     }
 
     public void Update()
@@ -30,7 +33,7 @@ public class FarmSign : PlayerNear
         CheckHand();
         CalcDistance();
 
-        if(wheelOpen && !isPlayerNear)
+        if (wheelOpen && !isPlayerNear)
         {
             signSeed = seedWheelManager.chosenSeed;
             if (signSeed != null)
@@ -70,6 +73,7 @@ public class FarmSign : PlayerNear
             if (signSeed != null)
             {
                 signSprite.sprite = signSeed.image;
+                signSprite.color = new Color(color.r, color.g, color.b, 100);
             }
             wheelOpen = true;
         }
@@ -80,6 +84,7 @@ public class FarmSign : PlayerNear
             if (signSeed != null)
             {
                 signSprite.sprite = signSeed.image;
+                signSprite.color = new Color(color.r, color.g, color.b, 100);
             }
             seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             wheelOpen = false;

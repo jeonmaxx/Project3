@@ -15,10 +15,13 @@ public class QTE : MonoBehaviour
     [SerializeField] private Vector2 playerZone;
     private float xPos;
     [SerializeField] private Vector2 position;
-    public bool moving = true;
+    public bool moving = false;
     private bool movingRight = true;
+    public bool done = false;
     [SerializeField] private PlayerQte playerQte;
     [SerializeField] private PlayerInput input;
+
+    public BrewingManager manager;
 
     void Start()
     {
@@ -30,12 +33,25 @@ public class QTE : MonoBehaviour
                 break;
             default: break;
         }
+
+        transform.localScale = Vector3.zero;
     }
 
     public void Update()
     {
-        if(moving)
+        if (moving)
+        {
+            transform.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
             PlayerMoving();
+        }
+        else
+            transform.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
+    }
+
+    public void QteMethode()
+    {
+        moving = true;
+        done = false;
     }
 
     private float ZonePos(Vector2 position)
@@ -69,15 +85,26 @@ public class QTE : MonoBehaviour
         player.anchoredPosition = position;
     }
 
-    private void OnQte()
+    public void OnQte()
     {
         if (moving)
             moving = false;
         //else if(!moving)
         //    moving = true;
 
-        if (playerQte.greenZone) Debug.Log("Green Zone hit!");
-        else if (playerQte.yellowZone) Debug.Log("Yellow Zone hit!");
-        else Debug.Log("No Zone hit :(");
+        if (playerQte.greenZone)
+        {
+            Debug.Log("Green Zone hit!");
+            manager.bonusPoints += 2;
+            done = true;
+        }
+        else if (playerQte.yellowZone)
+        {
+            Debug.Log("Yellow Zone hit!");
+            manager.bonusPoints += 1;
+            done = true;
+        }
+        else
+            done = true;
     }
 }
