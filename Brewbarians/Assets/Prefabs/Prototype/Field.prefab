@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 1363920989
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8490566, g: 0.66453624, b: 0.47659308, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,7 +105,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -138,10 +138,14 @@ MonoBehaviour:
   - Phase03
   handManager: {fileID: 0}
   inventoryManager: {fileID: 0}
+  seedWheel: {fileID: 0}
   HoedField: {fileID: 2203468978233888871, guid: 77c549f30da93ad4eb2a51abc414a443, type: 3}
   WetField: {fileID: 5273630765728430113, guid: c56d7cd08cc56b2479f1196677b3ebfc, type: 3}
+  hoed: {fileID: 0}
+  wet: {fileID: 0}
   seedInHand: 0
   sign: {fileID: 0}
+  plant: {fileID: 0}
   shovelItem: {fileID: 11400000, guid: 4aedd2780b4da6c499624b75f0da4df5, type: 2}
   waterItem: {fileID: 11400000, guid: ac51373850ccabc409528ea2b76e08f5, type: 2}
   harvestItem: {fileID: 11400000, guid: 04ad89d01f04be047a0838bd08c88a65, type: 2}
@@ -159,4 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phase2Points: 5
   phase3Points: 10
-  currentPoints: 0
+  currentGrowPoints: 0
+  hoedPoints: 5
+  currentHoedPoints: 0
+  wetPoints: 5
+  currentWetPoints: 0

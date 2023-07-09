@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/!Scenes/MainMenu.unity
+    guid: 9af17e494aa72ca49931387ffe5fcf94
+  - enabled: 1
+    path: Assets/!Scenes/FarmLand.unity
+    guid: f1da560626ee92c46b963755243e0acf
+  - enabled: 1
     path: Assets/!Scenes/BreweryBasement.unity
     guid: 218372da7c1c597478492cb1c1c02e86
   m_configObjects:
