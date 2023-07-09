@@ -6,19 +6,13 @@ using UnityEngine.InputSystem;
 public class OpenBrewing : PlayerNear
 {
     public PlayerInput input;
-    //public RectTransform brewMenu;
-    //public RectTransform ingreOne;
-    //public RectTransform ingreTwo;
-
     public RectTransform[] menus;
-
     public RectTransform currentRect;
 
     public bool menuOpen = false;
     public bool choosing = false;
 
     public PlayerMovement movement;
-
     public OpenInventory inventory;
 
     public void Start()

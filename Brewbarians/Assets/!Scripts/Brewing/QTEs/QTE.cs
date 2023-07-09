@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,13 +32,14 @@ public class QTE : MonoBehaviour
         }
 
         transform.localScale = Vector3.zero;
+        LeanTween.init(1600);
     }
 
     public void Update()
     {
         if (moving)
         {
-            transform.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
+            transform.localScale = Vector3.one;
             PlayerMoving();
         }
         else
@@ -92,19 +90,27 @@ public class QTE : MonoBehaviour
         //else if(!moving)
         //    moving = true;
 
-        if (playerQte.greenZone)
+        if (manager.checking)
         {
-            Debug.Log("Green Zone hit!");
-            manager.bonusPoints += 2;
-            done = true;
+            if (playerQte.greenZone)
+            {
+                Debug.Log("Green Zone hit!");
+                manager.bonusPoints += 2;
+                done = true;
+                manager.checking = false;
+            }
+            else if (playerQte.yellowZone)
+            {
+                Debug.Log("Yellow Zone hit!");
+                manager.bonusPoints += 1;
+                done = true;
+                manager.checking = false;
+            }
+            else
+            {
+                done = true;
+                manager.checking = false;
+            }
         }
-        else if (playerQte.yellowZone)
-        {
-            Debug.Log("Yellow Zone hit!");
-            manager.bonusPoints += 1;
-            done = true;
-        }
-        else
-            done = true;
     }
 }

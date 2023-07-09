@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BrewingManager : MonoBehaviour
 {
     public InventoryManager inventoryManager;
+    public BrewingWait wait;
 
     [HideInInspector] public Recipe chosenRecipe;
     [HideInInspector] public Item itemOne;
@@ -28,9 +27,11 @@ public class BrewingManager : MonoBehaviour
     public InventoryItem inventoryItemTwo;
 
     private OpenBrewing open;
-    private bool brewing = false;
+    public bool brewing = false;
 
     public int quantity;
+
+    public bool checking = false;
 
     public QTE qte;
 
@@ -39,6 +40,7 @@ public class BrewingManager : MonoBehaviour
     private void Start()
     {
         open = GetComponent<OpenBrewing>();
+        LeanTween.init(1600);
     }
 
     public void Update()
@@ -95,27 +97,37 @@ public class BrewingManager : MonoBehaviour
 
     public void ConfirmRecipeButton(int brew)
     {
-        if(brew == 0 && chosenRecipe != null && quantity != 0)
+        if (brew == 0 && chosenRecipe != null && quantity != 0)
         {
             ChangingScreen(1);
         }
 
-        else if(brew == 1 && itemOne == neededOne && enoughOne)
+        else if (brew == 1 && itemOne == neededOne && enoughOne)
         {
-            //qte.QteMethode();
-            ChangingScreen(2);
+            checking = true;
+            qte.QteMethode();
         }
 
-        else if(brew == 2 && itemTwo == neededTwo && enoughTwo)
+        else if (brew == 2 && itemTwo == neededTwo && enoughTwo)
         {
-            //qte.QteMethode();
-            ChangingScreen(3);
-
-            //hier eigentlich Brauzeit und dann wird gedroppt
-            brewing = true;
+            checking = true;
+            qte.QteMethode();
         }
     }
 
+    public void OnQte()
+    {
+        if(checking)
+        {
+            if (open.currentRect == open.menus[1])
+                ChangingScreen(2);
+            else if (open.currentRect == open.menus[2])
+            {
+                ChangingScreen(3);
+                brewing = true;
+            }
+        }
+    }
     private void ChangingScreen(int menu)
     {
         open.Close(false);
@@ -127,7 +139,7 @@ public class BrewingManager : MonoBehaviour
     {
         //Durch den Knopfdruck müsste QTE getriggert werden
 
-        if (enoughOne && enoughTwo)
+        if (!brewing)
         {
             for (int i = 0; i < (quantity + bonusPoints); i++)
             {
@@ -167,6 +179,8 @@ public class BrewingManager : MonoBehaviour
             }
 
             brewing = false;
+            bonusPoints = 0;
+            wait.progressBar.value = 0;
             ChangingScreen(0);
         }
     }

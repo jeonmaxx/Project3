@@ -18,3 +18,4 @@ MonoBehaviour:
   Product2Amount: 2
   Product2: {fileID: 11400000, guid: 08645c23bd2549148be7944c4755a3cf, type: 2}
   Drink: {fileID: 11400000, guid: 001ec0d38b860984d921479a8c3b80b3, type: 2}
+  BrewTime: 3

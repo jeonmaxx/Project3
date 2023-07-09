@@ -17,6 +17,17 @@ public class BrewingWait : MonoBehaviour
         {
             recipeItem.sprite = manager.chosenRecipe.Drink.image;
             quantityText.SetText(manager.quantity.ToString());
+
+            progressBar.maxValue = manager.chosenRecipe.BrewTime;
         }
+
+        if(progressBar.value == progressBar.maxValue)
+            manager.brewing = false;
+    }
+
+    public void AddGrowingPoints()
+    {
+        if (progressBar.value < progressBar.maxValue && manager.brewing)
+            progressBar.value += 1;
     }
 }
