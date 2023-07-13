@@ -17,5 +17,6 @@ MonoBehaviour:
   actionType: 4
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: ed5ce024c84dbdb42ac5037d03e7c039, type: 3}
+  image: {fileID: 21300000, guid: 9f998b8cba6d0dc4e973fe946e680d8c, type: 3}
+  itemName: Sickel
   seed: {fileID: 0}

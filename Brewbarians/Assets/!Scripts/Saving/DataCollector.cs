@@ -4,6 +4,16 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public class MainItems
+{
+    public Item MainItem;
+    public int Counter;
+    public MainItems(Item mainItem, int count)
+    {
+        MainItem = mainItem;
+        Counter = count;
+    }
+}
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
@@ -13,14 +23,35 @@ public class DataCollector : MonoBehaviour
 
     [Header("Data")]
     public Vector3 playerPosition;
-    public List<InventoryItem> mainItemSlots;
-    public List<InventoryItem> mainSeedSlots;
+    public List<MainItems> mainItems;
+    public List<InventoryItem> mainSeeds;
     public List<RecipeItem> recipes;
 
+    public List<InventoryItem> tmp;
+
+    public InventoryItem tmpInven;
+    public int county;
 
     public void Update()
     {
         //CollectData();
+    }
+
+    public void NewInventoryItems()
+    {
+        tmp = new List<InventoryItem>();
+        if (mainItems != null)
+        {
+            for (int i = 0; i < mainItems.Count; i++)
+            {
+                if (mainItems[i] != null)
+                {
+                    tmp.Add(inventoryManager.inventorySlots[i].transform.GetComponentInChildren<InventoryItem>());
+                }
+                else
+                    tmp.Add(null);
+            }
+        }
     }
 
     public void CollectData()
@@ -29,30 +60,33 @@ public class DataCollector : MonoBehaviour
         playerPosition = playerMovement.gameObject.transform.position;
 
         //Main Items
-        mainItemSlots = new List<InventoryItem>();
+        mainItems = new List<MainItems>();
         for (int i = 0; i < inventoryManager.inventorySlots.Length; i++)
         {
             if (inventoryManager.inventorySlots[i].transform.childCount != 0)
             {
-                mainItemSlots.Add(inventoryManager.inventorySlots[i].transform.GetChild(0).GetComponent<InventoryItem>());
+                tmpInven = inventoryManager.inventorySlots[i].transform.GetChild(0).GetComponent<InventoryItem>();
+                mainItems.Add(new MainItems(tmpInven.item, tmpInven.count));
             }
             else
             {
-                mainItemSlots.Add(null);
+                mainItems.Add(null);
             }
         }
 
+        NewInventoryItems();
+
         //Seeds
-        mainSeedSlots = new List<InventoryItem>();
+        mainSeeds = new List<InventoryItem>();
         for (int i = 0; i < inventoryManager.seedWheel.Length; i++)
         {
             if (inventoryManager.seedWheel[i].transform.childCount != 0)
             {
-                mainSeedSlots.Add(inventoryManager.seedWheel[i].transform.GetChild(0).GetComponent<InventoryItem>());
+                mainSeeds.Add(inventoryManager.seedWheel[i].transform.GetChild(0).GetComponent<InventoryItem>());
             }
             else
             {
-                mainSeedSlots.Add(null);
+                mainSeeds.Add(null);
             }
         }
 
@@ -67,6 +101,7 @@ public class DataCollector : MonoBehaviour
         }
     }
 
+
     public void GiveData()
     {
         //Changes Player Position
@@ -80,20 +115,21 @@ public class DataCollector : MonoBehaviour
                 Destroy(inventoryManager.inventorySlots[i].transform.GetChild(0).gameObject);
             }
         }
-        for(int i = 0; i < mainItemSlots.Count; i++)
+        for (int i = 0; i < mainItems.Count; i++)
         {
-            if (mainItemSlots[i] != null)
+            if (mainItems[i] != null)
             {
-                int tmpCount = mainItemSlots[i].count;
-                inventoryManager.SpawnNewItem(mainItemSlots[i].item, inventoryManager.inventorySlots[i]);
-                //Count klappt nicht. Vielleicht mainItemSlots Liste in zwei Komponenten unterteilen? Inventory Items und Count?
-                inventoryManager.inventorySlots[i].transform.GetChild(0).GetComponent<InventoryItem>().count = tmpCount;
+                inventoryManager.SpawnNewItem(mainItems[i].MainItem, inventoryManager.inventorySlots[i]);
+
+                NewInventoryItems();
+
+                tmpInven = inventoryManager.inventorySlots[i].transform.GetComponentInChildren<InventoryItem>();
+
+                //Count klappt nicht
+                county = mainItems[i].Counter;
+                tmpInven.count = mainItems[i].Counter;
+                tmpInven.RefreshCount();
             }
-        }
-        //Gives saved Recipes
-        for (int j = 0; j < recipes.Count; j++)
-        {
-            recipeManager.AddRecipe(recipes[j].recipe);
         }
 
 
@@ -107,7 +143,7 @@ public class DataCollector : MonoBehaviour
         {
             recipeManager.AddRecipe(recipes[j].recipe);
         }
-
+        NewInventoryItems();
         CollectData();
     }
 }
