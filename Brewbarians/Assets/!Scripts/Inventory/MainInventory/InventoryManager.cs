@@ -108,6 +108,31 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+
+    public bool AddItemInSlot(Item item, InventorySlot slot)
+    {
+        itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if (itemInSlot != null &&
+            itemInSlot.item == item &&
+            itemInSlot.count < maxStackedItems &&
+            itemInSlot.item.stackable == true)
+        {
+            itemInSlot.count++;
+            itemInSlot.RefreshCount();
+            return true;
+        }
+
+        //Find any empty slot
+        itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if (itemInSlot == null)
+        {
+            SpawnNewItem(item, slot);
+            return true;
+        }
+
+        return false;
+    }
+
     public void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);

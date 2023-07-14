@@ -31155,11 +31155,9 @@ MonoBehaviour:
   inventoryManager: {fileID: 1555428666}
   recipeManager: {fileID: 1555428668}
   playerPosition: {x: 0, y: 0, z: 0}
+  mainItems: []
   mainSeeds: []
   recipes: []
-  tmp: []
-  tmpInven: {fileID: 0}
-  county: 0
 --- !u!224 &1578930555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5890542726086359915, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
