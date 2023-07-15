@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public class MainItems
@@ -15,6 +16,19 @@ public class MainItems
         Counter = count;
     }
 }
+
+[System.Serializable]
+public class MainSeeds
+{
+    public Item MainSeed;
+    public int Counter;
+    public MainSeeds(Item mainSeed, int count)
+    {
+        MainSeed = mainSeed;
+        Counter = count;
+    }
+}
+
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
@@ -25,8 +39,8 @@ public class DataCollector : MonoBehaviour
     [Header("Data")]
     public Vector3 playerPosition;
     public List<MainItems> mainItems;
-    public List<InventoryItem> mainSeeds;
-    public List<RecipeItem> recipes;
+    public List<MainSeeds> mainSeeds;
+    public List<Recipe> recipes;
 
     private InventoryItem tmpInven;
 
@@ -56,12 +70,13 @@ public class DataCollector : MonoBehaviour
         }
 
         //Seeds
-        mainSeeds = new List<InventoryItem>();
+        mainSeeds = new List<MainSeeds>();
         for (int i = 0; i < inventoryManager.seedWheel.Length; i++)
         {
             if (inventoryManager.seedWheel[i].transform.childCount != 0)
             {
-                mainSeeds.Add(inventoryManager.seedWheel[i].transform.GetChild(0).GetComponent<InventoryItem>());
+                tmpInven = inventoryManager.seedWheel[i].transform.GetChild(0).GetComponent<InventoryItem>();
+                mainSeeds.Add(new MainSeeds(tmpInven.item, tmpInven.count));
             }
             else
             {
@@ -70,12 +85,12 @@ public class DataCollector : MonoBehaviour
         }
 
         //Recipes
-        recipes = new List<RecipeItem>();
-        if (recipeManager.recipeHolder.transform.childCount != 0)
-        {
+        recipes = new List<Recipe>();
+        if (recipeManager.recipeHolder.transform.childCount != 0 && recipeManager.recipeHolder.transform.childCount > recipes.Count)
+        {   
             for (int i = 0; i < recipeManager.recipeHolder.transform.childCount; i++)
             {
-                recipes.Add(recipeManager.recipeHolder.transform.GetChild(i).GetComponent<RecipeItem>());
+                recipes.Add(recipeManager.recipeHolder.transform.GetChild(i).GetComponent<RecipeItem>().recipe);
             }
         }
     }
@@ -88,14 +103,17 @@ public class DataCollector : MonoBehaviour
 
         DeleteItems();
         GiveItems();
-        //GiveRecipes();
 
-        //CollectData();
+        DeleteSeeds();
+        GiveSeeds();
+
+        DeleteRecipes();
+        GiveRecipes();
+
     }
 
     public void DeleteItems()
     {
-        //Delete all Items and give new ones
         for (int i = 0; i < inventoryManager.inventorySlots.Length; i++)
         {
             if (inventoryManager.inventorySlots[i].transform.childCount != 0)
@@ -104,40 +122,73 @@ public class DataCollector : MonoBehaviour
             }
         }
     }
-
     public void GiveItems()
     {
         for (int i = 0; i < mainItems.Count; i++)
         {
-            //inventoryManager.AddItemInSlot(mainItems[i].MainItem, inventoryManager.inventorySlots[i]);
-            for (int j = 0; j < mainItems[i].Counter && mainItems[i] != null; j++)
+            InventoryItem inventoryItem = null;
+            //NullReferenceExeption ??
+            for (int j = 0; j < mainItems[i].Counter; j++)
             {
-                inventoryManager.AddItemInSlot(mainItems[i].MainItem, inventoryManager.inventorySlots[i]);
-                //if (j == 0)
-                //{
-                //    inventoryManager.AddItemInSlot(mainItems[i].MainItem, inventoryManager.inventorySlots[i]);
-                //}
-                //else
-                //{
-                //    inventoryManager.inventorySlots[i].transform.GetComponentInChildren<InventoryItem>().count++;
-                //}
+                if (j == 0)
+                {
+                    GameObject newItemGo = Instantiate(inventoryManager.inventoryItemPrefab, inventoryManager.inventorySlots[i].transform);
+                    inventoryItem = newItemGo.GetComponent<InventoryItem>();
+                    inventoryItem.InitialiseItem(mainItems[i].MainItem);
+                }
+                else if (j > 0)
+                {
+                    inventoryItem.count++;
+                    inventoryItem.RefreshCount();
+                }
             }
         }
     }
 
-    //public void GiveRecipes()
-    //{
-    //    //Man bekommt mehr Recipes wenn man immer wieder loadet. Why ????
+    public void DeleteSeeds()
+    {
+        for (int i = 0; i < inventoryManager.seedWheel.Length; i++)
+        {
+            if (inventoryManager.seedWheel[i].transform.childCount != 0)
+            {
+                Destroy(inventoryManager.seedWheel[i].transform.GetChild(0).gameObject);
+            }
+        }
+    }
+    public void GiveSeeds()
+    {
+        for (int i = 0; i < mainSeeds.Count; i++)
+        {
+            InventoryItem inventoryItem = null;
+            for (int j = 0; j < mainSeeds[i].Counter; j++)
+            {
+                if (j == 0)
+                {
+                    GameObject newItemGo = Instantiate(inventoryManager.inventoryItemPrefab, inventoryManager.seedWheel[i].transform);
+                    inventoryItem = newItemGo.GetComponent<InventoryItem>();
+                    inventoryItem.InitialiseItem(mainSeeds[i].MainSeed);
+                }
+                else if (j > 0)
+                {
+                    inventoryItem.count++;
+                    inventoryItem.RefreshCount();
+                }
+            }
+        }
+    }
 
-    //    //Deletes all Recipes
-    //    for (int i = 0; i < recipeManager.recipeHolder.transform.childCount && recipeManager.recipeHolder.transform.childCount != 0; i++)
-    //    {
-    //        Destroy(recipeManager.recipeHolder.transform.GetChild(i).gameObject);
-    //    }
-    //    //Gives saved Recipes
-    //    for (int j = 0; j < recipes.Count; j++)
-    //    {
-    //        recipeManager.AddRecipe(recipes[j].recipe);
-    //    }
-    //}
+    public void DeleteRecipes()
+    {
+        for (int i = 0; i < recipeManager.recipeHolder.transform.childCount && recipeManager.recipeHolder.transform.childCount != 0; i++)
+        {
+            Destroy(recipeManager.recipeHolder.transform.GetChild(i).gameObject);
+        }
+    }
+    public void GiveRecipes()
+    {
+        for (int j = 0; j < recipes.Count; j++)
+        {
+            recipeManager.AddRecipe(recipes[j]);
+        }
+    }
 }
