@@ -29,20 +29,39 @@ public class MainSeeds
     }
 }
 
+[System.Serializable]
+public class PlantStage
+{
+    public Seed Seed;
+    public int CurrentGrowPoints;
+
+    public PlantStage(Seed seed, int currentGrowPoints)
+    { 
+        Seed = seed;
+        CurrentGrowPoints = currentGrowPoints; 
+    }
+}
+
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
     public PlayerMovement playerMovement;
     public InventoryManager inventoryManager;
     public RecipeManager recipeManager;
+    //Wie verwaltet man am besten die Pflanzen in einer anderen Szene? 
+    //Ein Script was nur die Punkte verwaltet und erst wenn man in der Szene ist auf die Objekte zugreift?
+    //Die Felder müssem auch verwaltet werden !
+    // "FieldPlantManager" ?
 
     [Header("Data")]
     public Vector3 playerPosition;
     public List<MainItems> mainItems;
     public List<MainSeeds> mainSeeds;
     public List<Recipe> recipes;
+    public List<PlantStage> plants;
 
     private InventoryItem tmpInven;
+    private int tmpCount;
 
     public void Update()
     {
@@ -101,18 +120,30 @@ public class DataCollector : MonoBehaviour
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;
 
-        DeleteItems();
-        GiveItems();
-
-        DeleteSeeds();
-        GiveSeeds();
-
-        DeleteRecipes();
-        GiveRecipes();
-
+        LoadItems();
+        LoadSeeds();
+        LoadRecipes();
     }
 
-    public void DeleteItems()
+    public void LoadItems()
+    {
+        DeleteItems();
+        GiveItems();
+    }
+
+    public void LoadSeeds()
+    {
+        DeleteSeeds();
+        GiveSeeds();
+    }
+
+    public void LoadRecipes()
+    {
+        DeleteRecipes();
+        GiveRecipes();
+    }
+
+    private void DeleteItems()
     {
         for (int i = 0; i < inventoryManager.inventorySlots.Length; i++)
         {
@@ -122,13 +153,13 @@ public class DataCollector : MonoBehaviour
             }
         }
     }
-    public void GiveItems()
+    private void GiveItems()
     {
         for (int i = 0; i < mainItems.Count; i++)
         {
             InventoryItem inventoryItem = null;
-            //NullReferenceExeption ??
-            for (int j = 0; j < mainItems[i].Counter; j++)
+            tmpCount = mainItems[i].Counter;
+            for (int j = 0; j < tmpCount; j++)
             {
                 if (j == 0)
                 {
@@ -145,7 +176,7 @@ public class DataCollector : MonoBehaviour
         }
     }
 
-    public void DeleteSeeds()
+    private void DeleteSeeds()
     {
         for (int i = 0; i < inventoryManager.seedWheel.Length; i++)
         {
@@ -155,12 +186,13 @@ public class DataCollector : MonoBehaviour
             }
         }
     }
-    public void GiveSeeds()
+    private void GiveSeeds()
     {
         for (int i = 0; i < mainSeeds.Count; i++)
         {
             InventoryItem inventoryItem = null;
-            for (int j = 0; j < mainSeeds[i].Counter; j++)
+            tmpCount = mainSeeds[i].Counter;
+            for (int j = 0; j < tmpCount; j++)
             {
                 if (j == 0)
                 {
@@ -177,14 +209,14 @@ public class DataCollector : MonoBehaviour
         }
     }
 
-    public void DeleteRecipes()
+    private void DeleteRecipes()
     {
         for (int i = 0; i < recipeManager.recipeHolder.transform.childCount && recipeManager.recipeHolder.transform.childCount != 0; i++)
         {
             Destroy(recipeManager.recipeHolder.transform.GetChild(i).gameObject);
         }
     }
-    public void GiveRecipes()
+    private void GiveRecipes()
     {
         for (int j = 0; j < recipes.Count; j++)
         {

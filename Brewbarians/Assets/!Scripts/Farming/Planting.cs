@@ -31,7 +31,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     public bool seedInHand;
     private ActionType handType;
     private bool inHand = false;
-    private Seed seed;
+    public Seed seed;
     [SerializeField] private GameObject sign;
     private FarmSign farmSign;
     [SerializeField] private GameObject plant;
