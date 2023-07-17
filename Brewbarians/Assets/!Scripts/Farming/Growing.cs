@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Growing : MonoBehaviour
@@ -18,10 +19,12 @@ public class Growing : MonoBehaviour
     public int currentWetPoints;
 
     private Planting planting;
+    public PointsCollector collector;
 
     public void Start()
     {
         planting = GetComponent<Planting>();
+        PlusPoint();
     }
 
     public void Update()
@@ -32,24 +35,32 @@ public class Growing : MonoBehaviour
 
     public void PlusPoint()
     {
+        int tmpPoints = collector.addedFarmPoints;
+
         if (planting.currentPlantState != planting.plantStates[0] 
             && currentGrowPoints < phase3Points
             && planting.currentFieldState == planting.fieldStates[2])
         {
-            currentGrowPoints++;
+            if (tmpPoints + currentWetPoints <= wetPoints)
+            {
+                currentGrowPoints += tmpPoints;
+            }
+            else
+            {
+                currentGrowPoints += (wetPoints - currentWetPoints);
+            }
         }
 
         if (planting.currentFieldState == planting.fieldStates[1]
-            && currentHoedPoints < hoedPoints
             && planting.currentPlantState == planting.plantStates[0])
         {
-            currentHoedPoints++;
+            currentHoedPoints += tmpPoints;
         }
 
         if (planting.currentFieldState == planting.fieldStates[2]
             && currentWetPoints < wetPoints)
         {
-            currentWetPoints++;
+            currentWetPoints += tmpPoints;
         }
     }
 
@@ -61,11 +72,11 @@ public class Growing : MonoBehaviour
             {
                 planting.currentPlantState = planting.plantStates[1];
             }
-            else if(currentGrowPoints == phase2Points)
+            else if(currentGrowPoints >= phase2Points && currentGrowPoints < phase3Points)
             {
                 planting.currentPlantState = planting.plantStates[2];
             }
-            else if(currentGrowPoints == phase3Points)
+            else if(currentGrowPoints >= phase3Points)
             {
                 planting.currentPlantState = planting.plantStates[3];
             }
@@ -77,14 +88,14 @@ public class Growing : MonoBehaviour
 
     public void CheckFieldStates()
     {
-        if(currentHoedPoints == hoedPoints)
+        if(currentHoedPoints >= hoedPoints)
         {
             currentHoedPoints = 0;
             planting.currentFieldState = planting.fieldStates[0];
             Destroy(planting.hoed);
         }
 
-        if(currentWetPoints == wetPoints)
+        if(currentWetPoints >= wetPoints)
         {
             currentWetPoints = 0;
             planting.currentFieldState = planting.fieldStates[1];

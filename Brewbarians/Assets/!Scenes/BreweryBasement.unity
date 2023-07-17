@@ -17173,9 +17173,10 @@ GameObject:
   - component: {fileID: 1555428668}
   - component: {fileID: 1555428669}
   - component: {fileID: 1555428670}
+  - component: {fileID: 1555428671}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17357,6 +17358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6270b0ff86ad0b94b9ffa76ea3173f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collector: {fileID: 1555428671}
 --- !u!114 &1555428670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17369,13 +17371,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda1d2602c986a84d8f221f41f13b0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 506596161}
-  inventoryManager: {fileID: 1555428666}
-  recipeManager: {fileID: 1555428668}
+  filename: 
   playerPosition: {x: 0, y: 0, z: 0}
   mainItems: []
   mainSeeds: []
   recipes: []
+  farmPoints: 0
+  brewPoints: 0
+--- !u!114 &1555428671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555428662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da53ad83095efb41aad321e120e8c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedFarmPoints: 0
+  addedBrewPoints: 0
 --- !u!114 &1564375874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
