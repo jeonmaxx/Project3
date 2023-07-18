@@ -32,7 +32,7 @@ public class QTE : MonoBehaviour
         }
 
         transform.localScale = Vector3.zero;
-        LeanTween.init(1600);
+        LeanTween.init(2400);
     }
 
     public void Update()

@@ -22,7 +22,7 @@ public class OpenBrewing : PlayerNear
         {
             menus[i].transform.localScale = Vector3.zero;
         }
-        LeanTween.init(800);
+        LeanTween.init(2400);
     }
 
     public void Update()

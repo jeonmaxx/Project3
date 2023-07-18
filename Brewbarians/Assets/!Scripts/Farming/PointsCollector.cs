@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PointsCollector : MonoBehaviour
 {
-    public int addedFarmPoints;
-    public int addedBrewPoints;
+    public float addedFarmPoints;
+    public float addedBrewPoints;
 
     public void AddFarmPoints()
     {

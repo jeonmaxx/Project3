@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class MainItems
@@ -47,41 +48,30 @@ public class MainSeeds
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
-    private PlayerMovement playerMovement;
-    private InventoryManager inventoryManager;
-    private RecipeManager recipeManager;
-    private PointsCollector pointsCollector;
-    [SerializeField] string filename;
-    //Wie verwaltet man am besten die Pflanzen in einer anderen Szene? 
-    //Ein Script was nur die Punkte verwaltet und erst wenn man in der Szene ist auf die Objekte zugreift?
-    //Die Felder müssem auch verwaltet werden !
-    // "FieldPlantManager" ?
+    public PlayerMovement playerMovement;
+    public InventoryManager inventoryManager;
+    public RecipeManager recipeManager;
+    public PointsCollector pointsCollector;
+    public FarmingManager farmingManager;
 
     [Header("Data")]
     public Vector3 playerPosition;
     public List<MainItems> mainItems;
     public List<MainSeeds> mainSeeds;
     public List<Recipe> recipes;
-    public int farmPoints;
-    public int brewPoints;
-    //public List<PlantStage> plants;
+    public Vector2 Points;
+    private float farmPoints;
+    private float brewPoints;
+    public Vector2 scene;
 
     private InventoryItem tmpInven;
     private int tmpCount;
 
     public void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerMovement = player.GetComponent<PlayerMovement>();
+        string filePath = Application.persistentDataPath + "/" + "items.json";
 
-        GameObject manager = GameObject.FindGameObjectWithTag("Manager");
-        inventoryManager = manager.GetComponent<InventoryManager>();
-        recipeManager = manager.GetComponent<RecipeManager>();
-        pointsCollector = manager.GetComponent<PointsCollector>();
-
-        string filePath = Application.persistentDataPath + "/SavedData/" + "items.json";
-
-        if (System.IO.File.Exists(filePath))
+        if (File.Exists(filePath) && new FileInfo(filePath).Length > 0 )
             GiveData();
     }
 
@@ -133,12 +123,28 @@ public class DataCollector : MonoBehaviour
         //GrowingPoints
         farmPoints = pointsCollector.addedFarmPoints;
         brewPoints = pointsCollector.addedBrewPoints;
+        Points = new Vector2(farmPoints, brewPoints);
+
+        //active Scene
+        scene.x = SceneManager.GetActiveScene().buildIndex;
+
+        //Plants and Fields
+        farmingManager.AddToList();
+
+        //still to save:
+        //- Fields and Plants
+        //- Fieldsigns
+        //- Brewing
+
 
         SaveGameManager.SaveToJSON(playerPosition, "position.json");
         SaveGameManager.SaveToJSON<MainItems>(mainItems, "items.json");
         SaveGameManager.SaveToJSON<MainSeeds>(mainSeeds, "seeds.json");
-
-        //SaveGameManager.SaveToJSON<Recipe>(recipes, filename);
+        SaveGameManager.SaveToJSON<Recipe>(recipes, "recipes.json");
+        SaveGameManager.SaveToJSON(Points, "points.json");
+        SaveGameManager.SaveToJSON(scene, "scene.json");
+        SaveGameManager.SaveToJSON<Plants>(farmingManager.plants, "plants.json");
+        SaveGameManager.SaveToJSON<Fields>(farmingManager.fields, "fields.json");
     }
 
 
@@ -147,16 +153,23 @@ public class DataCollector : MonoBehaviour
         playerPosition = SaveGameManager.ReadFromJSON<Vector3>("position.json");
         mainItems = SaveGameManager.ReadListFromJSON<MainItems>("items.json");
         mainSeeds = SaveGameManager.ReadListFromJSON<MainSeeds>("seeds.json");
+        recipes = SaveGameManager.ReadListFromJSON<Recipe>("recipes.json");
+        Points = SaveGameManager.ReadFromJSON<Vector2>("points.json");
+        scene = SaveGameManager.ReadFromJSON<Vector2>("scene.json");
+        farmingManager.plants = SaveGameManager.ReadListFromJSON<Plants>("plants.json");
+        farmingManager.fields = SaveGameManager.ReadListFromJSON<Fields>("fields.json");
 
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;
+
+        farmingManager.UpdateFields();
 
         LoadItems();
         LoadSeeds();
         LoadRecipes();
 
-        pointsCollector.addedFarmPoints = farmPoints;
-        pointsCollector.addedBrewPoints = brewPoints;
+        pointsCollector.addedFarmPoints = Points.x;
+        pointsCollector.addedBrewPoints = Points.y;
     }
 
     public void LoadItems()

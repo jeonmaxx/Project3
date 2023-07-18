@@ -35,11 +35,11 @@ public class Growing : MonoBehaviour
 
     public void PlusPoint()
     {
-        int tmpPoints = collector.addedFarmPoints;
+        int tmpPoints = (int)collector.addedFarmPoints;
 
-        if (planting.currentPlantState != planting.plantStates[0] 
+        if (planting.curPlantState != PlantStates.None 
             && currentGrowPoints < phase3Points
-            && planting.currentFieldState == planting.fieldStates[2])
+            && planting.curFieldState == FieldStates.Wet)
         {
             if (tmpPoints + currentWetPoints <= wetPoints)
             {
@@ -51,13 +51,13 @@ public class Growing : MonoBehaviour
             }
         }
 
-        if (planting.currentFieldState == planting.fieldStates[1]
-            && planting.currentPlantState == planting.plantStates[0])
+        if (planting.curFieldState == FieldStates.Hoed
+            && planting.curPlantState == PlantStates.None)
         {
             currentHoedPoints += tmpPoints;
         }
 
-        if (planting.currentFieldState == planting.fieldStates[2]
+        if (planting.curFieldState == FieldStates.Wet
             && currentWetPoints < wetPoints)
         {
             currentWetPoints += tmpPoints;
@@ -66,23 +66,23 @@ public class Growing : MonoBehaviour
 
     public void CheckPlantState()
     {
-        if (planting.currentPlantState != planting.plantStates[0])
+        if (planting.curPlantState != PlantStates.None)
         {
             if(currentGrowPoints < phase2Points)
             {
-                planting.currentPlantState = planting.plantStates[1];
+                planting.curPlantState = PlantStates.Phase01;
             }
             else if(currentGrowPoints >= phase2Points && currentGrowPoints < phase3Points)
             {
-                planting.currentPlantState = planting.plantStates[2];
+                planting.curPlantState = PlantStates.Phase02;
             }
             else if(currentGrowPoints >= phase3Points)
             {
-                planting.currentPlantState = planting.plantStates[3];
+                planting.curPlantState = PlantStates.Phase03;
             }
         }
 
-        if(planting.currentPlantState == planting.plantStates[0])
+        if (planting.curPlantState == PlantStates.None)
             currentGrowPoints = 0;
     }
 
@@ -91,14 +91,14 @@ public class Growing : MonoBehaviour
         if(currentHoedPoints >= hoedPoints)
         {
             currentHoedPoints = 0;
-            planting.currentFieldState = planting.fieldStates[0];
+            planting.curFieldState = FieldStates.None;
             Destroy(planting.hoed);
         }
 
         if(currentWetPoints >= wetPoints)
         {
             currentWetPoints = 0;
-            planting.currentFieldState = planting.fieldStates[1];
+            planting.curFieldState = FieldStates.Hoed;
             Destroy(planting.wet);
         }
     }

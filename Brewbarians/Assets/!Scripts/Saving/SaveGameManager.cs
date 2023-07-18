@@ -6,27 +6,6 @@ using UnityEngine;
 
 public static class SaveGameManager
 {
-    //public void SaveToJson()
-    //{
-    //    collector.CollectData();
-
-    //    string saveData = JsonUtility.ToJson(collector);
-    //    string filePath = Application.persistentDataPath + "/SaveData.json";
-    //    Debug.Log(filePath);
-    //    System.IO.File.WriteAllText(filePath, saveData);
-    //    Debug.Log("saved");
-    //}
-
-    //public void LoadFromJson()
-    //{
-    //    string filePath = Application.persistentDataPath + "/SaveData.json";
-    //    string saveData = System.IO.File.ReadAllText(filePath);
-    //    collector = JsonUtility.FromJson<DataCollector>(saveData);
-    //    Debug.Log("loaded");
-
-    //    collector.GiveData();
-    //}
-
     public static void SaveToJSON<T>(List<T> toSave, string filename)
     {
         Debug.Log(GetPath(filename));
@@ -72,7 +51,7 @@ public static class SaveGameManager
 
     private static string GetPath(string filename)
     {
-        return Application.persistentDataPath + "/SavedData/" + filename;
+        return Application.persistentDataPath + "/" + filename;
     }
 
     private static void WriteFile(string path, string content)
