@@ -36,13 +36,14 @@ public class FarmSign : PlayerNear
         if (wheelOpen && !isPlayerNear)
         {
             signSeed = seedWheelManager.chosenSeed;
-            if (signSeed != null)
-            {
-                signSprite.sprite = signSeed.image;
-                signSprite.color = new Color(color.r, color.g, color.b, 100);
-            }
             seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             wheelOpen = false;
+        }
+
+        if (signSeed != null)
+        {
+            signSprite.sprite = signSeed.image;
+            signSprite.color = new Color(color.r, color.g, color.b, 100);
         }
     }
 

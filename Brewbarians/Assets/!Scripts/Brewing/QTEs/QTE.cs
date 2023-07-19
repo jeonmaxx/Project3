@@ -32,7 +32,7 @@ public class QTE : MonoBehaviour
         }
 
         transform.localScale = Vector3.zero;
-        LeanTween.init(2400);
+        //LeanTween.init(2400);
     }
 
     public void Update()
@@ -43,7 +43,7 @@ public class QTE : MonoBehaviour
             PlayerMoving();
         }
         else
-            transform.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
+            transform.localScale = Vector3.zero;
     }
 
     public void QteMethode()

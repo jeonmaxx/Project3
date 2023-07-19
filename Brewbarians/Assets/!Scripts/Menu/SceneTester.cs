@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTester : MonoBehaviour
 {
+    public DataCollector dataCollector;
     public PointsCollector collector;
     public int tmpIndex = 1;
 
@@ -23,11 +24,11 @@ public class SceneTester : MonoBehaviour
 
     public void SceneChangeButton(int index)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-            collector.addedFarmPoints = 0;
-        if(SceneManager.GetActiveScene().buildIndex == 2)
-            collector.addedBrewPoints = 0;
-
+        //if (SceneManager.GetActiveScene().buildIndex == 1)
+        //    collector.addedFarmPoints = 0;
+        //if(SceneManager.GetActiveScene().buildIndex == 2)
+        //    collector.addedBrewPoints = 0;
+        dataCollector.CollectData();
         SceneManager.LoadScene(index);
     }
 

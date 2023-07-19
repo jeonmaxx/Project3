@@ -129,7 +129,13 @@ public class DataCollector : MonoBehaviour
         scene.x = SceneManager.GetActiveScene().buildIndex;
 
         //Plants and Fields
-        farmingManager.AddToList();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            farmingManager.AddToList();
+            SaveGameManager.SaveToJSON<Plants>(farmingManager.plants, "plants.json");
+            SaveGameManager.SaveToJSON<Fields>(farmingManager.fields, "fields.json");
+            SaveGameManager.SaveToJSON<Item>(farmingManager.signSeed, "signSeeds.json");
+        }
 
         //still to save:
         //- Fields and Plants
@@ -143,8 +149,6 @@ public class DataCollector : MonoBehaviour
         SaveGameManager.SaveToJSON<Recipe>(recipes, "recipes.json");
         SaveGameManager.SaveToJSON(Points, "points.json");
         SaveGameManager.SaveToJSON(scene, "scene.json");
-        SaveGameManager.SaveToJSON<Plants>(farmingManager.plants, "plants.json");
-        SaveGameManager.SaveToJSON<Fields>(farmingManager.fields, "fields.json");
     }
 
 
@@ -156,8 +160,10 @@ public class DataCollector : MonoBehaviour
         recipes = SaveGameManager.ReadListFromJSON<Recipe>("recipes.json");
         Points = SaveGameManager.ReadFromJSON<Vector2>("points.json");
         scene = SaveGameManager.ReadFromJSON<Vector2>("scene.json");
+
         farmingManager.plants = SaveGameManager.ReadListFromJSON<Plants>("plants.json");
         farmingManager.fields = SaveGameManager.ReadListFromJSON<Fields>("fields.json");
+        farmingManager.signSeed = SaveGameManager.ReadListFromJSON<Item>("signSeeds.json");
 
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;

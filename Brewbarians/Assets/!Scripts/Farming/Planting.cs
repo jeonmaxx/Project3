@@ -13,8 +13,6 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [ShowOnly]
     public FieldStates curFieldState;
     [ShowOnly]
-    //public string currentPlantState;
-    //[HideInInspector] public string[] plantStates = { "noPlant", "Phase01", "Phase02", "Phase03" };
     public PlantStates curPlantState;
     
     [Header("Manager")]
@@ -36,7 +34,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject sign;
     private FarmSign farmSign;
     [SerializeField] private GameObject plant;
-    private Item currentPlant;
+    public Item currentPlant;
 
     [Header("Tools")]
     [SerializeField] private Item shovelItem;
@@ -126,9 +124,61 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    public void GivenField(FieldStates fieldState, int hoedPoints, int wetPoints)
+    {
+        Growing growing = GetComponent<Growing>();
+        growing.currentHoedPoints = hoedPoints;
+        growing.currentWetPoints = wetPoints;
+        curFieldState = fieldState;
+
+        switch(fieldState)
+        {
+            case FieldStates.None:
+                break;
+            case FieldStates.Hoed:
+                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                break;
+            case FieldStates.Wet:
+                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                break;
+        }
+    }
+
+    public void GivenPlant(Seed newSeed, PlantStates plantStates, int growPoints)
+    {
+        Growing growing = GetComponent<Growing>();
+        seed = newSeed;
+        curPlantState = plantStates;
+        growing.currentGrowPoints = growPoints;
+
+        switch(plantStates)
+        {
+            case PlantStates.None:
+                break;
+            case PlantStates.Phase01:
+                plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                break; 
+            case PlantStates.Phase02:
+                plant = Instantiate(seed.Ph02, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                break;
+            case PlantStates.Phase03:
+                plant = Instantiate(seed.Ph03, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                break;
+        }
+    }
+
+    public void AddSavedSeed()
+    {
+        if (curPlantState == PlantStates.Phase01)
+        {
+            plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+        }
+    }
+
     public void PlantGrowing()
     {
-        if(curPlantState == PlantStates.Phase02)
+        if (curPlantState == PlantStates.Phase02)
         {
             Destroy(plant);
             plant = Instantiate(seed.Ph02, gameObject.transform.position, gameObject.transform.rotation, this.transform);
@@ -157,7 +207,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         if (handManager.handItem == shovelItem
             && (curPlantState != PlantStates.None 
             && curPlantState != PlantStates.Phase03)
-            && currentPlant != farmSign.signSeed)
+            && currentPlant.seed != seed)
         {
             Destroy(plant);
             curPlantState = PlantStates.None;

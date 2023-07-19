@@ -24,7 +24,6 @@ public class Growing : MonoBehaviour
     public void Start()
     {
         planting = GetComponent<Planting>();
-        PlusPoint();
     }
 
     public void Update()
@@ -33,36 +32,7 @@ public class Growing : MonoBehaviour
         CheckFieldStates();
     }
 
-    public void PlusPoint()
-    {
-        int tmpPoints = (int)collector.addedFarmPoints;
-
-        if (planting.curPlantState != PlantStates.None 
-            && currentGrowPoints < phase3Points
-            && planting.curFieldState == FieldStates.Wet)
-        {
-            if (tmpPoints + currentWetPoints <= wetPoints)
-            {
-                currentGrowPoints += tmpPoints;
-            }
-            else
-            {
-                currentGrowPoints += (wetPoints - currentWetPoints);
-            }
-        }
-
-        if (planting.curFieldState == FieldStates.Hoed
-            && planting.curPlantState == PlantStates.None)
-        {
-            currentHoedPoints += tmpPoints;
-        }
-
-        if (planting.curFieldState == FieldStates.Wet
-            && currentWetPoints < wetPoints)
-        {
-            currentWetPoints += tmpPoints;
-        }
-    }
+   
 
     public void CheckPlantState()
     {
