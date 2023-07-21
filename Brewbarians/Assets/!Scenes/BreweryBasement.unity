@@ -7762,6 +7762,7 @@ MonoBehaviour:
   - {fileID: 1885348944}
   - {fileID: 1159687997}
   currentRect: {fileID: 0}
+  state: 0
   menuOpen: 0
   choosing: 0
   movement: {fileID: 506596161}
@@ -9199,6 +9200,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1555428673}
+        m_TargetAssemblyTypeName: BrewStationManager, Assembly-CSharp
+        m_MethodName: AddData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17187,6 +17200,7 @@ GameObject:
   - component: {fileID: 1555428670}
   - component: {fileID: 1555428671}
   - component: {fileID: 1555428672}
+  - component: {fileID: 1555428673}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -17391,6 +17405,7 @@ MonoBehaviour:
   recipeManager: {fileID: 1555428668}
   pointsCollector: {fileID: 1555428671}
   farmingManager: {fileID: 1555428672}
+  brewStationManager: {fileID: 1555428673}
   playerPosition: {x: 0, y: 0, z: 0}
   mainItems: []
   mainSeeds: []
@@ -17431,6 +17446,25 @@ MonoBehaviour:
   farmSigns: []
   signSeed: []
   collector: {fileID: 1555428671}
+--- !u!114 &1555428673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555428662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d48a20b6c794094fae5d9415885b338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  givenData:
+  - Brewing: {fileID: 610968923}
+    Wait: {fileID: 1159688000}
+    IngreSlotOne: {fileID: 5273973768295657655}
+    IngreSlotTwo: {fileID: 6271486439490127279}
+  brewData: []
+  invenManager: {fileID: 1555428666}
 --- !u!114 &1564375874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 706658069342092016, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -19761,6 +19795,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1555428673}
+        m_TargetAssemblyTypeName: BrewStationManager, Assembly-CSharp
+        m_MethodName: LoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -31,19 +31,6 @@ public class MainSeeds
     }
 }
 
-//[System.Serializable]
-//public class PlantStage
-//{
-//    public Seed Seed;
-//    public int CurrentGrowPoints;
-
-//    public PlantStage(Seed seed, int currentGrowPoints)
-//    { 
-//        Seed = seed;
-//        CurrentGrowPoints = currentGrowPoints; 
-//    }
-//}
-
 [Serializable]
 public class DataCollector : MonoBehaviour
 {
@@ -53,6 +40,7 @@ public class DataCollector : MonoBehaviour
     public RecipeManager recipeManager;
     public PointsCollector pointsCollector;
     public FarmingManager farmingManager;
+    public BrewStationManager brewStationManager;
 
     [Header("Data")]
     public Vector3 playerPosition;
@@ -128,6 +116,13 @@ public class DataCollector : MonoBehaviour
         //active Scene
         scene.x = SceneManager.GetActiveScene().buildIndex;
 
+        //Brewing
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            brewStationManager.AddData();
+            SaveGameManager.SaveToJSON<BrewData>(brewStationManager.brewData, "brewing.json");
+        }
+
         //Plants and Fields
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -165,10 +160,15 @@ public class DataCollector : MonoBehaviour
         farmingManager.fields = SaveGameManager.ReadListFromJSON<Fields>("fields.json");
         farmingManager.signSeed = SaveGameManager.ReadListFromJSON<Item>("signSeeds.json");
 
+        brewStationManager.brewData = SaveGameManager.ReadListFromJSON<BrewData>("brewing.json");
+
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;
 
         farmingManager.UpdateFields();
+
+        if(SceneManager.GetActiveScene().buildIndex == 2)
+            brewStationManager.LoadData();
 
         LoadItems();
         LoadSeeds();

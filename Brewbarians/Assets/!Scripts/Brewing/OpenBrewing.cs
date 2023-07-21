@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum BrewingStates { Recipe, IngreOne, IngreTwo, Waiting }
 public class OpenBrewing : PlayerNear
 {
     public PlayerInput input;
     public RectTransform[] menus;
     public RectTransform currentRect;
+    public BrewingStates state;
+    //curentrect braucht einen enum
 
     public bool menuOpen = false;
     public bool choosing = false;
@@ -47,6 +50,8 @@ public class OpenBrewing : PlayerNear
             currentRect.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
             movement.enabled = true;
         }
+
+        currentRect = menus[(int)state];
     }
 
     public void OnInteract()

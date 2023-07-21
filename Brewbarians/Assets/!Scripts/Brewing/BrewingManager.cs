@@ -29,13 +29,13 @@ public class BrewingManager : MonoBehaviour
     private OpenBrewing open;
     public bool brewing = false;
 
-    public int quantity;
+    public int quantity = 0;
 
     public bool checking = false;
 
     public QTE qte;
 
-    public int bonusPoints;
+    public int bonusPoints = 0;
 
     private void Start()
     {
@@ -92,13 +92,13 @@ public class BrewingManager : MonoBehaviour
                     enoughTwo = false;
             }
         }
-
     }
 
     public void ConfirmRecipeButton(int brew)
     {
         if (brew == 0 && chosenRecipe != null && quantity != 0)
         {
+            open.state = BrewingStates.IngreOne;
             ChangingScreen(1);
         }
 
@@ -120,9 +120,13 @@ public class BrewingManager : MonoBehaviour
         if(checking)
         {
             if (open.currentRect == open.menus[1])
+            {
+                open.state = BrewingStates.IngreTwo;
                 ChangingScreen(2);
+            }
             else if (open.currentRect == open.menus[2])
             {
+                open.state = BrewingStates.Waiting;
                 ChangingScreen(3);
                 brewing = true;
             }
@@ -181,6 +185,7 @@ public class BrewingManager : MonoBehaviour
             brewing = false;
             bonusPoints = 0;
             wait.progressBar.value = 0;
+            open.state = BrewingStates.Recipe;
             ChangingScreen(0);
         }
     }

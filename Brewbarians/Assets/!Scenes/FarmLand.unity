@@ -30484,6 +30484,7 @@ GameObject:
   - component: {fileID: 1555428670}
   - component: {fileID: 1555428671}
   - component: {fileID: 1555428672}
+  - component: {fileID: 1555428673}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -30688,6 +30689,7 @@ MonoBehaviour:
   recipeManager: {fileID: 1555428668}
   pointsCollector: {fileID: 1555428671}
   farmingManager: {fileID: 1555428672}
+  brewStationManager: {fileID: 1555428673}
   playerPosition: {x: 0, y: 0, z: 0}
   mainItems:
   - MainItem: {fileID: 0}
@@ -30752,6 +30754,21 @@ MonoBehaviour:
   - {fileID: 764804876}
   signSeed: []
   collector: {fileID: 1555428671}
+--- !u!114 &1555428673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555428662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d48a20b6c794094fae5d9415885b338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  givenData: []
+  brewData: []
+  invenManager: {fileID: 1555428666}
 --- !u!1 &1566259588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7035118373089366858, guid: e466a35dcd124b2458f3b03211639775, type: 3}
