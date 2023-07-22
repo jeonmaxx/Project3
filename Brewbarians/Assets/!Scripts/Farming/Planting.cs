@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Playables;
 
 public enum FieldStates { None, Hoed, Wet}
 public enum PlantStates { None, Phase01, Phase02, Phase03}
@@ -43,9 +39,6 @@ public class Planting : MonoBehaviour, IPointerDownHandler
 
     public void Start()
     {
-        curFieldState = FieldStates.None;
-        curPlantState = PlantStates.None;
-
         farmSign = sign.GetComponent<FarmSign>();
     }
 
@@ -54,6 +47,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         CheckHand();
         PlantGrowing();
         currentPlant = farmSign.signSeed;
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -133,14 +127,12 @@ public class Planting : MonoBehaviour, IPointerDownHandler
 
         switch(fieldState)
         {
-            case FieldStates.None:
-                break;
             case FieldStates.Hoed:
-                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, transform);
                 break;
             case FieldStates.Wet:
-                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
-                wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
+                hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, transform);
+                wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, transform);
                 break;
         }
     }
@@ -154,8 +146,6 @@ public class Planting : MonoBehaviour, IPointerDownHandler
 
         switch(plantStates)
         {
-            case PlantStates.None:
-                break;
             case PlantStates.Phase01:
                 plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                 break; 

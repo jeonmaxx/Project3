@@ -10,13 +10,17 @@ public class GivenData
     public BrewingWait Wait;
     public GameObject IngreSlotOne;
     public GameObject IngreSlotTwo;
+    public InputQuantity InputQuantity;
+    public ChooseRecipe ChooseRecipe;
 
-    public GivenData(BrewingManager brewing, BrewingWait wait, GameObject ingreOne, GameObject ingreTwo)
+    public GivenData(BrewingManager brewing, BrewingWait wait, GameObject ingreOne, GameObject ingreTwo, InputQuantity inputQuantity, ChooseRecipe chooseRecipe)
     {
         Brewing = brewing;
         Wait = wait;
         IngreSlotOne = ingreOne;
         IngreSlotTwo = ingreTwo;
+        InputQuantity = inputQuantity;
+        ChooseRecipe = chooseRecipe;
     }
 }
 
@@ -93,7 +97,6 @@ public class BrewStationManager : MonoBehaviour
         }
     }
 
-    //Bug, dass die Ingredients nicht ganz gelöscht werden
     public void LoadData()
     {
         for (int i = 0; i < brewData.Count; i++)
@@ -102,6 +105,7 @@ public class BrewStationManager : MonoBehaviour
             BrewingWait wait = givenData[i].Wait;
 
             //Recipe
+            givenData[i].ChooseRecipe.chosenRecipe = brewData[i].ChosenRecipe;
             brew.chosenRecipe = brewData[i].ChosenRecipe;
 
 
@@ -125,6 +129,7 @@ public class BrewStationManager : MonoBehaviour
                         GameObject newItemGo = Instantiate(invenManager.inventoryItemPrefab, givenData[i].IngreSlotOne.transform);
                         inventoryItem = newItemGo.GetComponent<InventoryItem>();
                         inventoryItem.InitialiseItem(brewData[i].ItemOne);
+                        brew.inventoryItemOne = inventoryItem;
                     }
                     else if (j > 0)
                     {
@@ -153,6 +158,7 @@ public class BrewStationManager : MonoBehaviour
                         GameObject newItemGo = Instantiate(invenManager.inventoryItemPrefab, givenData[i].IngreSlotTwo.transform);
                         inventoryItem = newItemGo.GetComponent<InventoryItem>();
                         inventoryItem.InitialiseItem(brewData[i].ItemTwo);
+                        brew.inventoryItemTwo = inventoryItem;
                     }
                     else if (j > 0)
                     {
@@ -163,6 +169,7 @@ public class BrewStationManager : MonoBehaviour
             }
 
             //Rest
+            givenData[i].InputQuantity.inputField.text = brewData[i].Quantity.ToString();
             brew.quantity = brewData[i].Quantity;
             brew.bonusPoints = brewData[i].BonusPoints;
             brew.brewing = brewData[i].IsBrewing;

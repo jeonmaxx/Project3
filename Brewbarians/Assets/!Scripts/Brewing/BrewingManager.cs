@@ -29,13 +29,13 @@ public class BrewingManager : MonoBehaviour
     private OpenBrewing open;
     public bool brewing = false;
 
-    public int quantity = 0;
+    public int quantity;
 
     public bool checking = false;
 
     public QTE qte;
 
-    public int bonusPoints = 0;
+    public int bonusPoints;
 
     private void Start()
     {

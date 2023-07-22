@@ -46,6 +46,9 @@ public class FarmingManager : MonoBehaviour
 
     public PointsCollector collector;
 
+    //Bug, dass Pflanzen nach Szenenwechsel nicht wachsen
+    //Bug, dass man nach Szenenwechsel Felder neu bewässern und hacken kann (double GameObjects)
+
     public void Awake()
     {
         if(fieldObjs.Length > 0)
@@ -58,12 +61,6 @@ public class FarmingManager : MonoBehaviour
                 growing.Add(field.GetComponent<Growing>());
             }
         }
-    }
-
-    public void Update()
-    {
-        //if(collector.addedFarmPoints > 0)
-        //    GiveFarmPoints();
     }
 
     public void AddToList()

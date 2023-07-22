@@ -132,11 +132,6 @@ public class DataCollector : MonoBehaviour
             SaveGameManager.SaveToJSON<Item>(farmingManager.signSeed, "signSeeds.json");
         }
 
-        //still to save:
-        //- Fields and Plants
-        //- Fieldsigns
-        //- Brewing
-
 
         SaveGameManager.SaveToJSON(playerPosition, "position.json");
         SaveGameManager.SaveToJSON<MainItems>(mainItems, "items.json");
@@ -165,7 +160,8 @@ public class DataCollector : MonoBehaviour
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;
 
-        farmingManager.UpdateFields();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            farmingManager.UpdateFields();
 
         if(SceneManager.GetActiveScene().buildIndex == 2)
             brewStationManager.LoadData();
