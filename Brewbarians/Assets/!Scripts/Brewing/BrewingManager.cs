@@ -6,6 +6,7 @@ public class BrewingManager : MonoBehaviour
 {
     public InventoryManager inventoryManager;
     public BrewingWait wait;
+    public TutorialDialogue tutorial;
 
     [HideInInspector] public Recipe chosenRecipe;
     [HideInInspector] public Item itemOne;
@@ -112,6 +113,8 @@ public class BrewingManager : MonoBehaviour
         {
             checking = true;
             qte.QteMethode();
+            tutorial.diaList[9].Done = true;
+            tutorial.newState = true;
         }
     }
 
@@ -141,7 +144,7 @@ public class BrewingManager : MonoBehaviour
 
     public void BrewButton()
     {
-        //Durch den Knopfdruck müsste QTE getriggert werden
+        
 
         if (!brewing)
         {

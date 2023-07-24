@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,6 +29,22 @@ public class MainSeeds
 }
 
 [Serializable]
+public class Tutorial
+{
+    public List<DialogueList> TutDia;
+    public TutorialState State;
+    public bool NewState;
+    public Item LastGiven;
+
+    public Tutorial(List<DialogueList> tutDia, TutorialState state, bool newState, Item lastGiven)
+    {
+        TutDia = tutDia;
+        State = state;
+        NewState = newState;
+        LastGiven = lastGiven;
+    }
+}
+
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
@@ -41,6 +54,7 @@ public class DataCollector : MonoBehaviour
     public PointsCollector pointsCollector;
     public FarmingManager farmingManager;
     public BrewStationManager brewStationManager;
+    public TutorialDialogue tutorial;
 
     [Header("Data")]
     public Vector3 playerPosition;
@@ -51,6 +65,7 @@ public class DataCollector : MonoBehaviour
     private float farmPoints;
     private float brewPoints;
     public Vector2 scene;
+    public List<Tutorial> tutorialList;
 
     private InventoryItem tmpInven;
     private int tmpCount;
@@ -58,6 +73,7 @@ public class DataCollector : MonoBehaviour
     public void Start()
     {
         string filePath = Application.persistentDataPath + "/" + "items.json";
+        Debug.Log(filePath);
 
         if (File.Exists(filePath) && new FileInfo(filePath).Length > 0 )
             GiveData();
@@ -116,6 +132,10 @@ public class DataCollector : MonoBehaviour
         //active Scene
         scene.x = SceneManager.GetActiveScene().buildIndex;
 
+        //Tutorial
+        tutorialList.Add( new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.lastGiven));
+
+
         //Brewing
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
@@ -139,6 +159,7 @@ public class DataCollector : MonoBehaviour
         SaveGameManager.SaveToJSON<Recipe>(recipes, "recipes.json");
         SaveGameManager.SaveToJSON(Points, "points.json");
         SaveGameManager.SaveToJSON(scene, "scene.json");
+        SaveGameManager.SaveToJSON<Tutorial>(tutorialList, "tutorial.json");
     }
 
 
@@ -157,6 +178,8 @@ public class DataCollector : MonoBehaviour
 
         brewStationManager.brewData = SaveGameManager.ReadListFromJSON<BrewData>("brewing.json");
 
+        tutorialList = SaveGameManager.ReadListFromJSON<Tutorial>("tutorial.json");
+
         //Changes Player Position
         playerMovement.gameObject.transform.position = playerPosition;
 
@@ -172,6 +195,14 @@ public class DataCollector : MonoBehaviour
 
         pointsCollector.addedFarmPoints = Points.x;
         pointsCollector.addedBrewPoints = Points.y;
+
+        for(int i = 0; i < tutorialList.Count; i++)
+        {
+            tutorial.diaList = tutorialList[i].TutDia;
+            tutorial.state = tutorialList[i].State;
+            tutorial.newState = tutorialList[i].NewState;
+            tutorial.lastGiven = tutorialList[i].LastGiven;
+        }        
     }
 
     public void LoadItems()

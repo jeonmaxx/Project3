@@ -15,6 +15,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     public HandManager handManager;
     public InventoryManager inventoryManager;
     public GameObject seedWheel;
+    public TutorialDialogue tutorial;
 
     [Header("Fields")]
     [SerializeField] private GameObject HoedField;
@@ -66,6 +67,8 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         {
             hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Hoed;
+            tutorial.diaList[1].Done = true;
+            tutorial.newState = true;
         }
     }
 
@@ -76,6 +79,16 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         {
             wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Wet;
+            if (tutorial.state == TutorialState.Water)
+            {
+                tutorial.diaList[2].Done = true;
+                tutorial.newState = true;
+            }
+            if (tutorial.state == TutorialState.WaterAgain)
+            {
+                tutorial.diaList[6].Done = true;
+                tutorial.newState = true;
+            }
         }
     }
 
@@ -101,6 +114,8 @@ public class Planting : MonoBehaviour, IPointerDownHandler
                     plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                     curPlantState = PlantStates.Phase01;
                     seedItem[i].count--;
+                    tutorial.diaList[4].Done = true;
+                    tutorial.newState = true;
 
                     //wenn der counter bei 0 ist, wird das childobject gelöscht
                     if (seedItem[i].count <= 0)
@@ -189,6 +204,8 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             curPlantState = PlantStates.None;
+            tutorial.diaList[7].Done = true;
+            tutorial.newState = true;
         }
     }
 

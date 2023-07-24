@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     private Message[] currentMessages;
     private Actor[] currentActors;
-    private int activeMessage = 0;
+    [HideInInspector] public int activeMessage = 0;
     public bool isActive = false;
 
     public void Start()
