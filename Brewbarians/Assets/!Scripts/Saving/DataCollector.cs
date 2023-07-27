@@ -84,7 +84,7 @@ public class DataCollector : MonoBehaviour
     public void CollectData()
     {
         //Player Position
-        playerPosition = playerMovement.gameObject.transform.position;
+        //playerPosition = playerMovement.gameObject.transform.position;
 
         //Main Items
         mainItems = new List<MainItems>();
@@ -135,7 +135,11 @@ public class DataCollector : MonoBehaviour
         scene.x = SceneManager.GetActiveScene().buildIndex;
 
         //Tutorial
-        tutorialList.Add( new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.lastGiven));
+        if (tutorial != null)
+        {
+            tutorialList.Add(new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.lastGiven));
+            SaveGameManager.SaveToJSON<Tutorial>(tutorialList, "tutorial.json");
+        }
 
 
         //Brewing
@@ -155,19 +159,19 @@ public class DataCollector : MonoBehaviour
         }
 
 
-        SaveGameManager.SaveToJSON(playerPosition, "position.json");
+        //SaveGameManager.SaveToJSON(playerPosition, "position.json");
         SaveGameManager.SaveToJSON<MainItems>(mainItems, "items.json");
         SaveGameManager.SaveToJSON<MainSeeds>(mainSeeds, "seeds.json");
         SaveGameManager.SaveToJSON<Recipe>(recipes, "recipes.json");
         SaveGameManager.SaveToJSON(Points, "points.json");
         SaveGameManager.SaveToJSON(scene, "scene.json");
-        SaveGameManager.SaveToJSON<Tutorial>(tutorialList, "tutorial.json");
+        
     }
 
 
     public void GiveData()
     {
-        playerPosition = SaveGameManager.ReadFromJSON<Vector3>("position.json");
+        //playerPosition = SaveGameManager.ReadFromJSON<Vector3>("position.json");
         mainItems = SaveGameManager.ReadListFromJSON<MainItems>("items.json");
         mainSeeds = SaveGameManager.ReadListFromJSON<MainSeeds>("seeds.json");
         recipes = SaveGameManager.ReadListFromJSON<Recipe>("recipes.json");
@@ -183,7 +187,7 @@ public class DataCollector : MonoBehaviour
         tutorialList = SaveGameManager.ReadListFromJSON<Tutorial>("tutorial.json");
 
         //Changes Player Position
-        playerMovement.gameObject.transform.position = playerPosition;
+        //playerMovement.gameObject.transform.position = playerPosition;
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
             farmingManager.UpdateFields();
@@ -198,13 +202,16 @@ public class DataCollector : MonoBehaviour
         pointsCollector.addedFarmPoints = Points.x;
         pointsCollector.addedBrewPoints = Points.y;
 
-        for(int i = 0; i < tutorialList.Count; i++)
+        if (tutorial != null)
         {
-            tutorial.diaList = tutorialList[i].TutDia;
-            tutorial.state = tutorialList[i].State;
-            tutorial.newState = tutorialList[i].NewState;
-            tutorial.lastGiven = tutorialList[i].LastGiven;
-        }        
+            for (int i = 0; i < tutorialList.Count; i++)
+            {
+                tutorial.diaList = tutorialList[i].TutDia;
+                tutorial.state = tutorialList[i].State;
+                tutorial.newState = tutorialList[i].NewState;
+                tutorial.lastGiven = tutorialList[i].LastGiven;
+            }
+        }
     }
 
     public void LoadItems()
