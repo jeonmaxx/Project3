@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,24 +8,22 @@ public class BrewingWait : MonoBehaviour
     public Slider progressBar;
     public Image recipeItem;
     public TextMeshProUGUI quantityText;
+    public int currentValue;
 
     public void Update()
     {
-        if(manager.chosenRecipe != null)
+        //Debug.Log(progressBar.value);
+        if (manager.chosenRecipe != null)
         {
             recipeItem.sprite = manager.chosenRecipe.Drink.image;
             quantityText.SetText(manager.quantity.ToString());
 
             progressBar.maxValue = manager.chosenRecipe.BrewTime;
+            progressBar.value = currentValue;
+
+
+            if (currentValue >= manager.chosenRecipe.BrewTime)
+                manager.brewing = false;
         }
-
-        if(progressBar.value == progressBar.maxValue)
-            manager.brewing = false;
-    }
-
-    public void AddGrowingPoints()
-    {
-        if (progressBar.value < progressBar.maxValue && manager.brewing)
-            progressBar.value += 1;
     }
 }

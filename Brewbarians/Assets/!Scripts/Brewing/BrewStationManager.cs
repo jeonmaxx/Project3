@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,10 +34,10 @@ public class BrewData
     public int Quantity;
     public int BonusPoints;
     public bool IsBrewing;
-    public float ProgressBarValue;
+    public int ProgressBarValue;
     public BrewingStates BrewingStates;
 
-    public BrewData(Recipe chosenRecipe, Item itemOne, int itemOneCount, Item itemTwo, int itemTwoCount, int quantity, int bonusPoints, bool isBrewing, float progressBar, BrewingStates brewingStates)
+    public BrewData(Recipe chosenRecipe, Item itemOne, int itemOneCount, Item itemTwo, int itemTwoCount, int quantity, int bonusPoints, bool isBrewing, int progressBar, BrewingStates brewingStates)
     {
         ChosenRecipe = chosenRecipe;
         ItemOne = itemOne;
@@ -58,9 +57,18 @@ public class BrewStationManager : MonoBehaviour
     public List<GivenData> givenData = new List<GivenData>();
     public List<BrewData> brewData = new List<BrewData>();
     public InventoryManager invenManager;
+    public PointsCollector collector;
 
     private InventoryItem tmpInven;
     private int tmpCount;
+
+    public void Start()
+    {
+        if(givenData.Count > 0)
+        {
+            GivePoints();
+        }
+    }
 
     public void AddData()
     {
@@ -93,7 +101,7 @@ public class BrewStationManager : MonoBehaviour
             BrewingStates state = givenData[i].Brewing.gameObject.transform.GetComponent<OpenBrewing>().state;
 
             brewData.Add( new BrewData(recipe, one, oneInt, two, twoInt, brew.quantity, brew.bonusPoints,
-                brew.brewing, wait.progressBar.value, state));
+                brew.brewing, wait.currentValue, state));
         }
     }
 
@@ -173,8 +181,31 @@ public class BrewStationManager : MonoBehaviour
             brew.quantity = brewData[i].Quantity;
             brew.bonusPoints = brewData[i].BonusPoints;
             brew.brewing = brewData[i].IsBrewing;
-            wait.progressBar.value = brewData[i].ProgressBarValue;
+            wait.currentValue = brewData[i].ProgressBarValue;
             brew.gameObject.transform.GetComponent<OpenBrewing>().state = brewData[i].BrewingStates;
         }
+    }
+
+    public void GivePoints()
+    {
+        for(int i = 0; i < givenData.Count; i++)
+        {
+            BrewingManager brew = givenData[i].Brewing;
+            BrewingWait wait = givenData[i].Wait;
+            if (brew.chosenRecipe != null)
+            {
+                int tmpPoints = (int)collector.addedBrewPoints;
+
+                if (brew.brewing)
+                {
+                    wait.currentValue += tmpPoints;
+                    //wait.progressBar.value += tmpPoints;
+                }
+
+                Debug.Log(wait.progressBar.value);
+            }
+        }
+
+        collector.addedBrewPoints = 0;
     }
 }

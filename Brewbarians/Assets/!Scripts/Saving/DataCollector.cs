@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
+[Serializable]
 public class MainItems
 {
     public Item MainItem;
@@ -16,7 +16,7 @@ public class MainItems
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class MainSeeds
 {
     public Item MainSeed;
@@ -78,6 +78,8 @@ public class DataCollector : MonoBehaviour
         if (File.Exists(filePath) && new FileInfo(filePath).Length > 0 )
             GiveData();
     }
+
+ 
 
     public void CollectData()
     {
