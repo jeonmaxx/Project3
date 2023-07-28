@@ -599,6 +599,8 @@ MonoBehaviour:
   clickable: 0
   recipeSlot: {fileID: 0}
   rec: {fileID: 0}
+  manager: {fileID: 0}
+  brewingStation: {fileID: 0}
 --- !u!1 &5335380639594901488
 GameObject:
   m_ObjectHideFlags: 0

@@ -12243,6 +12243,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1250365633}
     m_Modifications:
+    - target: {fileID: 958046369764559548, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391715938681617, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391715969361083, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391716348045358, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391717036646779, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391717096195822, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391717164649273, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 2465391717484307697, guid: 940e439470a73b949986d199e71d6334, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
     - target: {fileID: 3168380681795077416, guid: 940e439470a73b949986d199e71d6334, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13521,7 +13553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16abc6f7d257d84aa5207b1fd2c3de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStackedItems: 10
+  maxStackedItems: 50
   inventorySlots:
   - {fileID: 319949427}
   - {fileID: 98667365}
@@ -15899,6 +15931,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1250365633}
     m_Modifications:
+    - target: {fileID: 4998286888925575453, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286888948770993, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286888992940275, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889165417335, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889226645097, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889561195029, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889681763284, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889684535367, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889686732436, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889745230079, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286889977412014, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890170009678, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890180256417, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890180680745, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890239880106, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890285908542, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890370270293, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890443199158, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890558969862, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890584822359, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890625372021, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890655176641, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890710380596, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
+    - target: {fileID: 4998286890957030301, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 1555428666}
     - target: {fileID: 5518025223562865974, guid: c6be7539fb4830f44921cf9ec34f3dc0, type: 3}
       propertyPath: manager
       value: 
