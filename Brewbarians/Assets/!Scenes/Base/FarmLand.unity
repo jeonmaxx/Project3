@@ -1175,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot
       objectReference: {fileID: 0}
+    - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5890542726086359915, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1258,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 5890542726086359915, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937761674337130110, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
@@ -3344,14 +3352,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7075472, g: 0.4882742, b: 0.377136, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: dd3a45ae015d53748ba93341cb20b93d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22316,6 +22324,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (4)
@@ -24069,6 +24081,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (5)
@@ -24251,7 +24267,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595761395}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -29954,6 +29970,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (6)
@@ -30311,6 +30331,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
@@ -31238,6 +31262,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)
@@ -36242,6 +36270,10 @@ PrefabInstance:
       propertyPath: inventoryManager
       value: 
       objectReference: {fileID: 1555428666}
+    - target: {fileID: 1004794904937817426, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 79a94b5c71e690342ada1fe160e87d94, type: 3}
     - target: {fileID: 1811406596061606990, guid: aff6a9ed6671cd340928d7f4489d1c64, type: 3}
       propertyPath: m_Name
       value: InventorySlot (7)
