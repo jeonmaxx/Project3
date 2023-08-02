@@ -19,7 +19,7 @@ public class DialogueList
         Done = done;
     }
 }
-public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Waiting, WaterAgain, Harvest, GoToBrewery, Brewing, Done}
+public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, Brewing, Done}
 public class TutorialDialogue : MonoBehaviour
 {
     public DialogueTrigger trigger;
@@ -67,7 +67,7 @@ public class TutorialDialogue : MonoBehaviour
 
         if(SceneManager.GetActiveScene().buildIndex == 2 && state == TutorialState.GoToBrewery)
         {
-            diaList[8].Done = true;
+            diaList[6].Done = true;
             newState = true;
         }
         
@@ -99,24 +99,15 @@ public class TutorialDialogue : MonoBehaviour
                     GiveItem(3, 1);
                     newState = false;
                     break;
-                case TutorialState.Waiting:
-                    newState = false;
-                    StartCoroutine(GrowingTutorial());
-                    break;
-                case TutorialState.WaterAgain:
-                    newState = false;
-                    break;
                 case TutorialState.Harvest:
                     GiveItem(4, 1);
                     newState = false;
-                    StartCoroutine(GrowingTutorial());
                     break;
                 case TutorialState.GoToBrewery:
                     newState = false;
                     break;
                 case TutorialState.Brewing:
                     recipeManager.AddRecipe(recipe);
-                    GiveItem(5, 2);
                     newState = false;
                     break;
                 case TutorialState.Done:
@@ -144,17 +135,17 @@ public class TutorialDialogue : MonoBehaviour
             state = nextState;
     }
 
-    public IEnumerator GrowingTutorial()
-    {
-        for (int i = 0; i < neededGrowPoints; i++)
-        {
-            yield return new WaitForSeconds(1);
-            collector.AddFarmPoints();
-            farmingManager.GiveFarmPoints();
-        }
+    //public IEnumerator GrowingTutorial()
+    //{
+    //    for (int i = 0; i < neededGrowPoints; i++)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        collector.AddFarmPoints();
+    //        farmingManager.GiveFarmPoints();
+    //    }
 
-        diaList[(int)state].Done = true;
-        newState = true;
+    //    diaList[(int)state].Done = true;
+    //    newState = true;
 
-    }
+    //}
 }

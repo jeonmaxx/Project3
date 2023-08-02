@@ -19,4 +19,6 @@ MonoBehaviour:
   stackable: 0
   image: {fileID: 21300000, guid: 17d3bf7425a0748489ce3633e38652db, type: 3}
   itemName: Watering Can
+  waterAmount: 10
+  currentWater: 3
   seed: {fileID: 0}

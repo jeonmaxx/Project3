@@ -150,6 +150,17 @@
                     "action": "Qte",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8502b014-97f9-4873-817f-47bb050f051f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Qte",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

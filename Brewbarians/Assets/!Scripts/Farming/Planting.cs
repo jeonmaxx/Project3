@@ -6,9 +6,9 @@ public enum PlantStates { None, Phase01, Phase02, Phase03}
 public class Planting : MonoBehaviour, IPointerDownHandler
 {
     [Header("States")]
-    [ShowOnly]
+    //[ShowOnly]
     public FieldStates curFieldState;
-    [ShowOnly]
+    //[ShowOnly]
     public PlantStates curPlantState;
     
     [Header("Manager")]
@@ -36,7 +36,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     [Header("Tools")]
     [SerializeField] private Item shovelItem;
     [SerializeField] private Item waterItem;
-    [SerializeField] private Item harvestItem;    
+    [SerializeField] private Item harvestItem;
 
     public void Start()
     {
@@ -75,18 +75,16 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     public void WaterField()
     {
         if (curFieldState == FieldStates.Hoed
-            && handManager.handItem == waterItem)
+            && handManager.handItem == waterItem
+            && waterItem.currentWater > 0)
         {
             wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Wet;
+            waterItem.currentWater--;
+
             if (tutorial.state == TutorialState.Water)
             {
                 tutorial.diaList[2].Done = true;
-                tutorial.newState = true;
-            }
-            if (tutorial.state == TutorialState.WaterAgain)
-            {
-                tutorial.diaList[6].Done = true;
                 tutorial.newState = true;
             }
         }
@@ -204,7 +202,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             curPlantState = PlantStates.None;
-            tutorial.diaList[7].Done = true;
+            tutorial.diaList[5].Done = true;
             tutorial.newState = true;
         }
     }

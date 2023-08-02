@@ -13,6 +13,8 @@ public class ItemEditor : Editor
     private SerializedProperty _stackable;
     private SerializedProperty _image;
     private SerializedProperty _name;
+    private SerializedProperty _waterAmount;
+    private SerializedProperty _currentWater;
     private SerializedProperty _seed;
 
     private void OnEnable()
@@ -24,6 +26,8 @@ public class ItemEditor : Editor
         _stackable = serializedObject.FindProperty(nameof(Item.stackable));
         _image = serializedObject.FindProperty(nameof(Item.image));
         _name = serializedObject.FindProperty(nameof(Item.itemName));
+        _waterAmount = serializedObject.FindProperty(nameof(Item.waterAmount));
+        _currentWater = serializedObject.FindProperty(nameof(Item.currentWater));
         _seed = serializedObject.FindProperty(nameof(Item.seed));
     }
 
@@ -38,7 +42,13 @@ public class ItemEditor : Editor
         EditorGUILayout.PropertyField(_image);
         EditorGUILayout.PropertyField (_name);
 
-        if ((int)item.type == 2)
+        if(item.actionType == ActionType.Water)
+        {
+            EditorGUILayout.PropertyField(_waterAmount);
+            EditorGUILayout.PropertyField(_currentWater);
+        }
+
+        if (item.type == ItemType.Seed)
         {
             EditorGUILayout.PropertyField(_seed);
         }

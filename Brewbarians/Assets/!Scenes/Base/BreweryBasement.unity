@@ -2063,16 +2063,6 @@ MonoBehaviour:
     - actorId: 0
       message: Let's go to the Brewery!
     Done: 0
-  - State: 9
-    Messages:
-    - actorId: 0
-      message: This is how you brew ....
-    Done: 0
-  - State: 10
-    Messages:
-    - actorId: 0
-      message: All done! Perfect!
-    Done: 0
   state: 0
   newState: 1
   exclaPrefab: {fileID: 8255909818119688383, guid: deb29b7fdd5f7984b8ec45d9033b047f, type: 3}

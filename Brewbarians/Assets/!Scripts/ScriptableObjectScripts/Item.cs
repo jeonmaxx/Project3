@@ -16,6 +16,10 @@ public class Item : ScriptableObject
     public Sprite image;
     public string itemName;
 
+    [Header("ActionType Water")]
+    public int waterAmount;
+    public int currentWater;
+
     [Header("ItemType Seed")]
     public Seed seed;
 }
