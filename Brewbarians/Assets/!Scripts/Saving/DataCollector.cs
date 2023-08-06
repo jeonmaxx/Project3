@@ -77,9 +77,7 @@ public class DataCollector : MonoBehaviour
 
         if (File.Exists(filePath) && new FileInfo(filePath).Length > 0 )
             GiveData();
-    }
-
- 
+    } 
 
     public void CollectData()
     {
@@ -88,16 +86,16 @@ public class DataCollector : MonoBehaviour
 
         //Main Items
         mainItems = new List<MainItems>();
-        for (int i = 0; i < inventoryManager.inventorySlots.Length; i++)
+        for (int i = 0; i < inventoryManager.inventorySlots.Length; i++) //Schleife so lange, wie es Slots gibt
         {
-            if (inventoryManager.inventorySlots[i].transform.childCount != 0)
+            if (inventoryManager.inventorySlots[i].transform.childCount != 0) // Wenn ein Slot nicht leer ist...
             {
-                tmpInven = inventoryManager.inventorySlots[i].transform.GetChild(0).GetComponent<InventoryItem>();
-                mainItems.Add(new MainItems(tmpInven.item, tmpInven.count));
+                tmpInven = inventoryManager.inventorySlots[i].transform.GetChild(0).GetComponent<InventoryItem>(); //... nehm das erste Kind InventoryItem ...
+                mainItems.Add(new MainItems(tmpInven.item, tmpInven.count)); // ... und tu es in die Liste
             }
             else
             {
-                mainItems.Add(null);
+                mainItems.Add(null); //Ansonsten add null (für leeren Slot)
             }
         }
 

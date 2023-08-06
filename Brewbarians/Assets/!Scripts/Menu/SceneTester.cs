@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class SceneTester : MonoBehaviour
 {
     public DataCollector dataCollector;
-    public PointsCollector collector;
     public int tmpIndex = 1;
 
     public void LoadGame()

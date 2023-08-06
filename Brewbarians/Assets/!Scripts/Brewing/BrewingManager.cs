@@ -113,7 +113,7 @@ public class BrewingManager : MonoBehaviour
         {
             checking = true;
             qte.QteMethode();
-            tutorial.diaList[9].Done = true;
+            tutorial.diaList[7].Done = true;
             tutorial.newState = true;
         }
     }

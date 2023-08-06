@@ -8,6 +8,9 @@ public class LoadNextScene : MonoBehaviour
 {
     public int sceneIndex;
 
+    public DataCollector dataCollector;
+    public int tmpIndex = 1;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -16,11 +19,7 @@ public class LoadNextScene : MonoBehaviour
 
     IEnumerator LoadYourAsyncScene()
     {
-        // The Application loads the Scene in the background as the current Scene runs.
-        // This is particularly good for creating loading screens.
-        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-        // a sceneBuildIndex of 1 as shown in Build Settings.
-
+        dataCollector.CollectData();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
 
         // Wait until the asynchronous scene fully loads

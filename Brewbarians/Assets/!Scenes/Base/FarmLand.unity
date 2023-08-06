@@ -26370,6 +26370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 4
+  dataCollector: {fileID: 1555428670}
+  tmpIndex: 1
 --- !u!61 &1308201399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27814,6 +27816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 3
+  dataCollector: {fileID: 1555428670}
+  tmpIndex: 1
 --- !u!61 &1526640236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28405,7 +28409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataCollector: {fileID: 1555428670}
-  collector: {fileID: 1555428671}
   tmpIndex: 1
 --- !u!114 &1555428670
 MonoBehaviour:
