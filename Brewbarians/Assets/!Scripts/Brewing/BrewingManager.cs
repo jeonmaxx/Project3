@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class BrewingManager : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class BrewingManager : MonoBehaviour
 
     [HideInInspector] public Item neededOne;
     [HideInInspector] public Item neededTwo;
+
+    public TMP_Text ingreOneShow;
+    public TMP_Text ingreTwoShow;
+    public TMP_Text ingreOneAmount;
+    public TMP_Text ingreTwoAmount;
 
     public TMP_Text ingreOneText;
     public TMP_Text ingreTwoText;
@@ -58,6 +64,10 @@ public class BrewingManager : MonoBehaviour
             ingreOneText.SetText(chosenRecipe.Product1.itemName);
             neededTwo = chosenRecipe.Product2;
             ingreTwoText.SetText(chosenRecipe.Product2.itemName);
+            ingreOneShow.SetText(chosenRecipe.Product1.itemName);
+            ingreTwoShow.SetText(chosenRecipe.Product2.itemName);
+            ingreOneAmount.SetText((chosenRecipe.Product1Amount * quantity).ToString());
+            ingreTwoAmount.SetText((chosenRecipe.Product2Amount * quantity).ToString());
         }
     }
 
@@ -143,9 +153,7 @@ public class BrewingManager : MonoBehaviour
     }
 
     public void BrewButton()
-    {
-        
-
+    {      
         if (!brewing)
         {
             for (int i = 0; i < (quantity + bonusPoints); i++)
@@ -187,6 +195,7 @@ public class BrewingManager : MonoBehaviour
 
             brewing = false;
             bonusPoints = 0;
+            wait.currentValue = 0;
             wait.progressBar.value = 0;
             open.state = BrewingStates.Recipe;
             ChangingScreen(0);

@@ -8,6 +8,7 @@ public class QTE : MonoBehaviour
     [SerializeField] private RectTransform goodZone;
     [SerializeField] private RectTransform player;
     [SerializeField] private int playerSpeed;
+    [SerializeField] private Vector2 randomSpeedMinMax;
     [SerializeField] private Vector2 xPosition;
     [SerializeField] private Vector2 playerZone;
     private float xPos;
@@ -22,15 +23,7 @@ public class QTE : MonoBehaviour
 
     void Start()
     {
-        switch (kind)
-        {
-            case QteKind.Bar:
-                ZonePos(xPosition);
-                goodZone.anchoredPosition = new Vector3(xPos, goodZone.anchoredPosition.y, 0);
-                break;
-            default: break;
-        }
-
+        ChangePos();
         transform.localScale = Vector3.zero;
         //LeanTween.init(2400);
     }
@@ -50,11 +43,30 @@ public class QTE : MonoBehaviour
     {
         moving = true;
         done = false;
+        RandomSpeed();
+        ChangePos();
+    }
+
+    private void ChangePos()
+    {
+        switch (kind)
+        {
+            case QteKind.Bar:
+                ZonePos(xPosition);
+                goodZone.anchoredPosition = new Vector3(xPos, goodZone.anchoredPosition.y, 0);
+                break;
+            default: break;
+        }
     }
 
     private float ZonePos(Vector2 position)
     {
         return xPos = Random.Range(position.x, position.y);
+    }
+
+    private void RandomSpeed()
+    {
+        playerSpeed = Random.Range((int)randomSpeedMinMax.x, (int)randomSpeedMinMax.y) * 10;
     }
 
     private void PlayerMoving()
