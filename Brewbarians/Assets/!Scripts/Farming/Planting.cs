@@ -67,8 +67,12 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         {
             hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Hoed;
-            tutorial.diaList[1].Done = true;
-            tutorial.newState = true;
+
+            if (tutorial.state == TutorialState.Shovel)
+            {
+                tutorial.diaList[1].Done = true;
+                tutorial.newState = true;
+            }
         }
     }
 
@@ -94,6 +98,12 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     {
         InventoryItem[] seedItem;
         seedItem = seedWheel.GetComponentsInChildren<InventoryItem>();
+
+        if (tutorial.state == TutorialState.SeedPouch && handManager.handItem.actionType == ActionType.Plant)
+        {
+            tutorial.diaList[3].Done = true;
+            tutorial.newState = true;
+        }
 
         for (int i = 0; i < seedItem.Length; i++)
         {
@@ -202,8 +212,16 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             curPlantState = PlantStates.None;
-            tutorial.diaList[5].Done = true;
-            tutorial.newState = true;
+
+            if(tutorial.state == TutorialState.Harvest)
+            {
+                tutorial.currentHarvest++;
+                if(tutorial.currentHarvest == tutorial.harvestAmount)
+                {
+                    tutorial.diaList[5].Done = true;
+                    tutorial.newState = true;
+                }               
+            }
         }
     }
 

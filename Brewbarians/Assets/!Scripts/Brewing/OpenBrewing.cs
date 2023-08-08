@@ -18,6 +18,8 @@ public class OpenBrewing : PlayerNear
     public PlayerMovement movement;
     public OpenInventory inventory;
 
+    public TutorialDialogue tutorial;
+
     public void Start()
     {
         currentRect = menus[0];
@@ -51,6 +53,16 @@ public class OpenBrewing : PlayerNear
             movement.enabled = true;
         }
 
+        if(state == BrewingStates.Waiting)
+        {
+            if (tutorial.state == TutorialState.Qte)
+            {
+                tutorial.trigger.passivePassed = false;
+                tutorial.diaList[9].Done = true;
+                tutorial.newState = true;
+            }
+        }
+
         currentRect = menus[(int)state];
     }
 
@@ -59,6 +71,13 @@ public class OpenBrewing : PlayerNear
         if (isPlayerNear && !menuOpen || choosing)
         {
             menuOpen = true;
+
+            if(tutorial.state == TutorialState.GoToMachine)
+            {
+                tutorial.diaList[7].Done = true;
+                tutorial.newState = true;
+                tutorial.trigger.passivePassed = false;
+            }
         }
         else if (menuOpen)
         {

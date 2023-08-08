@@ -21,19 +21,5 @@ public class DialogueNpc : PlayerNear
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D col)
-    //{
-    //    if (col.gameObject.tag == "Player")
-    //    {
-    //        playerNear = true;
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D col)
-    //{
-    //    if (col.gameObject.tag == "Player")
-    //    {
-    //        playerNear = false;
-    //    }
-    //}
+    
 }

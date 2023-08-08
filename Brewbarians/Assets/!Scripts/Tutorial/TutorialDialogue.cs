@@ -19,7 +19,7 @@ public class DialogueList
         Done = done;
     }
 }
-public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, Brewing, Done}
+public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, GoToMachine, ChooseRec, Qte, Brewing, Done}
 public class TutorialDialogue : MonoBehaviour
 {
     public DialogueTrigger trigger;
@@ -37,7 +37,12 @@ public class TutorialDialogue : MonoBehaviour
     public Recipe recipe;
 
     public int neededGrowPoints = 5;
-    public Item lastGiven;
+    public int harvestAmount = 3;
+    public int currentHarvest;
+
+    public bool itemGiven;
+
+    public bool resetTrigger;
 
 
     private void Update()
@@ -70,7 +75,19 @@ public class TutorialDialogue : MonoBehaviour
             diaList[6].Done = true;
             newState = true;
         }
+
+        if(newState)
+        {
+            itemGiven = false;
+        }
         
+        if(state == TutorialState.ChooseRec ||
+            state == TutorialState.Qte ||
+            state == TutorialState.Brewing)
+        {
+            trigger.PassiveDialogue();
+            newState = false;
+        }
     }
 
     public void OnInteract()
@@ -81,33 +98,47 @@ public class TutorialDialogue : MonoBehaviour
             {
                 case TutorialState.Introduction:
                     diaList[(int)state].Done = true;
+                    itemGiven = false;
                     newState = true;
                     break;
                 case TutorialState.Shovel:
                     GiveItem(0, 1);
+                    itemGiven = true;
                     newState = false;
                     break;
                 case TutorialState.Water:
                     GiveItem(1, 1);
+                    itemGiven = true;
                     newState = false;
                     break;
                 case TutorialState.SeedPouch:
                     GiveItem(2, 1);
-                    diaList[(int)state].Done = true;
+                    GiveItem(3, 5);
+                    itemGiven = true;
+                    newState = false;
                     break;
                 case TutorialState.Seed:
-                    GiveItem(3, 1);
                     newState = false;
                     break;
                 case TutorialState.Harvest:
                     GiveItem(4, 1);
+                    itemGiven = true;
                     newState = false;
                     break;
                 case TutorialState.GoToBrewery:
                     newState = false;
                     break;
-                case TutorialState.Brewing:
+                case TutorialState.GoToMachine:
                     recipeManager.AddRecipe(recipe);
+                    newState = false;
+                    break;
+                case TutorialState.ChooseRec:
+                    newState = false;
+                    break;
+                case TutorialState.Qte:
+                    newState = false;
+                    break;
+                case TutorialState.Brewing:
                     newState = false;
                     break;
                 case TutorialState.Done:
@@ -119,13 +150,12 @@ public class TutorialDialogue : MonoBehaviour
 
     public void GiveItem(int id, int count)
     {
-        if (givenItems[id] != lastGiven || lastGiven == null)
+        if (!itemGiven)
         {
             for (int i = 0; i < count; i++)
             {
                 inventoryManager.AddItem(givenItems[id]);
             }
-            lastGiven = givenItems[id];
         }        
     }
 

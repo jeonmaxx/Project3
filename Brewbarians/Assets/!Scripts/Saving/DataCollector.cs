@@ -34,14 +34,14 @@ public class Tutorial
     public List<DialogueList> TutDia;
     public TutorialState State;
     public bool NewState;
-    public Item LastGiven;
+    public bool ItemGiven;
 
-    public Tutorial(List<DialogueList> tutDia, TutorialState state, bool newState, Item lastGiven)
+    public Tutorial(List<DialogueList> tutDia, TutorialState state, bool newState, bool itemGiven)
     {
         TutDia = tutDia;
         State = state;
         NewState = newState;
-        LastGiven = lastGiven;
+        ItemGiven = itemGiven;
     }
 }
 
@@ -135,7 +135,7 @@ public class DataCollector : MonoBehaviour
         //Tutorial
         if (tutorial != null)
         {
-            tutorialList.Add(new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.lastGiven));
+            tutorialList.Add(new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.itemGiven));
             SaveGameManager.SaveToJSON<Tutorial>(tutorialList, "tutorial.json");
         }
 
@@ -207,7 +207,7 @@ public class DataCollector : MonoBehaviour
                 tutorial.diaList = tutorialList[i].TutDia;
                 tutorial.state = tutorialList[i].State;
                 tutorial.newState = tutorialList[i].NewState;
-                tutorial.lastGiven = tutorialList[i].LastGiven;
+                tutorial.itemGiven = tutorialList[i].ItemGiven;
             }
         }
     }

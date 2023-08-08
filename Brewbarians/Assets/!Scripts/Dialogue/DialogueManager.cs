@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     public RectTransform backgroundBox;
     public PlayerInput Input;
 
-    private Message[] currentMessages;
+    [HideInInspector] public Message[] currentMessages;
     private Actor[] currentActors;
     [HideInInspector] public int activeMessage = 0;
     public bool isActive = false;

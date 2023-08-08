@@ -1,7 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class BrewingManager : MonoBehaviour
 {
@@ -115,6 +113,12 @@ public class BrewingManager : MonoBehaviour
 
         else if (brew == 1 && itemOne == neededOne && enoughOne)
         {
+            if (tutorial.state == TutorialState.ChooseRec)
+            {
+                tutorial.diaList[8].Done = true;
+                tutorial.newState = true;
+                tutorial.trigger.passivePassed = false;
+            }
             checking = true;
             qte.QteMethode();
         }
@@ -123,8 +127,6 @@ public class BrewingManager : MonoBehaviour
         {
             checking = true;
             qte.QteMethode();
-            tutorial.diaList[7].Done = true;
-            tutorial.newState = true;
         }
     }
 
@@ -159,6 +161,11 @@ public class BrewingManager : MonoBehaviour
             for (int i = 0; i < (quantity + bonusPoints); i++)
             {
                 inventoryManager.AddItem(chosenRecipe.Drink);
+                if (tutorial.state == TutorialState.Brewing)
+                {
+                    tutorial.diaList[10].Done = true;
+                    tutorial.newState = true;
+                }
             }
 
             if (inventoryItemOne.count > 0 && inventoryItemTwo.count > 0)
