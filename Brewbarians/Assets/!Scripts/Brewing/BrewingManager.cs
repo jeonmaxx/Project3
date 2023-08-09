@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BrewingManager : MonoBehaviour
 {
@@ -42,8 +43,12 @@ public class BrewingManager : MonoBehaviour
 
     public int bonusPoints;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
     private void Start()
     {
+        action = inputAction.action;
         open = GetComponent<OpenBrewing>();
         LeanTween.init(1600);
     }
@@ -52,6 +57,7 @@ public class BrewingManager : MonoBehaviour
     {
         CheckRecipe();
         CheckIngredients();
+        action.started += _ => OnQte();
     }
 
     public void CheckRecipe()

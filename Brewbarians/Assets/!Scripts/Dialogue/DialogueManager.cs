@@ -10,16 +10,24 @@ public class DialogueManager : MonoBehaviour
     public Text actorName;
     public Text messageText;
     public RectTransform backgroundBox;
-    public PlayerInput Input;
 
     [HideInInspector] public Message[] currentMessages;
     private Actor[] currentActors;
     [HideInInspector] public int activeMessage = 0;
     public bool isActive = false;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
     public void Start()
     {
         backgroundBox.transform.localScale = Vector3.zero;
+        action = inputAction.action;
+    }
+
+    public void Update()
+    {
+        action.started += _ => OnSkip();
     }
 
     public void OnSkip()

@@ -5,12 +5,20 @@ using UnityEngine.InputSystem;
 
 public class DialogueNpc : PlayerNear
 {
-    public PlayerInput Input;
     public DialogueTrigger trigger;
+
+    public InputActionReference inputAction;
+    private InputAction action;
+
+    public void Start()
+    {
+        action = inputAction.action;
+    }
 
     private void Update()
     {
         CalcDistance();
+        action.started += _ => OnInteract();
     }
 
     public void OnInteract()
@@ -18,6 +26,7 @@ public class DialogueNpc : PlayerNear
         if (isPlayerNear)
         {
             trigger.StartDialogue();
+            Debug.Log(trigger.messages.Length);
         }
     }
 

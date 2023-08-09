@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEditor.Animations;
 
 public class OpenInventory : MonoBehaviour
 {
-    public PlayerInput input;
     public bool inventoryActive = false;
     public GameObject inventoryBox;
     public GameObject toolBar;
@@ -24,16 +20,22 @@ public class OpenInventory : MonoBehaviour
 
     private Color color;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
     public void Start()
     {
         toolBarPos = new Vector3(toolBar.GetComponent<RectTransform>().anchoredPosition.x, toolBar.GetComponent<RectTransform>().anchoredPosition.y, 0);
         windows = Windows.Inventory;
 
         color = toolBar.GetComponent<Image>().color;
+
+        action = inputAction.action;
     }
 
     public void Update()
     {
+        action.started += _ => OnInventory();
         if (!inventoryActive)
         {
             inventoryBox.GetComponent<Canvas>().enabled = false;

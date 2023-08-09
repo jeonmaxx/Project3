@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public enum BrewingStates { Recipe, IngreOne, IngreTwo, Waiting }
 public class OpenBrewing : PlayerNear
 {
-    public PlayerInput input;
     public RectTransform[] menus;
     public RectTransform currentRect;
     public BrewingStates state;
@@ -20,6 +19,9 @@ public class OpenBrewing : PlayerNear
 
     public TutorialDialogue tutorial;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
     public void Start()
     {
         currentRect = menus[0];
@@ -28,11 +30,15 @@ public class OpenBrewing : PlayerNear
             menus[i].transform.localScale = Vector3.zero;
         }
         LeanTween.init(2400);
+
+        action = inputAction.action;
     }
 
     public void Update()
     {
         CalcDistance();
+
+        action.started += _ => OnInteract();
 
         if (menuOpen && isPlayerNear)
         {

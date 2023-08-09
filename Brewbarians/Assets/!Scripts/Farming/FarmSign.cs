@@ -7,7 +7,6 @@ public class FarmSign : PlayerNear
     private ActionType handType;
     private bool inHand = false;
     public bool seedInHand;
-    public PlayerInput input;
     public RectTransform seedWheel;
     private SeedWheelManager seedWheelManager;
 
@@ -19,16 +18,22 @@ public class FarmSign : PlayerNear
 
     public bool wheelOpen = false;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
     public void Start()
     {
         seedWheel.transform.localScale = Vector3.zero;
         color = signSprite.color;
+        action = inputAction.action;
     }
 
     public void Update()
     {
         CheckHand();
         CalcDistance();
+
+        action.started += _ => OnInteract();
 
         if (wheelOpen && !isPlayerNear)
         {

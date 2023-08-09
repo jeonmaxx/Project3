@@ -20,7 +20,7 @@ public class DialogueList
     }
 }
 public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, GoToMachine, ChooseRec, Qte, Brewing, Done}
-public class TutorialDialogue : MonoBehaviour
+public class TutorialDialogue : PlayerNear
 {
     public DialogueTrigger trigger;
     public DialogueManager manager;
@@ -28,7 +28,6 @@ public class TutorialDialogue : MonoBehaviour
     public PointsCollector collector;
     public FarmingManager farmingManager;
     public RecipeManager recipeManager;
-    public PlayerInput input;
     public List<DialogueList> diaList;
     public TutorialState state;
     public bool newState;
@@ -44,10 +43,20 @@ public class TutorialDialogue : MonoBehaviour
 
     public bool resetTrigger;
 
+    public InputActionReference inputAction;
+    private InputAction action;
+
+    public void Start()
+    {
+        action = inputAction.action;
+    }
 
     private void Update()
     {
-        if(newState && transform.childCount == 0)
+        action.started += _ => OnInteract();
+
+        CalcDistance();
+        if (newState && transform.childCount == 0)
         {
             Instantiate(exclaPrefab, transform);
         }
@@ -92,8 +101,10 @@ public class TutorialDialogue : MonoBehaviour
 
     public void OnInteract()
     {
-        if (manager.isActive)
+        if (isPlayerNear)
         {
+            trigger.StartDialogue();
+            Debug.Log(trigger.messages.Length + " tutorial");
             switch (state)
             {
                 case TutorialState.Introduction:
@@ -144,6 +155,7 @@ public class TutorialDialogue : MonoBehaviour
                 case TutorialState.Done:
                     newState = false;
                     break;
+
             }
         }
     }

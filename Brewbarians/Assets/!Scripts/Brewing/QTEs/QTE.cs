@@ -17,19 +17,25 @@ public class QTE : MonoBehaviour
     private bool movingRight = true;
     public bool done = false;
     [SerializeField] private PlayerQte playerQte;
-    [SerializeField] private PlayerInput input;
 
     public BrewingManager manager;
+
+    public InputActionReference inputAction;
+    private InputAction action;
 
     void Start()
     {
         ChangePos();
         transform.localScale = Vector3.zero;
         //LeanTween.init(2400);
+
+        action = inputAction.action;
     }
 
     public void Update()
     {
+        action.started += _ => OnQte();
+
         if (moving)
         {
             transform.localScale = Vector3.one;
@@ -95,6 +101,7 @@ public class QTE : MonoBehaviour
         player.anchoredPosition = position;
     }
 
+    //Brewing Manager hat auch ein OnQte
     public void OnQte()
     {
         if (moving)
