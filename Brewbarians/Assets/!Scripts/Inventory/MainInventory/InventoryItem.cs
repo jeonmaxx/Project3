@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,8 +15,29 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public int count = 1;
     [HideInInspector] public Transform parentAfterDrag;
 
+    public Slider waterSlider;
+
+    public void Update()
+    {
+        if (item != null && item.actionType == ActionType.Water)
+        {
+            waterSlider.value = item.currentWater;
+            waterSlider.maxValue = item.waterAmount;
+        }
+    }
+
     public void InitialiseItem(Item newItem)
     {
+        if(newItem.actionType == ActionType.Water)
+        {
+            waterSlider.gameObject.SetActive(true);
+            waterSlider.value = newItem.currentWater;
+            waterSlider.maxValue = newItem.waterAmount;
+        }
+        else
+        {
+            waterSlider.gameObject.SetActive(false);
+        }
         item = newItem;
         image.sprite = newItem.image;
         RefreshCount();
