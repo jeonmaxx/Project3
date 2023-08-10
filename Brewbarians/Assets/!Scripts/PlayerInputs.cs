@@ -71,6 +71,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenChest"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d8344d4-4b77-4899-bd4a-595eb875932b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -183,6 +192,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Qte"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b74e455-d3e9-46f2-a007-7f8088e798e3"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenChest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +216,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_InGame_Interact = m_InGame.FindAction("Interact", throwIfNotFound: true);
         m_InGame_Inventory = m_InGame.FindAction("Inventory", throwIfNotFound: true);
         m_InGame_Qte = m_InGame.FindAction("Qte", throwIfNotFound: true);
+        m_InGame_OpenChest = m_InGame.FindAction("OpenChest", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +283,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Interact;
     private readonly InputAction m_InGame_Inventory;
     private readonly InputAction m_InGame_Qte;
+    private readonly InputAction m_InGame_OpenChest;
     public struct InGameActions
     {
         private @PlayerInputs m_Wrapper;
@@ -271,6 +293,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_InGame_Interact;
         public InputAction @Inventory => m_Wrapper.m_InGame_Inventory;
         public InputAction @Qte => m_Wrapper.m_InGame_Qte;
+        public InputAction @OpenChest => m_Wrapper.m_InGame_OpenChest;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -295,6 +318,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Qte.started += instance.OnQte;
             @Qte.performed += instance.OnQte;
             @Qte.canceled += instance.OnQte;
+            @OpenChest.started += instance.OnOpenChest;
+            @OpenChest.performed += instance.OnOpenChest;
+            @OpenChest.canceled += instance.OnOpenChest;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -314,6 +340,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Qte.started -= instance.OnQte;
             @Qte.performed -= instance.OnQte;
             @Qte.canceled -= instance.OnQte;
+            @OpenChest.started -= instance.OnOpenChest;
+            @OpenChest.performed -= instance.OnOpenChest;
+            @OpenChest.canceled -= instance.OnOpenChest;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -338,5 +367,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnQte(InputAction.CallbackContext context);
+        void OnOpenChest(InputAction.CallbackContext context);
     }
 }
