@@ -5,17 +5,18 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Unity.VisualScripting.Member;
 
-public enum TileKind { Earth, Grass, Stone, Path}
+public enum TileKind { None, Dirt, Grass, Stone, Path}
 public class StepSounds : MonoBehaviour
 {
-    public AudioClip[] sounds;
+    public AudioClip[] dirtSounds;
+    public AudioClip[] grassSounds;
+    public AudioClip[] stoneSounds;
+    public AudioClip[] pathSounds;
 
     private AudioSource audioSource;
     public PlayerMovement movement;
 
     public TileKind kind;
-
-    public bool inGras;
 
     public void Start()
     {
@@ -25,13 +26,28 @@ public class StepSounds : MonoBehaviour
     public IEnumerator PlayRandomSound()
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
-        audioSource.clip = sounds[Random.Range(0, sounds.Length - 1)];
+
+        switch (kind)
+        {
+            case TileKind.Grass:
+                audioSource.clip = grassSounds[Random.Range(0, grassSounds.Length)];                
+                break;
+            case TileKind.Dirt:
+                audioSource.clip = dirtSounds[Random.Range(0, dirtSounds.Length)];
+                break;
+            case TileKind.Stone:
+                audioSource.clip = stoneSounds[Random.Range(0, stoneSounds.Length)];
+                break;
+            case TileKind.Path:
+                audioSource.clip = pathSounds[Random.Range(0, pathSounds.Length)];
+                break;
+        };
         audioSource.Play();
     }
 
     public void Update()
     {
-        if (kind == TileKind.Grass && (movement.m_PlayerMovement.x != 0 || movement.m_PlayerMovement.y != 0))
+        if (movement.m_PlayerMovement.x != 0 || movement.m_PlayerMovement.y != 0)
         {
             StartCoroutine(PlayRandomSound());
             Debug.Log("Grass touched");
@@ -43,15 +59,26 @@ public class StepSounds : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.name == "Dirt")
+        {
+            kind = TileKind.Dirt;
+        }
+        
         if (collision.name == "Gras")
         {
             kind = TileKind.Grass;
         }
-        if(collision.name == "Stone")
+        
+        if (collision.name == "Stone")
         {
             kind = TileKind.Stone;
+        }
+        
+        if (collision.name == "Path")
+        {
+            kind = TileKind.Path;
         }
     }
 }
