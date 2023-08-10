@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c767455f5572ee3499b943d071999680, type: 3}
-  m_Name: SeedObjects 1
+  m_Name: GersteObj
   m_EditorClassIdentifier: 
-  Ph01: {fileID: 5544991132756787303, guid: c9aa281cca9e2264792961097dc6896e, type: 3}
-  Ph02: {fileID: 8032992765348870521, guid: dfab2820b910eaa4f9f1aca9ba9f335b, type: 3}
-  Ph03: {fileID: 3208266511399466789, guid: ab42028f034258249b4141b3afdad95e, type: 3}
+  Ph01: {fileID: 5544991132756787303, guid: a19f9217a0822e148b09bf8a61e45e5f, type: 3}
+  Ph02: {fileID: 5544991132756787303, guid: 8ba67768dc855954eb15df4417aeaae6, type: 3}
+  Ph03: {fileID: 5544991132756787303, guid: 4fafd9e736be57d4e91913d87b6b3f75, type: 3}
   Product: {fileID: 11400000, guid: d05506aade67dd0479338905460a716b, type: 2}

@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23932929b0f841f40bbaaf112b17f99f, type: 3}
-  m_Name: Product2
+  m_Name: BarleySeedItem
   m_EditorClassIdentifier: 
-  obj: {fileID: 3208266511399466789, guid: ab42028f034258249b4141b3afdad95e, type: 3}
-  type: 3
-  actionType: 0
+  obj: {fileID: 5544991132756787303, guid: a19f9217a0822e148b09bf8a61e45e5f, type: 3}
+  type: 2
+  actionType: 3
   range: {x: 5, y: 4}
   stackable: 1
-  image: {fileID: 21300000, guid: cdb88fdb0cf46b244a667edaff21c7df, type: 3}
-  itemName: Product02
-  seed: {fileID: 0}
+  image: {fileID: 21300000, guid: da51c728605250a4f88e25dbef8ffa30, type: 3}
+  itemName: Barley Seed
+  waterAmount: 0
+  currentWater: 0
+  seed: {fileID: 11400000, guid: f8e153365fcbe7a409999d73457da151, type: 2}

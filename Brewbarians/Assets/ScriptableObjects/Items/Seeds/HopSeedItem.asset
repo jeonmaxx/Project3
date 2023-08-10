@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23932929b0f841f40bbaaf112b17f99f, type: 3}
-  m_Name: SeedItem02
+  m_Name: HopSeedItem
   m_EditorClassIdentifier: 
   obj: {fileID: 5544991132756787303, guid: c9aa281cca9e2264792961097dc6896e, type: 3}
   type: 2
   actionType: 3
   range: {x: 5, y: 4}
   stackable: 1
-  image: {fileID: 21300000, guid: f53eca637c0194e4ab6729cf60753757, type: 3}
+  image: {fileID: 21300000, guid: 5821ebe9b1b5aca429ff3c23b5d8f183, type: 3}
+  itemName: Hop Seed
+  waterAmount: 0
+  currentWater: 0
   seed: {fileID: 11400000, guid: 2efe7f77164152d41908e310708cf3c6, type: 2}
