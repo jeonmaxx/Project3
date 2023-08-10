@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 2
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: 17d3bf7425a0748489ce3633e38652db, type: 3}
+  image: {fileID: 21300000, guid: e4e5d206471e653468e59d69e1be7639, type: 3}
   itemName: Watering Can
   waterAmount: 10
   currentWater: 2

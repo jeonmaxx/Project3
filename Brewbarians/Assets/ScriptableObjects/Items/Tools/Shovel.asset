@@ -17,6 +17,8 @@ MonoBehaviour:
   actionType: 1
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: 748ae8b33df036b46a86e0387f1602cf, type: 3}
+  image: {fileID: 21300000, guid: 9d87a885311bdcf48b91524c7156af78, type: 3}
   itemName: Shovel
+  waterAmount: 0
+  currentWater: 0
   seed: {fileID: 0}
