@@ -46,7 +46,6 @@ public class StepSounds : MonoBehaviour
         if (movement.m_PlayerMovement.x != 0 || movement.m_PlayerMovement.y != 0)
         {
             StartCoroutine(PlayRandomSound());
-            Debug.Log("Grass touched");
         }
         else
         {

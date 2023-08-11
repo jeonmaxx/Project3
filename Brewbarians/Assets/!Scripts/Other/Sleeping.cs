@@ -12,29 +12,55 @@ public class Sleeping : PlayerNear
     public DayTime time;
 
     public GameObject sleepAsking;
-    private Transform ui;
     public PlayerMovement movement;
 
     public Image blackBackground;
     public TextMeshProUGUI sleepText;
-    public float alpha = 0;
+    public float backgroundAlpha = 0;
+    public bool increasing;
+    public bool sleeping;
 
     public void Start()
     {
         action = inputAction.action;
-        ui = GameObject.Find("UI").transform;
         sleepAsking.SetActive(false);
 
         blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
         sleepText.color = new Color(sleepText.color.r, sleepText.color.g, sleepText.color.b, 0);
-        blackBackground.enabled = false;
-        sleepText.enabled = false;
     }
 
     private void Update()
     {
         CalcDistance();
         action.started += _ => OnInteract();
+
+
+        if(increasing && sleeping)
+        {
+            if (backgroundAlpha < 1)
+            {
+                backgroundAlpha += Time.deltaTime * 0.5f;
+            }
+            else
+            {
+                StartCoroutine(SleepScreen());
+            }
+        }
+        if(!increasing && sleeping)
+        {
+            StartCoroutine(SleepScreen());
+            if (backgroundAlpha >= 0)
+            {
+                backgroundAlpha -= Time.deltaTime * 0.5f;
+            }
+            else
+            {
+                movement.enabled = true;
+                sleeping = false;
+            }
+        }
+        blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, backgroundAlpha);
+        sleepText.color = new Color(sleepText.color.r, sleepText.color.g, sleepText.color.b, backgroundAlpha);
     }
 
     private void OnInteract()
@@ -48,10 +74,8 @@ public class Sleeping : PlayerNear
 
     public void YesButton()
     {
-        StartCoroutine(SleepScreen());
-        time.collector.dayTime = 0;
-        time.currentTime = 0;
-        movement.enabled = true;
+        increasing = true;
+        sleeping = true;
         sleepAsking.SetActive(false);
     }
 
@@ -63,21 +87,9 @@ public class Sleeping : PlayerNear
 
     public IEnumerator SleepScreen()
     {
-        blackBackground.enabled = true;
-        sleepText.enabled = true;
-        if(alpha < 1)
-        {
-            alpha += Time.deltaTime * 0.1f;
-            blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, alpha);
-            sleepText.color = new Color(sleepText.color.r, sleepText.color.g, sleepText.color.b, alpha);
-        }
-        yield return new WaitForSeconds(3);
-        if (alpha > 0)
-        {
-            alpha -= Time.deltaTime * 0.1f;
-            blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, alpha);
-            sleepText.color = new Color(sleepText.color.r, sleepText.color.g, sleepText.color.b, alpha);
-        }
-    
+        time.collector.dayTime = 0;
+        time.currentTime = 0;
+        yield return new WaitForSeconds(2);
+        increasing = false;
     }
 }
