@@ -19,13 +19,16 @@ public class DayTime : MonoBehaviour
         coroutineDone = false;
     }
 
+    private void FixedUpdate()
+    {
+        if (!coroutineDone)
+            StartCoroutine(ChangeNightSky());
+    }
+
     public void Update()
     {
         if(!coroutineDone)
             StartCoroutine(ChangeNightSky());
-
-        if(currentTime >= maxDayTime)
-            StopCoroutine(ChangeNightSky());
 
         if (currentTime < maxDayTime)
             currentTime = collector.dayTime;
@@ -39,6 +42,12 @@ public class DayTime : MonoBehaviour
             if (night <= ((currentTime * maxDayTime) / 130))
                 night += (Time.deltaTime * 0.1f);
 
+            nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
+        }
+
+        if(currentTime == 0)
+        {
+            night = 0;
             nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
         }
     }
