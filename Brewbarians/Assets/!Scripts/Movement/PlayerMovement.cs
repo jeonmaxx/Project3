@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float speed = 5;
-    private Animator animator;
+    [HideInInspector] public Animator animator;
     DialogueManager dialogueManager;
     public InputActionReference actionRef;
     private InputAction m_MoveAction;
