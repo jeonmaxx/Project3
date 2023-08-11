@@ -44,6 +44,7 @@ public class Sleeping : PlayerNear
             else
             {
                 StartCoroutine(SleepScreen());
+                movement.animator.SetBool("IsSleeping", false);
             }
         }
         if(!increasing && sleeping)
@@ -74,9 +75,8 @@ public class Sleeping : PlayerNear
 
     public void YesButton()
     {
-        increasing = true;
-        sleeping = true;
         sleepAsking.SetActive(false);
+        StartCoroutine(SleepAnim());
     }
 
     public void NoButton()
@@ -91,5 +91,14 @@ public class Sleeping : PlayerNear
         time.currentTime = 0;
         yield return new WaitForSeconds(2);
         increasing = false;
+    }
+
+    public IEnumerator SleepAnim()
+    {
+        movement.animator.SetBool("IsSleeping", true);
+        yield return new WaitForSeconds(3);
+        increasing = true;
+        sleeping = true;
+        StopCoroutine(SleepAnim());
     }
 }
