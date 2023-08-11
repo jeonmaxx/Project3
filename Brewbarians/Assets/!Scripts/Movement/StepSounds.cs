@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using static Unity.VisualScripting.Member;
 
 public enum TileKind { None, Dirt, Grass, Stone, Path}
 public class StepSounds : MonoBehaviour

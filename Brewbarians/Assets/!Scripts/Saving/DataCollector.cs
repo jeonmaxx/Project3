@@ -61,9 +61,10 @@ public class DataCollector : MonoBehaviour
     public List<MainItems> mainItems;
     public List<MainSeeds> mainSeeds;
     public List<Recipe> recipes;
-    public Vector2 Points;
+    public Vector3 Points;
     private float farmPoints;
     private float brewPoints;
+    private float dayPoints;
     public Vector2 scene;
     public List<Tutorial> tutorialList;
 
@@ -127,7 +128,8 @@ public class DataCollector : MonoBehaviour
         //GrowingPoints
         farmPoints = pointsCollector.addedFarmPoints;
         brewPoints = pointsCollector.addedBrewPoints;
-        Points = new Vector2(farmPoints, brewPoints);
+        dayPoints = pointsCollector.dayTime;
+        Points = new Vector3(farmPoints, brewPoints, dayPoints);
 
         //active Scene
         scene.x = SceneManager.GetActiveScene().buildIndex;
@@ -173,7 +175,7 @@ public class DataCollector : MonoBehaviour
         mainItems = SaveGameManager.ReadListFromJSON<MainItems>("items.json");
         mainSeeds = SaveGameManager.ReadListFromJSON<MainSeeds>("seeds.json");
         recipes = SaveGameManager.ReadListFromJSON<Recipe>("recipes.json");
-        Points = SaveGameManager.ReadFromJSON<Vector2>("points.json");
+        Points = SaveGameManager.ReadFromJSON<Vector3>("points.json");
         scene = SaveGameManager.ReadFromJSON<Vector2>("scene.json");
 
         farmingManager.plants = SaveGameManager.ReadListFromJSON<Plants>("plants.json");
@@ -199,6 +201,7 @@ public class DataCollector : MonoBehaviour
 
         pointsCollector.addedFarmPoints = Points.x;
         pointsCollector.addedBrewPoints = Points.y;
+        pointsCollector.dayTime = Points.z;
 
         if (tutorial != null)
         {

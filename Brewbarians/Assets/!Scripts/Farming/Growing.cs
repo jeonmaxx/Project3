@@ -30,9 +30,7 @@ public class Growing : MonoBehaviour
     {
         CheckPlantState();
         CheckFieldStates();
-    }
-
-   
+    }   
 
     public void CheckPlantState()
     {

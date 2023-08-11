@@ -6,6 +6,7 @@ public class PointsCollector : MonoBehaviour
 {
     public float addedFarmPoints;
     public float addedBrewPoints;
+    public float dayTime;
     public float secondsTilPoints = 5;
 
     public void Start()
@@ -23,11 +24,17 @@ public class PointsCollector : MonoBehaviour
         addedBrewPoints++;
     }
 
+    public void AddDayTime()
+    {
+        dayTime++;
+    }
+
     public IEnumerator WaitForAdding()
     {
         yield return new WaitForSeconds(secondsTilPoints);
         AddBrewPoints();
         AddFarmPoints();
+        AddDayTime();
         StopCoroutine(WaitForAdding());
     }
 }
