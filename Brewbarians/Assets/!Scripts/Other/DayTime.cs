@@ -12,15 +12,35 @@ public class DayTime : MonoBehaviour
     public PointsCollector collector;
     public float night;
 
-    public void Start()
+    public bool coroutineDone;
+
+    public void Awake()
     {
-        StartCoroutine(ChangeNightSky());
+        coroutineDone = false;
     }
 
     public void Update()
     {
-        currentTime = collector.dayTime;
+        if(!coroutineDone)
+            StartCoroutine(ChangeNightSky());
+
+        if(currentTime >= maxDayTime)
+            StopCoroutine(ChangeNightSky());
+
+        if (currentTime < maxDayTime)
+            currentTime = collector.dayTime;
+        else
+            collector.dayTime = maxDayTime;
+
         ArrowRotation();
+
+        if (currentTime >= (maxDayTime * 0.7f) && coroutineDone)
+        {
+            if (night <= ((currentTime * maxDayTime) / 130))
+                night += (Time.deltaTime * 0.1f);
+
+            nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
+        }
     }
 
     public void ArrowRotation()
@@ -31,30 +51,20 @@ public class DayTime : MonoBehaviour
         TimeArrow.transform.eulerAngles.x,
         TimeArrow.transform.eulerAngles.y,
         angle);
-
-        //if (currentTime >= (maxDayTime * 0.7f))
-        //{
-        //    nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
-        //    if (night <= ((currentTime * maxDayTime) / 130))
-        //    {
-        //        night += (Time.deltaTime * 0.1f);
-        //    }
-        //    nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
-        //}
     }
 
     public IEnumerator ChangeNightSky()
     {
         yield return new WaitForEndOfFrame();
-        night = (currentTime * maxDayTime) / 130;
-        if (currentTime >= (maxDayTime * 0.7f))
+        if (currentTime > (maxDayTime * 0.7f))
         {
+            night = (currentTime * maxDayTime) / 130;
             Debug.Log(night);
             nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
-            yield return new WaitForEndOfFrame();
-            night += (Time.deltaTime * 0.1f);
-            nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
         }
+
+        coroutineDone = true;
+        StopCoroutine(ChangeNightSky());
     }
 
     public void PassOut()
