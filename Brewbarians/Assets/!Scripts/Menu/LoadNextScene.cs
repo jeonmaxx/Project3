@@ -12,13 +12,13 @@ public class LoadNextScene : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
-            StartCoroutine(LoadYourAsyncScene());
+            StartCoroutine(LoadYourAsyncScene(sceneIndex));
     }
 
-    IEnumerator LoadYourAsyncScene()
+    public IEnumerator LoadYourAsyncScene(int scene)
     {
         dataCollector.CollectData();
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

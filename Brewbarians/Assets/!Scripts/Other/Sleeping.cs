@@ -76,6 +76,7 @@ public class Sleeping : PlayerNear
     public void YesButton()
     {
         sleepAsking.SetActive(false);
+        sleepText.text = "You sleep through the night ...";
         StartCoroutine(SleepAnim());
     }
 
