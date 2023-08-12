@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4228688475444853772}
   - component: {fileID: 4228688475444853773}
   - component: {fileID: 3423506113831085711}
+  - component: {fileID: 5627401575551792871}
   m_Layer: 0
   m_Name: ChickenUp
   m_TagString: Untagged
@@ -106,3 +107,44 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5627401575551792871
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228688475444853771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.52620536, y: 0.43448636}
+    oldSize: {x: 0.5625, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.13986021, y: 0.3393822}
+      - {x: -0.17778149, y: 0.30168486}
+      - {x: -0.17597464, y: 0.19400983}
+      - {x: -0.114864, y: 0.15178654}
+      - {x: -0.12573355, y: 0.03443993}
+      - {x: -0.17868312, y: 0.005246032}
+      - {x: -0.1755289, y: -0.10273598}
+      - {x: -0.048379406, y: -0.27459103}
+      - {x: 0.052257955, y: -0.274591}
+      - {x: 0.18175644, y: -0.15396981}
+      - {x: 0.17775905, y: 0.0012110621}
+      - {x: 0.12466501, y: 0.039147146}
+      - {x: 0.118535265, y: 0.14886606}
+      - {x: 0.1782919, y: 0.19663775}
+      - {x: 0.17714113, y: 0.30232966}
+      - {x: 0.14608775, y: 0.3371529}

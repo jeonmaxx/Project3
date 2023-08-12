@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3674100939082091671}
   - component: {fileID: 1042770313414480395}
+  - component: {fileID: 3315646644712810648}
   m_Layer: 0
   m_Name: Flowerpot_Blue
   m_TagString: Untagged
@@ -84,3 +85,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &3315646644712810648
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169840594034787005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.08926952, y: 0.37857974}
+      - {x: -0.038274784, y: 0.3247265}
+      - {x: -0.21583149, y: 0.31349665}
+      - {x: -0.26012367, y: 0.074947566}
+      - {x: -0.25110996, y: -0.17629936}
+      - {x: -0.17027345, y: -0.28908038}
+      - {x: -0.12307817, y: -0.3772779}
+      - {x: 0.16471198, y: -0.3790351}
+      - {x: 0.20671989, y: -0.3226083}
+      - {x: 0.25, y: -0.285497}
+      - {x: 0.25, y: 0.375}

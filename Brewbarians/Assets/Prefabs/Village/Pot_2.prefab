@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8405883942078142914}
   - component: {fileID: 3956846110970765608}
+  - component: {fileID: 8293367849096934026}
   m_Layer: 0
   m_Name: Pot_2
   m_TagString: Untagged
@@ -84,3 +85,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &8293367849096934026
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334607515613836738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.108134136, y: 0.25}
+      - {x: -0.101157725, y: 0.25}
+      - {x: -0.20130901, y: 0.15233049}
+      - {x: -0.19593295, y: 0.04462768}
+      - {x: -0.22792865, y: -0.0003358964}
+      - {x: -0.22035033, y: -0.17689162}
+      - {x: -0.100151286, y: -0.25697637}
+      - {x: 0.103783265, y: -0.2569764}
+      - {x: 0.23604721, y: -0.15436211}
+      - {x: 0.20988575, y: 0.16453916}

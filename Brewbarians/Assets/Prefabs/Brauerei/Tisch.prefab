@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4898261002054244997}
   - component: {fileID: 6997151544691270921}
+  - component: {fileID: 5157632032572041544}
   m_Layer: 0
   m_Name: Tisch
   m_TagString: Untagged
@@ -84,3 +85,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &5157632032572041544
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853484696741312587}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.65625, y: 3.0625}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.7220997, y: -1.4371254}
+      - {x: 0.7442568, y: 0.03814435}
+      - {x: 0.70803, y: 1.3125}
+      - {x: 0.6299878, y: 1.3875934}
+      - {x: 0.40812337, y: 1.3926638}
+      - {x: 0.3277444, y: 1.4512578}
+      - {x: 0.07678753, y: 1.4511603}
+      - {x: -0.022102177, y: 1.421874}
+      - {x: -0.099816605, y: 1.4263451}
+      - {x: -0.19631046, y: 1.3546615}
+      - {x: -0.3932013, y: 1.3520628}
+      - {x: -0.45607388, y: 1.3952818}
+      - {x: -0.6326057, y: 1.3928293}
+      - {x: -0.68145823, y: 1.3534261}
+      - {x: -0.6977409, y: -1.0973579}
+      - {x: -0.62825614, y: -1.15728}
+      - {x: -0.6275071, y: -1.4408028}
+      - {x: -0.4121536, y: -1.4375936}
+      - {x: -0.39494514, y: -1.2146654}
+      - {x: 0.26515687, y: -1.0252997}
+      - {x: 0.2787429, y: -1.1666268}
+      - {x: 0.46786425, y: -1.1787612}
+      - {x: 0.4664302, y: -1.4439185}

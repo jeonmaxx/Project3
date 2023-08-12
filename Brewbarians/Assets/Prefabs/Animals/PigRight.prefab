@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8545234841146121694}
   - component: {fileID: 8545234841146121693}
   - component: {fileID: 2841763822905367842}
+  - component: {fileID: 1910406382497515500}
   m_Layer: 0
   m_Name: PigRight
   m_TagString: Untagged
@@ -106,3 +107,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &1910406382497515500
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545234841146121695}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.45230523, y: 0.509274}
+    oldSize: {x: 1.25, y: 1.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.13864875, y: 0.23584458}
+      - {x: -0.28935635, y: 0.08777626}
+      - {x: -0.3765438, y: 0.090093225}
+      - {x: -0.41259295, y: 0.04811485}
+      - {x: -0.40997562, y: -0.011999983}
+      - {x: -0.38388926, y: -0.045904085}
+      - {x: -0.32463756, y: -0.05232829}
+      - {x: -0.3256274, y: -0.19962364}
+      - {x: -0.19745758, y: -0.35759908}
+      - {x: -0.13033307, y: -0.36022604}
+      - {x: -0.037465837, y: -0.23885553}
+      - {x: 0.062123075, y: -0.2354853}
+      - {x: 0.18551701, y: -0.36121362}
+      - {x: 0.24696535, y: -0.3600088}
+      - {x: 0.337232, y: -0.29975465}
+      - {x: 0.38295415, y: -0.23877606}
+      - {x: 0.466767, y: -0.23621368}
+      - {x: 0.5306548, y: -0.17133859}
+      - {x: 0.53423965, y: -0.07545055}
+      - {x: 0.44109794, y: 0.050294086}
+      - {x: 0.40362155, y: 0.08640286}
+      - {x: 0.40716094, y: 0.1416054}
+      - {x: 0.3728422, y: 0.18017553}
+      - {x: 0.23221809, y: 0.19191149}
+      - {x: 0.15380749, y: 0.24160612}

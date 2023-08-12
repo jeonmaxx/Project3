@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1817307091920070323}
   - component: {fileID: 550051747792919619}
+  - component: {fileID: 1970498064478076078}
   m_Layer: 0
   m_Name: "Gef\xE4ss"
   m_TagString: Untagged
@@ -84,3 +85,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1970498064478076078
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251455763975561401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.068261966, y: 0.15997784}
+      - {x: -0.12988023, y: 0.060736537}
+      - {x: -0.12999691, y: -0.15454489}
+      - {x: -0.07092172, y: -0.22350217}
+      - {x: 0.094345, y: -0.2177983}
+      - {x: 0.1589468, y: -0.15625}
+      - {x: 0.16228265, y: 0.060195208}
+      - {x: 0.09402066, y: 0.15997785}

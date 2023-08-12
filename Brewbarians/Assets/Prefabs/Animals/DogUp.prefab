@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5437700633449139658}
   - component: {fileID: 5437700633449139659}
   - component: {fileID: 2190654101252316361}
+  - component: {fileID: 385478910427310614}
   m_Layer: 0
   m_Name: DogUp
   m_TagString: Untagged
@@ -106,3 +107,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &385478910427310614
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5437700633449139653}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.4072602, y: 0.4618442}
+    oldSize: {x: 1.5, y: 1.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.08659057, y: 0.3914597}
+      - {x: -0.11611237, y: 0.36540183}
+      - {x: -0.17861237, y: 0.1761811}
+      - {x: -0.17514098, y: -0.19886376}
+      - {x: -0.14388347, y: -0.3307916}
+      - {x: 0.16343929, y: -0.33079162}
+      - {x: 0.2102505, y: -0.20159937}
+      - {x: 0.20638052, y: 0.17769614}
+      - {x: 0.14955376, y: 0.36019474}
+      - {x: 0.113089174, y: 0.3949311}

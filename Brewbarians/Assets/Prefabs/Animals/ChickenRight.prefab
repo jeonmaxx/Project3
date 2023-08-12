@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8664953696303335427}
   - component: {fileID: 8664953696303335424}
   - component: {fileID: 6604309203295072274}
+  - component: {fileID: 6981741138210440759}
   m_Layer: 0
   m_Name: ChickenRight
   m_TagString: Untagged
@@ -106,3 +107,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6981741138210440759
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664953696303335426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5216791, y: 0.47903565}
+    oldSize: {x: 0.6875, y: 0.875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.076670244, y: 0.33513057}
+      - {x: -0.12236118, y: 0.2823748}
+      - {x: -0.116711736, y: 0.09093332}
+      - {x: -0.24889901, y: 0.08146763}
+      - {x: -0.28374445, y: -0.016742602}
+      - {x: -0.24372284, y: -0.14700203}
+      - {x: -0.07837704, y: -0.30935794}
+      - {x: 0.08794144, y: -0.3057196}
+      - {x: 0.24880244, y: -0.14102224}
+      - {x: 0.2433483, y: 0.014403971}
+      - {x: 0.21747127, y: 0.12844071}
+      - {x: 0.27779832, y: 0.16884083}
+      - {x: 0.2775742, y: 0.30212837}
+      - {x: 0.2443259, y: 0.33496314}

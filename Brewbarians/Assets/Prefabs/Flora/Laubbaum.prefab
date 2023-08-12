@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5968761995892074470}
   - component: {fileID: 5968761995892074469}
+  - component: {fileID: 8901614041937400395}
   m_Layer: 0
   m_Name: Laubbaum
   m_TagString: Untagged
@@ -84,3 +85,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &8901614041937400395
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968761995892074468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 2.9375}
+    newSize: {x: 0.8, y: 0.94}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1366663, y: -0.5508337}
+      - {x: 1.2519808, y: -0.17661834}
+      - {x: 1.2248154, y: 0.73861957}
+      - {x: 1.0469131, y: 0.7959931}
+      - {x: 1.1073227, y: 1.0080258}
+      - {x: 0.8502779, y: 1.3113421}
+      - {x: 0.37727547, y: 1.4725043}
+      - {x: -0.33987427, y: 1.46875}
+      - {x: -0.5219574, y: 1.3815608}
+      - {x: -0.757926, y: 1.3344582}
+      - {x: -1.0932941, y: 1.0858237}
+      - {x: -1.0597696, y: 0.81295514}
+      - {x: -1.2651253, y: 0.6180146}
+      - {x: -1.2103682, y: -0.47667646}
+      - {x: -0.91937256, y: -0.6227243}
+      - {x: -0.73551273, y: -0.6619005}
+      - {x: -0.6700573, y: -0.78714895}
+      - {x: -0.34927845, y: -0.8198819}
+      - {x: -0.33165264, y: -1.3036222}
+      - {x: -0.1301384, y: -1.4939356}
+      - {x: 0.16208363, y: -1.4750466}
+      - {x: 0.35004616, y: -1.3183331}
+      - {x: 0.34773064, y: -0.80620384}
+      - {x: 0.7033787, y: -0.7693522}

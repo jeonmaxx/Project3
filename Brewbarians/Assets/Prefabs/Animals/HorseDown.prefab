@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5188908669864243531}
   - component: {fileID: 5188908669864243530}
   - component: {fileID: 4792752092045935722}
+  - component: {fileID: 6361984202223878092}
   m_Layer: 0
   m_Name: HorseDown
   m_TagString: Untagged
@@ -106,3 +107,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6361984202223878092
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188908669864243528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.4430312, y: 0.49999997}
+    oldSize: {x: 1.40625, y: 1.375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.22981267, y: 0.34160963}
+      - {x: 0.19285898, y: 0.37660417}
+      - {x: 0.15571104, y: 0.409828}
+      - {x: 0.068963714, y: 0.40827245}
+      - {x: 0.065155074, y: 0.44586045}
+      - {x: 0.032295555, y: 0.47448635}
+      - {x: -0.03097473, y: 0.47281677}
+      - {x: -0.06974885, y: 0.44329548}
+      - {x: -0.07629062, y: 0.41166702}
+      - {x: -0.15292656, y: 0.40915078}
+      - {x: -0.19227445, y: 0.3886089}
+      - {x: -0.22489, y: 0.34375006}
+      - {x: -0.2217196, y: -0.06848141}
+      - {x: -0.1941224, y: -0.074047424}
+      - {x: -0.1874677, y: -0.52857584}
+      - {x: -0.15692428, y: -0.56609625}
+      - {x: -0.08932212, y: -0.5705887}
+      - {x: -0.06086743, y: -0.5351859}
+      - {x: -0.021000274, y: -0.40090322}
+      - {x: 0.035918854, y: -0.4088648}
+      - {x: 0.04635819, y: -0.5659959}
+      - {x: 0.15425552, y: -0.56925374}
+      - {x: 0.20022306, y: -0.53064495}
+      - {x: 0.20209768, y: -0.08411007}
+      - {x: 0.22480413, y: -0.061044574}

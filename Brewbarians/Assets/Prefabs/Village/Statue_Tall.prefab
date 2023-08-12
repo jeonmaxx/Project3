@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6207157139160023248}
   - component: {fileID: 7576937122287559022}
+  - component: {fileID: -6958414544866876095}
   m_Layer: 0
   m_Name: Statue_Tall
   m_TagString: Untagged
@@ -84,3 +85,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &-6958414544866876095
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438146281237980114}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.875, y: 2.09375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.15012012, y: 1.0675262}
+      - {x: -0.09772119, y: 1.0501331}
+      - {x: -0.31694862, y: 1.001261}
+      - {x: -0.32472655, y: 0.50440466}
+      - {x: -0.4497901, y: 0.41786307}
+      - {x: -0.44285992, y: -0.881092}
+      - {x: -0.18336467, y: -1.0664239}
+      - {x: 0.19653821, y: -1.0599076}
+      - {x: 0.44401628, y: -0.8501959}
+      - {x: 0.43971196, y: 0.40291274}
+      - {x: 0.32194066, y: 0.4956092}
+      - {x: 0.3140439, y: 0.95428294}

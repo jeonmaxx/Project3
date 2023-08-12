@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1293579452604543451}
   - component: {fileID: 1293579452604543450}
   - component: {fileID: 3270218542593556952}
+  - component: {fileID: 6499867937572267302}
   m_Layer: 0
   m_Name: CowRight
   m_TagString: Untagged
@@ -106,3 +107,46 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6499867937572267302
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293579452604543452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5707546, y: 0.40041903}
+    oldSize: {x: 1.6875, y: 1.6875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.1891609, y: 0.58077973}
+      - {x: 0.15579595, y: 0.43351817}
+      - {x: -0.03593366, y: 0.30981085}
+      - {x: -0.35830623, y: 0.30322713}
+      - {x: -0.54231954, y: 0.1909574}
+      - {x: -0.5812076, y: -0.13172683}
+      - {x: -0.46280915, y: -0.2836535}
+      - {x: -0.35736543, y: -0.5699241}
+      - {x: -0.21322416, y: -0.55526865}
+      - {x: -0.0977188, y: -0.40996844}
+      - {x: 0.11017487, y: -0.4002156}
+      - {x: 0.20347194, y: -0.5634789}
+      - {x: 0.34652546, y: -0.5551829}
+      - {x: 0.5183318, y: -0.5164572}
+      - {x: 0.51743895, y: -0.21564785}
+      - {x: 0.71041924, y: 0.005218178}
+      - {x: 0.70577514, y: 0.24302067}
+      - {x: 0.52736473, y: 0.5782337}

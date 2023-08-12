@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7381529271087512598}
   - component: {fileID: 780915514648589415}
+  - component: {fileID: 6997252356997303407}
   m_Layer: 0
   m_Name: Hay
   m_TagString: Untagged
@@ -84,3 +85,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6997252356997303407
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882474960692894989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 1.78125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5427637, y: -0.047796488}
+      - {x: 0.53908974, y: 0.1738667}
+      - {x: 0.5749573, y: 0.25070173}
+      - {x: 0.52135205, y: 0.40131706}
+      - {x: 0.4981289, y: 0.6324983}
+      - {x: 0.22464651, y: 0.7815193}
+      - {x: -0.14868715, y: 0.73572576}
+      - {x: -0.25402778, y: 0.7736805}
+      - {x: -0.26741654, y: 0.7111805}
+      - {x: -0.3769633, y: 0.68619126}
+      - {x: -0.48083323, y: 0.546875}
+      - {x: -0.46496326, y: 0.46011022}
+      - {x: -0.49412704, y: -0.20239985}
+      - {x: -0.4972818, y: -0.26428765}
+      - {x: -0.5065763, y: -0.3639834}
+      - {x: -0.44841582, y: -0.4107575}
+      - {x: -0.45295691, y: -0.67411196}
+      - {x: -0.35263056, y: -0.8034514}
+      - {x: 0.38171086, y: -0.8101622}
+      - {x: 0.47756332, y: -0.68509495}
+      - {x: 0.542233, y: -0.37055972}

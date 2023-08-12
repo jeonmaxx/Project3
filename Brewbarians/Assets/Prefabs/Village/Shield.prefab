@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994027003082674249}
   - component: {fileID: 3734744796201406489}
+  - component: {fileID: 6617169251812771966}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -84,3 +85,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6617169251812771966
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254684729299472680}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.13898666, y: 0.5135597}
+      - {x: -0.21695483, y: 0.5}
+      - {x: -0.51016974, y: 0.21524684}
+      - {x: -0.50677985, y: -0.19490728}
+      - {x: -0.3510241, y: -0.37564182}
+      - {x: -0.15596357, y: -0.4860478}
+      - {x: 0.124146014, y: -0.4966101}
+      - {x: 0.31811196, y: -0.36802536}
+      - {x: 0.47966045, y: -0.13887343}
+      - {x: 0.48644033, y: 0.15952665}
+      - {x: 0.3640895, y: 0.35762346}

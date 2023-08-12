@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3024403618308997029}
   - component: {fileID: 8184722083110482900}
+  - component: {fileID: 6286395334967348828}
   m_Layer: 0
   m_Name: Preiselbeere
   m_TagString: Untagged
@@ -84,3 +85,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6286395334967348828
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5045484194770857341}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.28078642, y: 0.38065672}
+      - {x: -0.41543043, y: 0.28032285}
+      - {x: -0.4759594, y: 0.18194768}
+      - {x: -0.46476266, y: -0.10719645}
+      - {x: -0.42646524, y: -0.37666935}
+      - {x: -0.21729676, y: -0.51761866}
+      - {x: 0.082066745, y: -0.5458085}
+      - {x: 0.36609823, y: -0.4551187}
+      - {x: 0.47614563, y: -0.27598062}
+      - {x: 0.5028907, y: 0.062388416}
+      - {x: 0.48013848, y: 0.2746433}
+      - {x: 0.20400655, y: 0.40884656}

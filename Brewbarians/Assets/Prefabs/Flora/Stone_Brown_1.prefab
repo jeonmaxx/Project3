@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3815486175240477641}
   - component: {fileID: 814975325490266844}
+  - component: {fileID: 6258403741975085850}
   m_Layer: 0
   m_Name: Stone_Brown_1
   m_TagString: Untagged
@@ -84,3 +85,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6258403741975085850
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559052723874459350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.05520511, y: 0.5}
+      - {x: -0.23238134, y: 0.31324226}
+      - {x: -0.5070474, y: 0.121754944}
+      - {x: -0.50187516, y: -0.31163135}
+      - {x: -0.2533388, y: -0.4898924}
+      - {x: 0.2038191, y: -0.47885752}
+      - {x: 0.5185458, y: -0.30267107}
+      - {x: 0.51409495, y: 0.10515461}
+      - {x: 0.41543046, y: 0.28384656}
+      - {x: 0.14855403, y: 0.52466613}

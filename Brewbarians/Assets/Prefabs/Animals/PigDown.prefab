@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2146761517628593821}
   - component: {fileID: 2146761517628593822}
   - component: {fileID: 1495322059757870413}
+  - component: {fileID: 5320662094764726728}
   m_Layer: 0
   m_Name: PigDown
   m_TagString: Untagged
@@ -106,3 +107,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5320662094764726728
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146761517628593820}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.4920509, y: 0.44303125}
+    oldSize: {x: 1.25, y: 1.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.33091193, y: 0.22878906}
+      - {x: 0.19169354, y: 0.3617353}
+      - {x: 0.13425834, y: 0.3829704}
+      - {x: 0.049133122, y: 0.39115694}
+      - {x: 0.04428251, y: 0.4823037}
+      - {x: -0.021313608, y: 0.48230368}
+      - {x: -0.22861974, y: 0.3156587}
+      - {x: -0.30471003, y: 0.22007784}
+      - {x: -0.3054977, y: -0.08811481}
+      - {x: -0.22269773, y: -0.20110282}
+      - {x: -0.2189444, y: -0.3070087}
+      - {x: -0.17890778, y: -0.33491808}
+      - {x: -0.11012716, y: -0.33660954}
+      - {x: -0.08616734, y: -0.30361417}
+      - {x: -0.043963566, y: -0.27242035}
+      - {x: 0.07343294, y: -0.27411953}
+      - {x: 0.12918466, y: -0.340362}
+      - {x: 0.22519308, y: -0.33503908}
+      - {x: 0.23589861, y: -0.20125039}
+      - {x: 0.28774276, y: -0.14928572}
+      - {x: 0.33057383, y: -0.083987504}

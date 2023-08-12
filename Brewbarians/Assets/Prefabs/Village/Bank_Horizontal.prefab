@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4919778434581025544}
   - component: {fileID: 4038419503181805855}
+  - component: {fileID: 6913555083549554033}
   m_Layer: 0
   m_Name: Bank_Horizontal
   m_TagString: Untagged
@@ -84,3 +85,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6913555083549554033
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700602549702961154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.21875, y: 0.84375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.9690603, y: 0.36610147}
+      - {x: -0.9908528, y: 0.3611843}
+      - {x: -1.0425613, y: 0.30592412}
+      - {x: -1.0597754, y: -0.11997095}
+      - {x: -0.91227484, y: -0.1980494}
+      - {x: -0.9094982, y: -0.4116616}
+      - {x: -0.74741024, y: -0.40932116}
+      - {x: -0.754053, y: -0.18038851}
+      - {x: 0.74991447, y: -0.17760989}
+      - {x: 0.7526685, y: -0.39778584}
+      - {x: 0.91665, y: -0.39797205}
+      - {x: 0.9085021, y: -0.18166988}
+      - {x: 0.98554367, y: -0.16823047}
+      - {x: 1.0496178, y: 0.058205903}
+      - {x: 1.0536014, y: 0.26836765}

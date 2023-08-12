@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3710452246912361685}
   - component: {fileID: 3710452246912361684}
   - component: {fileID: 1699031945405563321}
+  - component: {fileID: 1366542843856701596}
   m_Layer: 0
   m_Name: PigUp
   m_TagString: Untagged
@@ -106,3 +107,46 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &1366542843856701596
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710452246912361682}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.48675147, y: 0.5119237}
+    oldSize: {x: 1.25, y: 1.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.10949103, y: 0.33230683}
+      - {x: -0.17529929, y: 0.30354315}
+      - {x: -0.3024979, y: 0.10874056}
+      - {x: -0.30060565, y: -0.19848369}
+      - {x: -0.28834572, y: -0.22429162}
+      - {x: -0.16935155, y: -0.32725146}
+      - {x: -0.10696865, y: -0.32943532}
+      - {x: -0.042193107, y: -0.27402014}
+      - {x: -0.027941842, y: -0.20214154}
+      - {x: 0.056109924, y: -0.20589001}
+      - {x: 0.070962116, y: -0.26465696}
+      - {x: 0.13777496, y: -0.32625404}
+      - {x: 0.19532025, y: -0.33448067}
+      - {x: 0.33252212, y: -0.19999489}
+      - {x: 0.3334229, y: 0.11838111}
+      - {x: 0.23974723, y: 0.26875514}
+      - {x: 0.20256276, y: 0.29848486}
+      - {x: 0.13884461, y: 0.3298971}

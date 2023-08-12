@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280000072203612999}
   - component: {fileID: 2833393682360077111}
+  - component: {fileID: 1285649700488789584}
   m_Layer: 0
   m_Name: Gagelstrauch
   m_TagString: Untagged
@@ -84,3 +85,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1285649700488789584
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834168409270347696}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.23097181, y: 0.43165597}
+      - {x: -0.35891193, y: 0.30820966}
+      - {x: -0.45027298, y: 0.1500583}
+      - {x: -0.4668486, y: -0.21875}
+      - {x: -0.32005647, y: -0.40434864}
+      - {x: -0.14503713, y: -0.46490476}
+      - {x: 0.22001685, y: -0.44773123}
+      - {x: 0.38114268, y: -0.35130644}
+      - {x: 0.44032755, y: -0.23010917}
+      - {x: 0.49999994, y: 0.103646375}
+      - {x: 0.4082199, y: 0.28567198}
+      - {x: 0.3186427, y: 0.40766376}

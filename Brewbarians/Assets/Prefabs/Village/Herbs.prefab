@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3373217860414002065}
   - component: {fileID: 6466918474826436653}
+  - component: {fileID: 8776192568782526115}
   m_Layer: 0
   m_Name: Herbs
   m_TagString: Untagged
@@ -84,3 +85,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &8776192568782526115
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548528263224934974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.16987169, y: 0.5469083}
+      - {x: -0.04658616, y: 0.5304679}
+      - {x: -0.2419868, y: 0.4206393}
+      - {x: -0.3268894, y: 0.4082866}
+      - {x: -0.3953172, y: 0.3408546}
+      - {x: -0.37661922, y: 0.19143249}
+      - {x: -0.44789046, y: 0.11579239}
+      - {x: -0.4467185, y: -0.007843733}
+      - {x: -0.3379735, y: -0.08750172}
+      - {x: -0.4433127, y: -0.19352719}
+      - {x: -0.42680982, y: -0.414354}
+      - {x: -0.28969163, y: -0.52494407}
+      - {x: -0.11746961, y: -0.5649516}
+      - {x: 0.25524467, y: -0.5649516}
+      - {x: 0.44439968, y: -0.38024467}
+      - {x: 0.45107168, y: -0.09129837}
+      - {x: 0.29695928, y: 0.119561255}
+      - {x: 0.2718514, y: 0.3584595}
+      - {x: 0.29016405, y: 0.46264023}

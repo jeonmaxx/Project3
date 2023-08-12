@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3816397329452260335}
   - component: {fileID: 3816397329452260334}
   - component: {fileID: 22673400428777800}
+  - component: {fileID: 725056172077881729}
   m_Layer: 0
   m_Name: HorseUp
   m_TagString: Untagged
@@ -106,3 +107,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &725056172077881729
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816397329452260328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.48675138, y: 0.51490456}
+    oldSize: {x: 1.40625, y: 1.375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.15822631, y: 0.4203138}
+      - {x: 0.12901765, y: 0.4166108}
+      - {x: 0.097447686, y: 0.38536876}
+      - {x: 0.06406213, y: 0.35922855}
+      - {x: 0.035222866, y: 0.38911405}
+      - {x: -0.02953184, y: 0.3924929}
+      - {x: -0.0681238, y: 0.36148354}
+      - {x: -0.12280822, y: 0.42144892}
+      - {x: -0.163339, y: 0.42305392}
+      - {x: -0.18861091, y: 0.38916525}
+      - {x: -0.19148512, y: 0.20111345}
+      - {x: -0.21802235, y: 0.1284536}
+      - {x: -0.21759604, y: -0.14707956}
+      - {x: -0.19215319, y: -0.16399096}
+      - {x: -0.19115816, y: -0.55134827}
+      - {x: -0.15454626, y: -0.5862635}
+      - {x: -0.089953244, y: -0.58743644}
+      - {x: -0.059631735, y: -0.5493934}
+      - {x: -0.03479632, y: -0.42541078}
+      - {x: 0.037081912, y: -0.42340112}
+      - {x: 0.07475417, y: -0.5851079}
+      - {x: 0.15866269, y: -0.5850174}
+      - {x: 0.21652229, y: -0.5477198}
+      - {x: 0.22547573, y: 0.13739301}
+      - {x: 0.19761962, y: 0.19856864}
+      - {x: 0.19596033, y: 0.38676804}

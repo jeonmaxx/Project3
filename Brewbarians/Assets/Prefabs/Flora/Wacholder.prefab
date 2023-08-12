@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9024653732093051211}
   - component: {fileID: 3527803708110862954}
+  - component: {fileID: 4787855448082434611}
   m_Layer: 0
   m_Name: Wacholder
   m_TagString: Untagged
@@ -84,3 +85,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &4787855448082434611
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555287616516154392}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.016033072, y: 0.78998494}
+      - {x: -0.21576306, y: 0.73323286}
+      - {x: -0.39407632, y: 0.52826303}
+      - {x: -0.386496, y: 0.41222388}
+      - {x: -0.3627078, y: 0.34027082}
+      - {x: -0.43745095, y: 0.1695138}
+      - {x: -0.44834122, y: -0.041315224}
+      - {x: -0.4352483, y: -0.3841607}
+      - {x: -0.46758962, y: -0.40262765}
+      - {x: -0.47541323, y: -0.6376124}
+      - {x: -0.43455365, y: -0.7260531}
+      - {x: -0.37375823, y: -0.8228047}
+      - {x: -0.2398801, y: -0.8828426}
+      - {x: 0.25401208, y: -0.8862839}
+      - {x: 0.4546764, y: -0.7158626}
+      - {x: 0.47194266, y: -0.6062652}
+      - {x: 0.4763455, y: -0.42285848}
+      - {x: 0.44142058, y: -0.03504744}
+      - {x: 0.4462623, y: 0.29735762}
+      - {x: 0.39393178, y: 0.5692703}
+      - {x: 0.21129014, y: 0.7805605}

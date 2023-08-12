@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 448336665037150766}
   - component: {fileID: 448336665037150765}
   - component: {fileID: 3917340008525952215}
+  - component: {fileID: 219903524597454574}
   m_Layer: 0
   m_Name: HorseLeft
   m_TagString: Untagged
@@ -106,3 +107,60 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &219903524597454574
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448336665037150767}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.4364069, y: 0.5027099}
+    oldSize: {x: 1.40625, y: 1.375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5812085, y: 0.15085435}
+      - {x: 0.54614997, y: 0.18282923}
+      - {x: 0.5041538, y: 0.2202892}
+      - {x: 0.41397554, y: 0.22320451}
+      - {x: 0.39367393, y: 0.18664707}
+      - {x: 0.35249597, y: 0.19700117}
+      - {x: -0.10149063, y: 0.19982585}
+      - {x: -0.11198851, y: 0.26086843}
+      - {x: -0.23381501, y: 0.40280193}
+      - {x: -0.2711032, y: 0.4428492}
+      - {x: -0.49209532, y: 0.44059557}
+      - {x: -0.5293714, y: 0.40485027}
+      - {x: -0.5237483, y: 0.1037404}
+      - {x: -0.5573671, y: 0.10439253}
+      - {x: -0.55675477, y: 0.022822946}
+      - {x: -0.49349165, y: -0.067210585}
+      - {x: -0.384245, y: -0.19559225}
+      - {x: -0.36765605, y: -0.47805786}
+      - {x: -0.27764162, y: -0.5695486}
+      - {x: -0.17384265, y: -0.5686233}
+      - {x: -0.17286724, y: -0.2928007}
+      - {x: 0.12835306, y: -0.29589325}
+      - {x: 0.16946661, y: -0.4732251}
+      - {x: 0.26066804, y: -0.5679438}
+      - {x: 0.35744995, y: -0.5669538}
+      - {x: 0.35869122, y: -0.3727757}
+      - {x: 0.54332536, y: -0.37596226}
+      - {x: 0.6130579, y: -0.31014523}
+      - {x: 0.6091195, y: -0.28436995}
+      - {x: 0.5820728, y: -0.25546953}
+      - {x: 0.5589343, y: -0.22242947}
+      - {x: 0.58073765, y: -0.18951398}

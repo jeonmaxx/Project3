@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7479676697209277757}
   - component: {fileID: 7479676697209277758}
   - component: {fileID: 1028210369321397618}
+  - component: {fileID: 6172187362436896488}
   m_Layer: 0
   m_Name: ChickenSleep
   m_TagString: Untagged
@@ -106,3 +107,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &6172187362436896488
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479676697209277756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.56289315, y: 0.41876304}
+    oldSize: {x: 0.75, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.026801437, y: 0.3659185}
+      - {x: -0.059378557, y: 0.32518274}
+      - {x: -0.05110915, y: 0.11940953}
+      - {x: -0.1743649, y: 0.12125455}
+      - {x: -0.24013828, y: 0.028279051}
+      - {x: -0.21569616, y: -0.10963939}
+      - {x: -0.023905404, y: -0.29070586}
+      - {x: 0.10896967, y: -0.30534202}
+      - {x: 0.33994073, y: -0.10980506}
+      - {x: 0.3380143, y: -0.00313662}
+      - {x: 0.27614844, y: 0.051888347}
+      - {x: 0.335411, y: 0.2090299}
+      - {x: 0.33394068, y: 0.36795536}

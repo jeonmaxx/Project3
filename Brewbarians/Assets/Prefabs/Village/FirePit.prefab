@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3051218483115890274}
   - component: {fileID: 5740520216018165284}
+  - component: {fileID: 5325842617498060100}
   m_Layer: 0
   m_Name: FirePit
   m_TagString: Untagged
@@ -84,3 +85,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &5325842617498060100
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315881895675200908}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.78125, y: 1.46875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5802743, y: 0.6522044}
+      - {x: -0.994298, y: 0.6291268}
+      - {x: -1.2664598, y: 0.39884707}
+      - {x: -1.2746818, y: -0.3890183}
+      - {x: -1.015625, y: -0.6332378}
+      - {x: -0.58589596, y: -0.66835403}
+      - {x: 1.0304309, y: -0.6414597}
+      - {x: 1.3141539, y: -0.40954196}
+      - {x: 1.3100429, y: 0.40131992}
+      - {x: 0.9769877, y: 0.6496818}

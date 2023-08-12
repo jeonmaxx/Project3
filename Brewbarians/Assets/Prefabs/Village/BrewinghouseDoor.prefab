@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664380079192963339}
   - component: {fileID: 4551999064930190473}
+  - component: {fileID: 8034897626089506259}
   m_Layer: 0
   m_Name: BrewinghouseDoor
   m_TagString: Untagged
@@ -84,3 +85,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &8034897626089506259
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5034458169843504176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.625, y: 4.84375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.7310554, y: 1.510793}
+      - {x: 1.599833, y: 1.8722364}
+      - {x: 1.4793873, y: 1.9034865}
+      - {x: -0.69877803, y: 1.9194658}
+      - {x: -1.625, y: 1.8882159}
+      - {x: -1.6501397, y: 1.8357018}
+      - {x: -1.6590085, y: 1.505639}
+      - {x: -1.7850075, y: 1.4085168}
+      - {x: -1.7939725, y: -1.6782361}
+      - {x: -1.500139, y: -1.890903}
+      - {x: 1.5436944, y: -1.8971251}
+      - {x: 1.650445, y: -1.7782085}
+      - {x: 1.8065559, y: -1.640625}
+      - {x: 1.8065557, y: 1.2728201}

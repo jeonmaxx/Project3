@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2431015452400506865}
   - component: {fileID: 2431015452400506870}
   - component: {fileID: 6716679346159214412}
+  - component: {fileID: 7843710526358276595}
   m_Layer: 0
   m_Name: DonkeyDown
   m_TagString: Untagged
@@ -106,3 +107,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &7843710526358276595
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431015452400506864}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5349406, y: 0.53930825}
+    oldSize: {x: 0.75, y: 1.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.2912137, y: 0.16530547}
+      - {x: 0.29105735, y: 0.276695}
+      - {x: 0.16225263, y: 0.42643952}
+      - {x: -0.15977298, y: 0.4202534}
+      - {x: -0.22698969, y: 0.34455454}
+      - {x: -0.23444244, y: 0.2792312}
+      - {x: -0.27730507, y: 0.23776063}
+      - {x: -0.2783256, y: 0.16435774}
+      - {x: -0.2197453, y: 0.1209072}
+      - {x: -0.22116902, y: -0.048815966}
+      - {x: -0.18959965, y: -0.48901677}
+      - {x: -0.15358686, y: -0.52058613}
+      - {x: -0.052351855, y: -0.51926154}
+      - {x: -0.0440344, y: -0.41526818}
+      - {x: 0.045519054, y: -0.42346168}
+      - {x: 0.07888282, y: -0.51832974}
+      - {x: 0.16780005, y: -0.5288342}
+      - {x: 0.20349349, y: -0.47838715}
+      - {x: 0.22583804, y: -0.056135654}
+      - {x: 0.22300997, y: 0.1242221}
