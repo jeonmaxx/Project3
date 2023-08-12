@@ -74,12 +74,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDayTime: 10
-  currentTime: 5
+  currentTime: 3
   TimeArrow: {fileID: 4533954927228535483}
   nightTime: {fileID: 4414989831390412475}
   collector: {fileID: 0}
   night: 0
   coroutineDone: 0
+  bed: {fileID: 0}
+  SceneIndexBed: 2
+  blackScreen: {fileID: 0}
+  wakingUpText: {fileID: 0}
+  loadNext: {fileID: 0}
 --- !u!1 &1862973530224904166
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -218,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -294,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

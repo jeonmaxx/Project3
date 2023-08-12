@@ -13,7 +13,7 @@ public class DayTime : MonoBehaviour
     public PointsCollector collector;
     public float night;
 
-    public bool coroutineDone;
+    private bool coroutineDone;
 
     public GameObject bed;
     public int SceneIndexBed;
@@ -39,7 +39,7 @@ public class DayTime : MonoBehaviour
         blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, 0);
         if(bed != null )
             wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, 0);
-        startCheck = false;
+        startCheck = false;        
     }
 
     private void FixedUpdate()
@@ -49,36 +49,37 @@ public class DayTime : MonoBehaviour
 
         if (bed != null && !startCheck && !passedOut)
         {
-            if (currentTime == maxDayTime)
+            currentTime = collector.dayTime;
+            if (collector.dayTime == maxDayTime)
             {
                 StartCoroutine(WakingUpWaiting());
-                Debug.Log("Coroutine started");
             }
             else
             {
                 startCheck = true;
-                Debug.Log("startCheck done");
+                passedOut = false;
+                Debug.Log(currentTime);
             }
         }
-        else if(passedOut && bed != null && !startCheck)
+        else if (passedOut && bed != null && !startCheck)
         {
+            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, alpha);
+            wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, alpha);
             if (alpha > 0)
             {
                 alpha -= Time.deltaTime * 0.3f;
             }
-            else if(alpha <= 0)  
+            else if (alpha <= 0)
             {
                 startCheck = true;
-                Debug.Log("startCheck done");
+                passedOut = false;
             }
-            blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, alpha);
-            wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, alpha);
         }
-        else if(bed == null && !startCheck)
+        else if (bed == null && !startCheck)
         {
             startCheck = true;
-            Debug.Log("startCheck done");
         }
+
     }
 
     private IEnumerator WakingUpWaiting()
@@ -95,7 +96,7 @@ public class DayTime : MonoBehaviour
 
     public void Update()
     {
-        if(!coroutineDone)
+        if (!coroutineDone)
             StartCoroutine(ChangeNightSky());
 
         if (currentTime < maxDayTime)
@@ -174,12 +175,11 @@ public class DayTime : MonoBehaviour
                     else if (bed == null)
                     {
                         loadNext.SceneChangeButton(SceneIndexBed);
+                        Debug.Log("changed scene");
                     }
                 }
                 blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, alpha);
-                wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, alpha);
-            }
-            
+            }            
         }
     }
 
@@ -191,6 +191,8 @@ public class DayTime : MonoBehaviour
             {
                 alpha -= Time.deltaTime * 0.3f;
             }
+            else
+                passedOut = false;
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, alpha);
             wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, alpha);
         }       

@@ -27,6 +27,7 @@ public class Sleeping : PlayerNear
 
         blackBackground.color = new Color(blackBackground.color.r, blackBackground.color.g, blackBackground.color.b, 0);
         sleepText.color = new Color(sleepText.color.r, sleepText.color.g, sleepText.color.b, 0);
+        Debug.Log(sleepText.color.a);
     }
 
     private void Update()

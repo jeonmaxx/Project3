@@ -73,7 +73,7 @@ public class DataCollector : MonoBehaviour
 
     public void Start()
     {
-        string filePath = Application.persistentDataPath + "/" + "items.json";
+        string filePath = Application.persistentDataPath + "/" + "scene.json";
         Debug.Log(filePath);
 
         if (File.Exists(filePath) && new FileInfo(filePath).Length > 0 )
