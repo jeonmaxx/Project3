@@ -19,6 +19,7 @@ public class Sleeping : PlayerNear
     public float backgroundAlpha = 0;
     public bool increasing;
     public bool sleeping;
+    public DataCollector collector;
 
     public void Start()
     {
@@ -76,6 +77,7 @@ public class Sleeping : PlayerNear
 
     public void YesButton()
     {
+        collector.CollectData();
         sleepAsking.SetActive(false);
         sleepText.text = "You sleep through the night ...";
         StartCoroutine(SleepAnim());
