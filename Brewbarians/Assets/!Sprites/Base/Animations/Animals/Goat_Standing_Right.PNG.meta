@@ -103,18 +103,150 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Goat_Standing_Right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 834
+        width: 970
+        height: 834
+      alignment: 9
+      pivot: {x: 0.6194159, y: 0.4764154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d832a90f5355d449284c0f7600fe57
+      internalID: 1457773879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goat_Standing_Right_1
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 859
+        width: 905
+        height: 809
+      alignment: 9
+      pivot: {x: 0.555544, y: 0.45677564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d426107052109cb4c898944ced4b81ee
+      internalID: 1728744654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goat_Standing_Right_2
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 834
+        width: 940.3333
+        height: 834
+      alignment: 9
+      pivot: {x: 0.4814063, y: 0.4737947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f168b8672d5a6643933ab60d92a781d
+      internalID: -47785740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goat_Standing_Right_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 1016
+        height: 845
+      alignment: 9
+      pivot: {x: 0.60755587, y: 0.47672212}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362e8c9fcc8631b42ae663bdac00231a
+      internalID: -651122621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goat_Standing_Right_4
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 828
+        height: 858
+      alignment: 9
+      pivot: {x: 0.51583743, y: 0.46433863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bf177226a8da744bf506da38d97a0e
+      internalID: -1846120441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goat_Standing_Right_5
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 0
+        width: 957
+        height: 847
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47419682}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603e1b1e46d8e684eaf5fbf6c55d98ec
+      internalID: -1105383616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c7de50f19008f784d9474e5718dcdbec
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Goat_Standing_Right_0: 1457773879
+      Goat_Standing_Right_1: 1728744654
+      Goat_Standing_Right_2: -47785740
+      Goat_Standing_Right_3: -651122621
+      Goat_Standing_Right_4: -1846120441
+      Goat_Standing_Right_5: -1105383616
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

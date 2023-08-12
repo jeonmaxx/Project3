@@ -103,18 +103,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Cow_Standing_Back_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1112
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.5294812, y: 0.5222747}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a1cf48d3bd48648968ed05e0b09731
+      internalID: -1168871923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cow_Standing_Back_1
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 1112
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.48231134, y: 0.51179254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e6e2b4b960fae4ab70664169288e50
+      internalID: -414710537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b30de20dac97b594091665b2cc60dc45
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cow_Standing_Back_0: -1168871923
+      Cow_Standing_Back_1: -414710537
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
