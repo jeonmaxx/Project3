@@ -1504,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792341413740217723, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -269168.03
+      value: -273607.75
       objectReference: {fileID: 0}
     - target: {fileID: 5959315053333357144, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8748,7 +8748,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -13.02237, y: -0.21901973}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8759,7 +8759,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 45, y: 1}
+  m_Size: {x: 16.089495, y: 0.40735832}
   m_EdgeRadius: 0
 --- !u!114 &1114332891 stripped
 MonoBehaviour:
@@ -8817,7 +8817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4e945e4e26bd44295561b307bbd1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 4
+  sceneIndex: 3
   dataCollector: {fileID: 1555428670}
   tmpIndex: 1
 --- !u!61 &1120043911
@@ -8833,7 +8833,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.7278509, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8844,7 +8844,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 45, y: 1}
+  m_Size: {x: 41.544296, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1124636870 stripped
 GameObject:
@@ -14060,9 +14060,12 @@ MonoBehaviour:
   recipeHolder: {fileID: 401081582}
   recipePrefab: {fileID: 5132080182686494265, guid: 6614964a7658abd429be53dcb5164681, type: 3}
   brewingStaion: 0
-  chooseRecipe: {fileID: 0}
-  recipeSlot: {fileID: 0}
-  brewingStation: {fileID: 0}
+  chooseRecipe:
+  - {fileID: 0}
+  recipeSlot:
+  - {fileID: 0}
+  brewingStation:
+  - {fileID: 0}
 --- !u!114 &1555428669
 MonoBehaviour:
   m_ObjectHideFlags: 0
