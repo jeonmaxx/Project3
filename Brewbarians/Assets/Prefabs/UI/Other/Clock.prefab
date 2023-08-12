@@ -79,7 +79,6 @@ MonoBehaviour:
   nightTime: {fileID: 4414989831390412475}
   collector: {fileID: 0}
   night: 0
-  coroutineDone: 0
   bed: {fileID: 0}
   SceneIndexBed: 2
   blackScreen: {fileID: 0}
@@ -121,7 +120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 850, y: -150}
+  m_AnchoredPosition: {x: 685, y: 465}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1349899006879667640

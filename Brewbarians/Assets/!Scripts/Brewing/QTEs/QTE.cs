@@ -116,19 +116,16 @@ public class QTE : MonoBehaviour
                 Debug.Log("Green Zone hit!");
                 manager.bonusPoints += 2;
                 done = true;
-                manager.checking = false;
             }
             else if (playerQte.yellowZone)
             {
                 Debug.Log("Yellow Zone hit!");
                 manager.bonusPoints += 1;
                 done = true;
-                manager.checking = false;
             }
             else
             {
                 done = true;
-                manager.checking = false;
             }
         }
     }

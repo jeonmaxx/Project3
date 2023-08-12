@@ -99,8 +99,10 @@ public class FarmingManager : MonoBehaviour
 
     public void UpdateFields()
     {
-        if (fieldObjs.Length > 0)
+        string fieldPath = Application.persistentDataPath + "/" + "fields.json";
+        if (fieldObjs.Length > 0 && File.Exists(fieldPath) && new FileInfo(fieldPath).Length > 0)
         {
+            
             foreach (GameObject field in fieldObjs)
             {
                 for(int i = 0; i < field.transform.childCount; i++)
@@ -108,7 +110,7 @@ public class FarmingManager : MonoBehaviour
                     Destroy(field.transform.GetChild(i).gameObject);
                 }
             }
-            string fieldPath = Application.persistentDataPath + "/" + "fields.json";
+   
             string plantsPath = Application.persistentDataPath + "/" + "plants.json";
             for (int i = 0; i < planting.Count; i++)
             {
@@ -120,21 +122,21 @@ public class FarmingManager : MonoBehaviour
                 {
                     planting[i].GivenPlant(plants[i].Seed, plants[i].PlantState, plants[i].GrowPoints);
                 }
-                if (File.Exists(fieldPath) && new FileInfo(fieldPath).Length > 0)
-                {
-                    planting[i].GivenField(fields[i].FieldState, fields[i].HoedPoints, fields[i].WetPoints);
-                    Debug.Log("updated fields!");
-                }
+                planting[i].GivenField(fields[i].FieldState, fields[i].HoedPoints, fields[i].WetPoints);
+                Debug.Log("updated fields!");
             }
         }
 
 
         if (farmSigns.Length > 0)
         {
-            for (int i = 0; i < farmSigns.Length; i++)
+            string signPath = Application.persistentDataPath + "/" + "signSeeds.json";
+            if (File.Exists(signPath) && new FileInfo(signPath).Length > 0)
             {
-                if (signSeed[i] != null)
+                for (int i = 0; i < farmSigns.Length; i++)
+                {
                     farmSigns[i].signSeed = signSeed[i];
+                }
             }
         }
     }

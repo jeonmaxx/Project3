@@ -18,16 +18,19 @@ public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 
     public void Update()
     {
-        if(brewingStation[0].GetComponent<OpenBrewing>().menuOpen)
+        if (brewingStation.Length > 0 && brewingStation[0] != null)
         {
-            openBrewing = brewingStation[0].GetComponent<OpenBrewing>();
-            choose = recipeSlot[0].GetComponent<ChooseRecipe>();
-        }
-        else if(brewingStation[1].GetComponent<OpenBrewing>().menuOpen)
-        {
-            openBrewing = brewingStation[1].GetComponent<OpenBrewing>();
-            choose = recipeSlot[1].GetComponent<ChooseRecipe>();
-        }
+            if (brewingStation[0].GetComponent<OpenBrewing>().menuOpen)
+            {
+                openBrewing = brewingStation[0].GetComponent<OpenBrewing>();
+                choose = recipeSlot[0].GetComponent<ChooseRecipe>();
+            }
+            else if (brewingStation[1].GetComponent<OpenBrewing>().menuOpen)
+            {
+                openBrewing = brewingStation[1].GetComponent<OpenBrewing>();
+                choose = recipeSlot[1].GetComponent<ChooseRecipe>();
+            }
+        }  
     }
 
     public void OnPointerClick(PointerEventData eventData)

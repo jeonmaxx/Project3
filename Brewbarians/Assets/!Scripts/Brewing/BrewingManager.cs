@@ -32,7 +32,7 @@ public class BrewingManager : MonoBehaviour
     public InventoryItem inventoryItemOne;
     public InventoryItem inventoryItemTwo;
 
-    private OpenBrewing open;
+    public OpenBrewing open;
     public bool brewing = false;
 
     public int quantity;
@@ -75,6 +75,7 @@ public class BrewingManager : MonoBehaviour
         }
     }
 
+    //nimmt bei BrewStation02 den qte nicht an (??????)
     public void CheckIngredients()
     {
         if (chosenRecipe != null)
@@ -140,10 +141,12 @@ public class BrewingManager : MonoBehaviour
     {
         if(checking)
         {
+            Debug.Log("checking");
             if (open.currentRect == open.menus[1])
             {
                 open.state = BrewingStates.IngreTwo;
                 ChangingScreen(2);
+                Debug.Log("changed screen");
             }
             else if (open.currentRect == open.menus[2])
             {
@@ -151,6 +154,7 @@ public class BrewingManager : MonoBehaviour
                 ChangingScreen(3);
                 brewing = true;
             }
+            checking = false;
         }
     }
     private void ChangingScreen(int menu)
