@@ -29287,7 +29287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2101499712}
-  m_RootOrder: 36
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1841064004
 SpriteRenderer:
@@ -33416,7 +33416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792341413740217723, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -569735.2
+      value: -574021.1
       objectReference: {fileID: 0}
     - target: {fileID: 5959315053333357144, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchorMax.y
@@ -34096,6 +34096,7 @@ Transform:
   - {fileID: 1698064000}
   - {fileID: 2014214105}
   - {fileID: 1291034698}
+  - {fileID: 1841064003}
   - {fileID: 952801703}
   - {fileID: 2000507678}
   - {fileID: 5565162101051783568}
@@ -34103,7 +34104,6 @@ Transform:
   - {fileID: 980539161}
   - {fileID: 1623827522}
   - {fileID: 862849055}
-  - {fileID: 1841064003}
   - {fileID: 489549374}
   - {fileID: 1123001463}
   - {fileID: 1880671861}
