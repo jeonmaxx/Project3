@@ -103,18 +103,106 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Chickenwalk_right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.53699476, y: 0.50917196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43500603c1d68ed4cb4b0dca8ddd8d75
+      internalID: 929941324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chickenwalk_right_1
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 767.5
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.5313236, y: 0.50524116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805150c093a6a2d48bcfa3e098afd486
+      internalID: 148236264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chickenwalk_right_2
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 0
+        width: 723
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.5241831, y: 0.5065514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07760a6768fc1046b1c90bf0f84094b
+      internalID: 1866512138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chickenwalk_right_3
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 0
+        width: 810
+        height: 1668
+      alignment: 9
+      pivot: {x: 0.5350767, y: 0.50524116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2fdd2a2a336e7b46ab6e7635c96868c
+      internalID: -478151229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 06a25bf3b90457d4a95134d56bfff7a4
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chickenwalk_right_0: 929941324
+      Chickenwalk_right_1: 148236264
+      Chickenwalk_right_2: 1866512138
+      Chickenwalk_right_3: -478151229
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
