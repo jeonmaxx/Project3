@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d617a0ccfc77af41987e1a4706db448, type: 3}
-  m_Name: Recipe01
+  m_Name: Ale
   m_EditorClassIdentifier: 
-  DrinkName: DrinkOne
-  Product1Amount: 1
+  DrinkName: Ale
+  Product1Amount: 2
   Product1: {fileID: 11400000, guid: d05506aade67dd0479338905460a716b, type: 2}
-  Product2Amount: 2
-  Product2: {fileID: 11400000, guid: 08645c23bd2549148be7944c4755a3cf, type: 2}
-  Drink: {fileID: 11400000, guid: 001ec0d38b860984d921479a8c3b80b3, type: 2}
-  BrewTime: 3
+  Product2Amount: 1
+  Product2: {fileID: 11400000, guid: 0ec6c2103682e4e489018b564c42105f, type: 2}
+  Drink: {fileID: 11400000, guid: fc471bc90e7afe7409618b9c4378713b, type: 2}
+  BrewTime: 4

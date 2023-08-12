@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23932929b0f841f40bbaaf112b17f99f, type: 3}
-  m_Name: HopSeedItem
+  m_Name: Cranberry
   m_EditorClassIdentifier: 
-  obj: {fileID: 5544991132756787303, guid: c9aa281cca9e2264792961097dc6896e, type: 3}
-  type: 2
-  actionType: 3
+  obj: {fileID: 0}
+  type: 3
+  actionType: 0
   range: {x: 5, y: 4}
   stackable: 1
-  image: {fileID: 21300000, guid: 448f1c7203a86e545b8e8216fc610c07, type: 3}
-  itemName: Hop Seed
+  image: {fileID: 21300000, guid: f6d116e0476776d4babe29e5cfbd0179, type: 3}
+  itemName: Cranberry
   waterAmount: 0
   currentWater: 0
-  seed: {fileID: 11400000, guid: 2efe7f77164152d41908e310708cf3c6, type: 2}
+  seed: {fileID: 0}
