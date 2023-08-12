@@ -29,18 +29,19 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
     {
         if(openBrewing.choosing)
         {
+            
             for(int i = 0; i < recipeClicked.Count; i++)
             {
                 recipeClicked[i].clickable = true;
             }
         }
-        else if(!openBrewing.choosing)
-        {
-            for (int i = 0; i < recipeClicked.Count; i++)
-            {
-                recipeClicked[i].clickable = false;
-            }
-        }
+        //else if(!openBrewing.choosing)
+        //{
+        //    for (int i = 0; i < recipeClicked.Count; i++)
+        //    {
+        //        recipeClicked[i].clickable = false;
+        //    }
+        //}
 
         brewingManager.chosenRecipe = chosenRecipe;
     }
@@ -52,6 +53,11 @@ public class ChooseRecipe : MonoBehaviour, IPointerClickHandler
             inventory.windows = Windows.Recipe;
             openBrewing.Close(true);
             recipeChosen = false;
+
+            for (int i = 0; i < recipeClicked.Count; i++)
+            {
+                recipeClicked[i].clickable = false;
+            }
         }
     }
 }

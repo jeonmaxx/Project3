@@ -6,23 +6,35 @@ using UnityEngine.EventSystems;
 public class RecipeClicked : MonoBehaviour, IPointerClickHandler
 {
     public bool clickable = false;
-    public GameObject recipeSlot;
-    private ChooseRecipe choose;
+    public GameObject[] recipeSlot;
+    public ChooseRecipe choose;
     private RecipeItem recipeItem;
 
     public Recipe rec;
 
     public GameObject manager;
-    public GameObject brewingStation;
-    private OpenBrewing openBrewing;
+    public GameObject[] brewingStation;
+    public OpenBrewing openBrewing;
+
+    public void Update()
+    {
+        if(brewingStation[0].GetComponent<OpenBrewing>().menuOpen)
+        {
+            openBrewing = brewingStation[0].GetComponent<OpenBrewing>();
+            choose = recipeSlot[0].GetComponent<ChooseRecipe>();
+        }
+        else if(brewingStation[1].GetComponent<OpenBrewing>().menuOpen)
+        {
+            openBrewing = brewingStation[1].GetComponent<OpenBrewing>();
+            choose = recipeSlot[1].GetComponent<ChooseRecipe>();
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        openBrewing = brewingStation.GetComponent<OpenBrewing>();
-        if(clickable && recipeSlot != null)
+        if (openBrewing != null && clickable && recipeSlot != null)
         {
             recipeItem = GetComponent<RecipeItem>();
-            choose = recipeSlot.GetComponent<ChooseRecipe>();
             choose.chosenRecipe = recipeItem.recipe;
             choose.recipeChosen = true;
 

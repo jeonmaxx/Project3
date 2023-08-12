@@ -10,9 +10,9 @@ public class RecipeManager : MonoBehaviour
     private RecipeItem rec;
     public bool brewingStaion = false;
     [Header ("Only if brewingStation true")]
-    [SerializeField] private ChooseRecipe chooseRecipe;
-    [SerializeField] private GameObject recipeSlot;
-    public GameObject brewingStation;
+    [SerializeField] private ChooseRecipe[] chooseRecipe;
+    [SerializeField] private GameObject[] recipeSlot;
+    public GameObject[] brewingStation;
 
     public void AddRecipe(Recipe recipe)
     {
@@ -34,11 +34,14 @@ public class RecipeManager : MonoBehaviour
         GameObject obj = Instantiate(recipePrefab, recipeHolder.transform.position, recipeHolder.transform.rotation, recipeHolder.transform);
         if(brewingStaion) 
         {
-            RecipeClicked recipeClicked = obj.GetComponent<RecipeClicked>();
-            chooseRecipe.recipeClicked.Add(recipeClicked);
-            recipeClicked.manager = gameObject;
-            recipeClicked.brewingStation = brewingStation;
-            recipeClicked.recipeSlot = recipeSlot;
+            for (int i = 0; i < brewingStation.Length; i++)
+            {
+                RecipeClicked recipeClicked = obj.GetComponent<RecipeClicked>();
+                chooseRecipe[i].recipeClicked.Add(recipeClicked);
+                recipeClicked.manager = gameObject;
+                recipeClicked.brewingStation[i] = brewingStation[i];
+                recipeClicked.recipeSlot[i] = recipeSlot[i];
+            }
         }
     }
 

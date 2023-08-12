@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [Serializable]
@@ -107,17 +108,23 @@ public class FarmingManager : MonoBehaviour
                     Destroy(field.transform.GetChild(i).gameObject);
                 }
             }
-
+            string fieldPath = Application.persistentDataPath + "/" + "fields.json";
+            string plantsPath = Application.persistentDataPath + "/" + "plants.json";
             for (int i = 0; i < planting.Count; i++)
             {
                 //planting[i].seed = plants[i].Seed;
                 //planting[i].curPlantState = plants[i].PlantState;
                 //growing[i].currentGrowPoints = plants[i].GrowPoints;
                 //planting[i].AddSavedSeed();
-                planting[i].GivenPlant(plants[i].Seed, plants[i].PlantState, plants[i].GrowPoints);
-
-                planting[i].GivenField(fields[i].FieldState, fields[i].HoedPoints, fields[i].WetPoints);
-                Debug.Log("updated fields!");
+                if (File.Exists(plantsPath) && new FileInfo(plantsPath).Length > 0)
+                {
+                    planting[i].GivenPlant(plants[i].Seed, plants[i].PlantState, plants[i].GrowPoints);
+                }
+                if (File.Exists(fieldPath) && new FileInfo(fieldPath).Length > 0)
+                {
+                    planting[i].GivenField(fields[i].FieldState, fields[i].HoedPoints, fields[i].WetPoints);
+                    Debug.Log("updated fields!");
+                }
             }
         }
 
@@ -126,7 +133,8 @@ public class FarmingManager : MonoBehaviour
         {
             for (int i = 0; i < farmSigns.Length; i++)
             {
-                farmSigns[i].signSeed = signSeed[i];
+                if (signSeed[i] != null)
+                    farmSigns[i].signSeed = signSeed[i];
             }
         }
     }
