@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     DialogueManager dialogueManager;
     public InputActionReference actionRef;
     private InputAction m_MoveAction;
+    public bool forbidToWalk;
 
     private void Awake()
     {
@@ -24,30 +25,36 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        if (dialogueManager.isActive == false)
+        if (!forbidToWalk)
         {
-            m_PlayerMovement = m_MoveAction.ReadValue<Vector2>();
-        }
-        else
-        {
-            m_PlayerMovement = new Vector2(0, 0);
-        }
+            if (dialogueManager.isActive == false)
+            {
+                m_PlayerMovement = m_MoveAction.ReadValue<Vector2>();
+            }
+            else
+            {
+                m_PlayerMovement = new Vector2(0, 0);
+            }
 
-        if (m_PlayerMovement.x != 0 || m_PlayerMovement.y != 0)
-        {
-            animator.SetFloat("X", m_PlayerMovement.x);
-            animator.SetFloat("Y", m_PlayerMovement.y);
+            if (m_PlayerMovement.x != 0 || m_PlayerMovement.y != 0)
+            {
+                animator.SetFloat("X", m_PlayerMovement.x);
+                animator.SetFloat("Y", m_PlayerMovement.y);
 
-            animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            animator.SetBool("IsWalking", false);
+                animator.SetBool("IsWalking", true);
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + m_PlayerMovement * speed * Time.fixedDeltaTime);
+        if (!forbidToWalk)
+        {
+            rb.MovePosition(rb.position + m_PlayerMovement * speed * Time.fixedDeltaTime);
+        }
     }
 }

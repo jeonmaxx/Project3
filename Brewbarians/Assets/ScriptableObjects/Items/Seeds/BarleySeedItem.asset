@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 3
   range: {x: 5, y: 4}
   stackable: 1
-  image: {fileID: 21300000, guid: da51c728605250a4f88e25dbef8ffa30, type: 3}
+  image: {fileID: 21300000, guid: e6f1c951633eeb04185e0168443fb1ba, type: 3}
   itemName: Barley Seed
   waterAmount: 0
   currentWater: 0

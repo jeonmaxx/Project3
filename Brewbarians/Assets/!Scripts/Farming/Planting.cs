@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public enum FieldStates { None, Hoed, Wet}
 public enum PlantStates { None, Phase01, Phase02, Phase03}
-public class Planting : MonoBehaviour, IPointerDownHandler
+public class Planting : PlayerNear, IPointerDownHandler
 {
     [Header("States")]
     //[ShowOnly]
@@ -16,6 +17,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
     public InventoryManager inventoryManager;
     public GameObject seedWheel;
     public TutorialDialogue tutorial;
+    public PlayerMovement movement;
 
     [Header("Fields")]
     [SerializeField] private GameObject HoedField;
@@ -53,11 +55,15 @@ public class Planting : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        ShovelField();
-        WaterField();
-        PlantField();
-        Harvest();
-        DestroyField();
+        CalcDistance();
+        if (isPlayerNear)
+        {
+            ShovelField();
+            WaterField();
+            PlantField();
+            Harvest();
+            DestroyField();
+        }
     }
 
     public void ShovelField()
@@ -65,6 +71,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         if(curFieldState == FieldStates.None 
             && handManager.handItem == shovelItem)
         {
+            StartCoroutine(PlayAnim("IsShoveling", 1.1f));
             hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Hoed;
 
@@ -82,6 +89,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             && handManager.handItem == waterItem
             && waterItem.currentWater > 0)
         {
+            StartCoroutine(PlayAnim("IsWatering", 1.3f));
             wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Wet;
             waterItem.currentWater--;
@@ -209,6 +217,7 @@ public class Planting : MonoBehaviour, IPointerDownHandler
         if(curPlantState == PlantStates.Phase03
             && handManager.handItem == harvestItem)
         {
+            StartCoroutine(PlayAnim("IsSicheling", 1.2f));
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             curPlantState = PlantStates.None;
@@ -252,5 +261,15 @@ public class Planting : MonoBehaviour, IPointerDownHandler
             seedInHand = true;
         else if ((int)handType != 3 || !inHand)
             seedInHand = false;
+    }
+
+    public IEnumerator PlayAnim(string animName, float time)
+    {
+        movement.forbidToWalk = true;
+        movement.animator.SetBool(animName, true);
+        yield return new WaitForSeconds(time);
+        movement.animator.SetBool(animName, false);
+        movement.forbidToWalk = false;
+        StopCoroutine(PlayAnim(animName, time));
     }
 }
