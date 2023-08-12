@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50ac16f6d97415d4aa5b3607d34086cf
+guid: 8b5d673a5ef3bb742bab276ac3220d2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,18 +103,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Kurth_NPC01_Unten_Sprite_2023_07_27_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 45
+      alignment: 9
+      pivot: {x: 0.48159915, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25147ea8890eec044907ff4acbd1f2d5
+      internalID: 1620052154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kurth_NPC01_Unten_Sprite_2023_07_27_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 35
+        height: 45
+      alignment: 9
+      pivot: {x: 0.4548343, y: 0.49869892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec62dd2f25c86447acb7879fb935927
+      internalID: 1115824413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2f2808ae5385635469e9340eddb83556
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kurth_NPC01_Unten_Sprite_2023_07_27_0: 1620052154
+      Kurth_NPC01_Unten_Sprite_2023_07_27_1: 1115824413
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

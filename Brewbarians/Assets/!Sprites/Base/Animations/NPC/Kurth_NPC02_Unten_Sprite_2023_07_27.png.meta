@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50ac16f6d97415d4aa5b3607d34086cf
+guid: a0787939ff41c164d8171d49732ee546
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,18 +103,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Kurth_NPC02_Unten_Sprite_2023_07_27_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 28
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4286272, y: 0.5819672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa26914c6f691c44bfb6a3c7e1b8ba9
+      internalID: 1780969695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kurth_NPC02_Unten_Sprite_2023_07_27_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 28
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4263968, y: 0.5819672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba57ec61d5b2dd449ae20ef5dc069787
+      internalID: 121651274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9ec65ff22cb65424a9efc31dad94df8f
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kurth_NPC02_Unten_Sprite_2023_07_27_0: 1780969695
+      Kurth_NPC02_Unten_Sprite_2023_07_27_1: 121651274
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

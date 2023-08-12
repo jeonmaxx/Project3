@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50ac16f6d97415d4aa5b3607d34086cf
+guid: ad3a5f3c007a02a4191357425e42b1af
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,18 +103,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Kurth_NPC03_Unten_Sprite_2023_07_29_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 38
+        height: 52
+      alignment: 9
+      pivot: {x: 0.51068246, y: 0.50910753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a3c0e8a48e67546965d677cbfae948
+      internalID: 112805129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kurth_NPC03_Unten_Sprite_2023_07_29_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 38
+        height: 52
+      alignment: 9
+      pivot: {x: 0.46973318, y: 0.5078064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7041d2f25577aa04c91ff816e46c29c0
+      internalID: 1868657132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f5312983c7deec4f84de0c7599455b2
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kurth_NPC03_Unten_Sprite_2023_07_29_0: 112805129
+      Kurth_NPC03_Unten_Sprite_2023_07_29_1: 1868657132
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
