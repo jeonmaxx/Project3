@@ -27,6 +27,11 @@ public class SceneTester : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
+    public void BackToMainMenu(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public void QuitButton()
     {
         Application.Quit();

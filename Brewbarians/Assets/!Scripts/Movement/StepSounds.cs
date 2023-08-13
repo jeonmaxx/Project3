@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public enum TileKind { None, Dirt, Grass, Stone, Path}
+public enum TileKind { None, Dirt, Grass, Stone, Path, Wood}
 public class StepSounds : MonoBehaviour
 {
     public AudioClip[] dirtSounds;
     public AudioClip[] grassSounds;
     public AudioClip[] stoneSounds;
     public AudioClip[] pathSounds;
+    public AudioClip[] woodSounds;
 
     private AudioSource audioSource;
     public PlayerMovement movement;
@@ -37,13 +38,16 @@ public class StepSounds : MonoBehaviour
             case TileKind.Path:
                 audioSource.clip = pathSounds[Random.Range(0, pathSounds.Length)];
                 break;
+            case TileKind.Wood:
+                audioSource.clip = woodSounds[Random.Range(0, woodSounds.Length)];
+                break;
         };
         audioSource.Play();
     }
 
     public void Update()
     {
-        if (movement.m_PlayerMovement.x != 0 || movement.m_PlayerMovement.y != 0)
+        if ((movement.m_PlayerMovement.x != 0 || movement.m_PlayerMovement.y != 0) && !movement.forbidToWalk)
         {
             StartCoroutine(PlayRandomSound());
         }
@@ -74,6 +78,11 @@ public class StepSounds : MonoBehaviour
         if (collision.name == "Path")
         {
             kind = TileKind.Path;
+        }
+
+        if (collision.name == "Wood")
+        {
+            kind = TileKind.Wood;
         }
     }
 }

@@ -41,9 +41,10 @@ public class OpenBrewing : PlayerNear
         if (menuOpen && isPlayerNear)
         {
             currentRect.transform.localScale = Vector3.one;
+            movement.forbidToWalk = true;
             movement.enabled = false;
 
-            foreach(RectTransform rectTransform in menus)
+            foreach (RectTransform rectTransform in menus)
             {
                 if(rectTransform != currentRect)
                 {
@@ -55,6 +56,7 @@ public class OpenBrewing : PlayerNear
         {
             currentRect.transform.localScale = Vector3.zero;
             movement.enabled = true;
+            movement.forbidToWalk = false;            
         }
 
         if(state == BrewingStates.Waiting)
@@ -75,6 +77,7 @@ public class OpenBrewing : PlayerNear
         if (isPlayerNear && !menuOpen || choosing)
         {
             menuOpen = true;
+            tutorial.enablePopup = true;
 
             if(tutorial.state == TutorialState.GoToMachine)
             {

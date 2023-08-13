@@ -106,7 +106,7 @@ public class DayTime : MonoBehaviour
 
         ArrowRotation();
 
-        if (currentTime >= (maxDayTime * 0.7f) && coroutineDone)
+        if (currentTime >= (maxDayTime * 0.65f) && coroutineDone)
         {
             if (night <= ((currentTime * maxDayTime) / 130))
                 night += (Time.deltaTime * 0.1f);
@@ -137,9 +137,9 @@ public class DayTime : MonoBehaviour
     public IEnumerator ChangeNightSky()
     {
         yield return new WaitForEndOfFrame();
-        if (currentTime > (maxDayTime * 0.7f))
+        if (currentTime > (maxDayTime * 0.65f))
         {
-            night = (currentTime * maxDayTime) / 130;
+            night = (currentTime * maxDayTime) / 50;
             Debug.Log(night);
             nightTime.color = new Color(nightTime.color.r, nightTime.color.g, nightTime.color.b, night);
         }

@@ -23,6 +23,8 @@ public class OpenInventory : MonoBehaviour
     public InputActionReference inputAction;
     private InputAction action;
 
+    public UISoundManager soundManager;
+
     public void Start()
     {
         toolBarPos = new Vector3(toolBar.GetComponent<RectTransform>().anchoredPosition.x, toolBar.GetComponent<RectTransform>().anchoredPosition.y, 0);
@@ -78,10 +80,12 @@ public class OpenInventory : MonoBehaviour
     {
         if(!inventoryActive)
         {
+            soundManager.PlayOpenSound();
             inventoryActive = true;
         }
         else
         {
+            soundManager.PlayOpenSound();
             inventoryActive = false;
         }
     }

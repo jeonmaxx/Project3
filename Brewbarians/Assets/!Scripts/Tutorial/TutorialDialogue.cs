@@ -49,9 +49,12 @@ public class TutorialDialogue : PlayerNear
     public FarmSign tutSign;
     public Item tutSeed;
 
+    public bool enablePopup;
+
     public void Start()
     {
         action = inputAction.action;
+        enablePopup = false;
     }
 
     private void Update()
@@ -103,9 +106,9 @@ public class TutorialDialogue : PlayerNear
             itemGiven = false;
         }
         
-        if(state == TutorialState.ChooseRec ||
+        if((state == TutorialState.ChooseRec ||
             state == TutorialState.Qte ||
-            state == TutorialState.Brewing)
+            state == TutorialState.Brewing) && enablePopup)
         {
             trigger.PassiveDialogue();
             newState = false;

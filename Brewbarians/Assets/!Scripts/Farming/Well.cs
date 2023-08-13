@@ -7,6 +7,13 @@ public class Well : PlayerNear, IPointerDownHandler
 {
     public Item waterItem;
     public HandManager handManager;
+    public ToolSoundManager toolSoundManager;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void Update()
     {
@@ -22,6 +29,8 @@ public class Well : PlayerNear, IPointerDownHandler
     {
         if(isPlayerNear && handManager.handItem == waterItem)
         {
+            audioSource.clip = toolSoundManager.refillSounds[Random.Range(0, toolSoundManager.refillSounds.Length)];
+            audioSource.Play();
             waterItem.currentWater = waterItem.waterAmount;
         }
     }

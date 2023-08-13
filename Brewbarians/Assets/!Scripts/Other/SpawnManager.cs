@@ -68,7 +68,7 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator FadeIntroOut()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         startFadeOut = true;
     }
 }

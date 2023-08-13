@@ -39,10 +39,13 @@ public class Planting : PlayerNear, IPointerDownHandler
     [SerializeField] private Item shovelItem;
     [SerializeField] private Item waterItem;
     [SerializeField] private Item harvestItem;
+    [SerializeField] private ToolSoundManager toolSoundManager;
+    private AudioSource audioSource;
 
     public void Start()
     {
         farmSign = sign.GetComponent<FarmSign>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -71,6 +74,7 @@ public class Planting : PlayerNear, IPointerDownHandler
         if(curFieldState == FieldStates.None 
             && handManager.handItem == shovelItem)
         {
+            audioSource.clip = toolSoundManager.shovelSounds[Random.Range(0, toolSoundManager.shovelSounds.Length)];
             StartCoroutine(PlayAnim("IsShoveling", 1.1f));
             hoed = Instantiate(HoedField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Hoed;
@@ -89,6 +93,7 @@ public class Planting : PlayerNear, IPointerDownHandler
             && handManager.handItem == waterItem
             && waterItem.currentWater > 0)
         {
+            audioSource.clip = toolSoundManager.wateringSounds[Random.Range(0, toolSoundManager.wateringSounds.Length)];
             StartCoroutine(PlayAnim("IsWatering", 1.3f));
             wet = Instantiate(WetField, gameObject.transform.position, gameObject.transform.rotation, this.transform);
             curFieldState = FieldStates.Wet;
@@ -126,6 +131,8 @@ public class Planting : PlayerNear, IPointerDownHandler
                 if (seedItem[i] != null
                     && seedItem[i].item == farmSign.signSeed)
                 {
+                    audioSource.clip = toolSoundManager.bagSounds[Random.Range(0, toolSoundManager.bagSounds.Length)];
+                    audioSource.Play();
                     //planted und rechnet einen seed count runter
                     plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                     curPlantState = PlantStates.Phase01;
@@ -217,6 +224,7 @@ public class Planting : PlayerNear, IPointerDownHandler
         if(curPlantState == PlantStates.Phase03
             && handManager.handItem == harvestItem)
         {
+            audioSource.clip = toolSoundManager.sickleSounds[Random.Range(0, toolSoundManager.sickleSounds.Length)];
             StartCoroutine(PlayAnim("IsSicheling", 1.2f));
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
@@ -267,9 +275,12 @@ public class Planting : PlayerNear, IPointerDownHandler
     {
         movement.forbidToWalk = true;
         movement.animator.SetBool(animName, true);
+        audioSource.Play();
         yield return new WaitForSeconds(time);
         movement.animator.SetBool(animName, false);
         movement.forbidToWalk = false;
         StopCoroutine(PlayAnim(animName, time));
     }
+
+
 }

@@ -18,7 +18,7 @@ public class SeedWheelManager : MonoBehaviour
             inventoryItem = seedObj.GetComponent<InventoryItem>();
             chosenSeed = inventoryItem.item;
 
-            text.text = chosenSeed.ToString();
+            text.text = chosenSeed.name.ToString();
         }
 
         if(seedObj == null)
