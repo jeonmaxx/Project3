@@ -50,7 +50,6 @@ public class BrewingManager : MonoBehaviour
     {
         action = inputAction.action;
         open = GetComponent<OpenBrewing>();
-        LeanTween.init(1600);
     }
 
     public void Update()

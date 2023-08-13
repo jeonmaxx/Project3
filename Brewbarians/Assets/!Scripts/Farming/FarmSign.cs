@@ -38,7 +38,7 @@ public class FarmSign : PlayerNear
         if (wheelOpen && !isPlayerNear)
         {
             signSeed = seedWheelManager.chosenSeed;
-            seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            seedWheel.transform.localScale = Vector3.zero;
             wheelOpen = false;
         }
 
@@ -71,7 +71,7 @@ public class FarmSign : PlayerNear
     {
         if (isPlayerNear && seedInHand && !wheelOpen)
         {
-            seedWheel.LeanScale(Vector3.one, 0.5f);
+            seedWheel.transform.localScale = Vector3.one;
             seedWheelManager = seedWheel.GetComponent<SeedWheelManager>();
             signSeed = seedWheelManager.chosenSeed;
             if (signSeed != null)
@@ -90,7 +90,7 @@ public class FarmSign : PlayerNear
                 signSprite.sprite = signSeed.image;
                 signSprite.color = new Color(color.r, color.g, color.b, 100);
             }
-            seedWheel.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            seedWheel.transform.localScale = Vector3.zero;
             wheelOpen = false;
         }
     }

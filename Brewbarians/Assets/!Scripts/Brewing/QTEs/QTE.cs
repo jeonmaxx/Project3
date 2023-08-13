@@ -27,7 +27,6 @@ public class QTE : MonoBehaviour
     {
         ChangePos();
         transform.localScale = Vector3.zero;
-        //LeanTween.init(2400);
 
         action = inputAction.action;
     }
@@ -106,8 +105,6 @@ public class QTE : MonoBehaviour
     {
         if (moving)
             moving = false;
-        //else if(!moving)
-        //    moving = true;
 
         if (manager.checking)
         {

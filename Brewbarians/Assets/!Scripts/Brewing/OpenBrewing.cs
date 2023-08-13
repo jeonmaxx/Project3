@@ -29,8 +29,6 @@ public class OpenBrewing : PlayerNear
         {
             menus[i].transform.localScale = Vector3.zero;
         }
-        LeanTween.init(2400);
-
         action = inputAction.action;
     }
 
@@ -42,7 +40,7 @@ public class OpenBrewing : PlayerNear
 
         if (menuOpen && isPlayerNear)
         {
-            currentRect.LeanScale(Vector3.one, 0.5f).setEaseOutExpo();
+            currentRect.transform.localScale = Vector3.one;
             movement.enabled = false;
 
             foreach(RectTransform rectTransform in menus)
@@ -55,7 +53,7 @@ public class OpenBrewing : PlayerNear
         }
         else if (!menuOpen)
         {
-            currentRect.LeanScale(Vector3.zero, 0.5f).setEaseOutExpo();
+            currentRect.transform.localScale = Vector3.zero;
             movement.enabled = true;
         }
 

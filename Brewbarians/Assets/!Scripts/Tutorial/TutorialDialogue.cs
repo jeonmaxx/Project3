@@ -46,6 +46,9 @@ public class TutorialDialogue : PlayerNear
     public InputActionReference inputAction;
     private InputAction action;
 
+    public FarmSign tutSign;
+    public Item tutSeed;
+
     public void Start()
     {
         action = inputAction.action;
@@ -65,6 +68,10 @@ public class TutorialDialogue : PlayerNear
             Destroy(transform.GetChild(0).gameObject);
         }
 
+        if(!diaList[1].Done && tutSign != null)
+        {
+            tutSign.signSeed = tutSeed;
+        }
 
         for(int i = 0; i < diaList.Count; i++)
         {

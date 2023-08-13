@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
         isActive = true;
 
         DisplayMessage();
-        backgroundBox.LeanScale(Vector3.one, 0.5f);
+        backgroundBox.transform.localScale = Vector3.one;
     }
 
     public void DisplayMessage()
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            backgroundBox.transform.localScale = Vector3.zero;
             isActive = false;
         }
     }
