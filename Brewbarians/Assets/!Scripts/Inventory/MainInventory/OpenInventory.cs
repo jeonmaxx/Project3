@@ -27,6 +27,7 @@ public class OpenInventory : MonoBehaviour
 
     public void Start()
     {
+        inventoryActive = false;
         toolBarPos = new Vector3(toolBar.GetComponent<RectTransform>().anchoredPosition.x, toolBar.GetComponent<RectTransform>().anchoredPosition.y, 0);
         windows = Windows.Inventory;
 

@@ -129,7 +129,8 @@ public class Planting : PlayerNear, IPointerDownHandler
                 seed = farmSign.signSeed.seed;
 
                 if (seedItem[i] != null
-                    && seedItem[i].item == farmSign.signSeed)
+                    && seedItem[i].item == farmSign.signSeed
+                    && plant == null)
                 {
                     audioSource.clip = toolSoundManager.bagSounds[Random.Range(0, toolSoundManager.bagSounds.Length)];
                     audioSource.Play();
@@ -229,6 +230,7 @@ public class Planting : PlayerNear, IPointerDownHandler
             inventoryManager.AddItem(seed.Product);
             Destroy(plant);
             curPlantState = PlantStates.None;
+            plant = null;
 
             if(tutorial.state == TutorialState.Harvest)
             {

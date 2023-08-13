@@ -7,6 +7,7 @@ public class ToggleControl : MonoBehaviour
 {
     public Toggle otherToggle;
     private Toggle thisToggle;
+    public bool fullScreen;
 
     public void Start()
     {
@@ -23,6 +24,15 @@ public class ToggleControl : MonoBehaviour
         if(thisToggle.isOn)
         {
             otherToggle.isOn = false;
+
+            if(fullScreen)
+            {
+                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+            }
+            else
+            {
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+            }
         }
     }
 }

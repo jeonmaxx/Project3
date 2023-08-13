@@ -280,6 +280,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 930deee6e677b7740b7f9fc40ff28154, type: 3}
   - {fileID: 8300000, guid: 9109c1a7b492fe241840802fbef406d0, type: 3}
   openSounds: []
+  audioSource: {fileID: 2527593599279288060}
 --- !u!82 &2527593599279288060
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1951,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherToggle: {fileID: 4631503463767838453}
+  fullScreen: 0
 --- !u!1 &4021852782034685458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,7 +2215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -514.902, y: -508641.38}
+  m_AnchoredPosition: {x: -514.902, y: -3758037}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &4496642436175542643
@@ -4898,6 +4900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherToggle: {fileID: 4747874819664564420}
+  fullScreen: 1
 --- !u!1 &8270179326744407718
 GameObject:
   m_ObjectHideFlags: 0
