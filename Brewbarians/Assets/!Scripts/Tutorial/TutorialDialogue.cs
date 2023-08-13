@@ -92,7 +92,13 @@ public class TutorialDialogue : PlayerNear
             newState = true;
         }
 
-        if(newState)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && state == TutorialState.Introduction)
+        {
+            diaList[0].Done = true;
+            newState = true;
+        }
+
+        if (newState)
         {
             itemGiven = false;
         }
@@ -115,9 +121,8 @@ public class TutorialDialogue : PlayerNear
             switch (state)
             {
                 case TutorialState.Introduction:
-                    diaList[(int)state].Done = true;
                     itemGiven = false;
-                    newState = true;
+                    newState = false;
                     break;
                 case TutorialState.Shovel:
                     GiveItem(0, 1);
