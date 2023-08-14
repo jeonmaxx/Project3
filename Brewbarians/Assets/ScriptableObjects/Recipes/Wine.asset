@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wine
   m_EditorClassIdentifier: 
   DrinkName: Wine
-  Product1Amount: 3
+  Product1Amount: 2
   Product1: {fileID: 11400000, guid: ecfa8ccfa1efc684daa2dae0d12401a8, type: 2}
   Product2Amount: 2
   Product2: {fileID: 11400000, guid: 2b0d05b25d01e694ca8daf017af9abd9, type: 2}

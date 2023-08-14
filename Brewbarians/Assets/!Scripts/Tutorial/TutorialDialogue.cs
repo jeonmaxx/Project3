@@ -33,7 +33,7 @@ public class TutorialDialogue : PlayerNear
     public bool newState;
     public GameObject exclaPrefab;
     public Item[] givenItems;
-    public Recipe recipe;
+    public Recipe[] recipe;
 
     public int neededGrowPoints = 5;
     public int harvestAmount = 3;
@@ -155,7 +155,7 @@ public class TutorialDialogue : PlayerNear
                     newState = false;
                     break;
                 case TutorialState.GoToMachine:
-                    recipeManager.AddRecipe(recipe);
+                    recipeManager.AddRecipe(recipe[0]);
                     newState = false;
                     break;
                 case TutorialState.ChooseRec:
@@ -168,6 +168,8 @@ public class TutorialDialogue : PlayerNear
                     newState = false;
                     break;
                 case TutorialState.Done:
+                    recipeManager.AddRecipe(recipe[1]);
+                    recipeManager.AddRecipe(recipe[2]);
                     newState = false;
                     break;
 

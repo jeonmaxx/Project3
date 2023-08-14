@@ -10,6 +10,11 @@ public class DayTime : MonoBehaviour
     public Transform TimeArrow;
     public Image nightTime;
 
+    public bool playAmbiente;
+
+    public AudioClip dayMusic;
+    public AudioClip eveningMusic;
+
     public PointsCollector collector;
     public float night;
 
@@ -31,6 +36,8 @@ public class DayTime : MonoBehaviour
 
     private bool sleeping;
 
+    public AudioSource source;
+
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -39,11 +46,11 @@ public class DayTime : MonoBehaviour
         blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, 0);
         if(bed != null )
             wakingUpText.color = new Color(wakingUpText.color.r, wakingUpText.color.g, wakingUpText.color.b, 0);
-        startCheck = false;        
+        startCheck = false;   
     }
 
     private void FixedUpdate()
-    {
+    {      
         if (!coroutineDone)
             StartCoroutine(ChangeNightSky());
 
@@ -96,6 +103,19 @@ public class DayTime : MonoBehaviour
 
     public void Update()
     {
+        if (currentTime < (maxDayTime * 0.65f) && playAmbiente)
+        {
+            source.clip = dayMusic;
+            if(!source.isPlaying)
+                source.Play();
+        }
+        else if (currentTime > (maxDayTime * 0.65f) && playAmbiente)
+        {
+            source.clip = eveningMusic;
+            if (!source.isPlaying)
+                source.Play();
+        }
+
         if (!coroutineDone)
             StartCoroutine(ChangeNightSky());
 

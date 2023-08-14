@@ -1504,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792341413740217723, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -717894.25
+      value: -742774.75
       objectReference: {fileID: 0}
     - target: {fileID: 5574380894860116185, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1792,6 +1792,10 @@ PrefabInstance:
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
@@ -4138,6 +4142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decken Lampe Part1
       objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
 --- !u!4 &493405600 stripped
@@ -4357,6 +4365,7 @@ GameObject:
   - component: {fileID: 506596161}
   - component: {fileID: 506596163}
   - component: {fileID: 506596162}
+  - component: {fileID: 506596164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4657,6 +4666,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 34f8b19adb9acb64b871a29fcf152fa5, type: 3}
   movement: {fileID: 506596161}
   kind: 3
+--- !u!81 &506596164
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506596153}
+  m_Enabled: 1
 --- !u!1001 &527375715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8859,7 +8876,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194232}
@@ -8871,14 +8887,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -13042,6 +13050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decken Lampe Part1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
 --- !u!4 &1287360760 stripped
@@ -14113,6 +14125,10 @@ PrefabInstance:
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
@@ -15485,6 +15501,10 @@ PrefabInstance:
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
@@ -17767,6 +17787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decken Lampe Part1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
 --- !u!4 &2033064551 stripped
@@ -17843,6 +17867,10 @@ PrefabInstance:
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
@@ -18581,6 +18609,10 @@ PrefabInstance:
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340051938566599849, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
