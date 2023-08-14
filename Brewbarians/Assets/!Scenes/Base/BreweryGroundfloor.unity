@@ -1504,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792341413740217723, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -494625.25
+      value: -717894.25
       objectReference: {fileID: 0}
     - target: {fileID: 5574380894860116185, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1785,6 +1785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (2)
@@ -1849,6 +1853,68 @@ Transform:
   m_Father: {fileID: 493405600}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &287886430
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1555428665}
+    m_Modifications:
+    - target: {fileID: 1010763860668505384, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_Name
+      value: Soundtrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+--- !u!4 &287886431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1010763860668505385, guid: f18f17a3bac03864c973f8cdac8bf45e, type: 3}
+  m_PrefabInstance: {fileID: 287886430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &301132239
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,6 +4129,10 @@ PrefabInstance:
     - target: {fileID: 2664904982306283828, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
@@ -12964,6 +13034,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (5)
@@ -14032,6 +14106,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (3)
@@ -14925,7 +15003,8 @@ Transform:
   m_LocalPosition: {x: 634.3757, y: 275.27847, z: 1.6423703}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 287886431}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15086,6 +15165,17 @@ MonoBehaviour:
   Points: {x: 0, y: 0, z: 0}
   scene: {x: 0, y: 0}
   tutorialList: []
+  bushLists:
+  - BushData:
+      Scene: 0
+      Empty: 
+  - BushData:
+      Scene: 1
+      Empty: 
+  - BushData:
+      Scene: 2
+      Empty: 
+  saveBushes: {fileID: 0}
 --- !u!114 &1555428671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15387,6 +15477,10 @@ PrefabInstance:
     - target: {fileID: 2664904982306283828, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
@@ -17665,6 +17759,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
       value: Decken Lampe Part1 (7)
@@ -17737,6 +17835,10 @@ PrefabInstance:
     - target: {fileID: 2664904982306283828, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name
@@ -18471,6 +18573,10 @@ PrefabInstance:
     - target: {fileID: 2664904982306283828, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450544756455882266, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5911421848896655443, guid: 84a0030480dd953458e69b10764c22e8, type: 3}
       propertyPath: m_Name

@@ -45,6 +45,16 @@ public class Tutorial
     }
 }
 
+[Serializable]
+public class BushLists
+{
+    public BushData BushData;
+    public BushLists(BushData bushData)
+    {
+        BushData = bushData;
+    }
+}
+
 public class DataCollector : MonoBehaviour
 {
     [Header("Input")]
@@ -70,6 +80,9 @@ public class DataCollector : MonoBehaviour
 
     private InventoryItem tmpInven;
     private int tmpCount;
+
+    public List<BushLists> bushLists;
+    public SaveBushes saveBushes;
 
     public void Start()
     {
@@ -133,6 +146,14 @@ public class DataCollector : MonoBehaviour
 
         //active Scene
         scene.x = SceneManager.GetActiveScene().buildIndex;
+
+        //Bushes
+        if (saveBushes != null)
+        {
+            saveBushes.CollectBushes();
+            SavingBushes();
+            SaveGameManager.SaveToJSON<BushLists>(bushLists, "bushes.json");
+        }
 
         //Tutorial
         if (tutorial != null)
@@ -198,6 +219,11 @@ public class DataCollector : MonoBehaviour
         LoadItems();
         LoadSeeds();
         LoadRecipes();
+
+        bushLists = SaveGameManager.ReadListFromJSON<BushLists>("bushes.json");
+        if(bushLists != null)
+            GivingBushes();
+
 
         pointsCollector.addedFarmPoints = Points.x;
         pointsCollector.addedBrewPoints = Points.y;
@@ -311,6 +337,52 @@ public class DataCollector : MonoBehaviour
         for (int j = 0; j < recipes.Count; j++)
         {
             recipeManager.AddRecipe(recipes[j]);
+        }
+    }
+
+    public void SavingBushes()
+    {
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 3:
+                bushLists[0].BushData = saveBushes.bushData;
+                break;
+            case 4:
+                bushLists[1].BushData = saveBushes.bushData;
+                break;
+            case 1:
+                bushLists[2].BushData = saveBushes.bushData;
+                break;
+        }
+    }
+
+    public void GivingBushes()
+    {
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 3:
+                saveBushes.bushData = bushLists[0].BushData;
+                BushBool(0);
+                break;
+            case 4:
+                saveBushes.bushData = bushLists[1].BushData;
+                BushBool(1);
+                break;
+            case 1:
+                saveBushes.bushData = bushLists[2].BushData;
+                BushBool(2);
+                break;
+        }
+    }
+
+    private void BushBool(int num)
+    {
+        if (bushLists[num].BushData != null)
+        {
+            for (int i = 0; i < bushLists[num].BushData.Empty.Count; i++)
+            {
+                saveBushes.bushes[i].emptyBool = bushLists[num].BushData.Empty[i];
+            }
         }
     }
 }
