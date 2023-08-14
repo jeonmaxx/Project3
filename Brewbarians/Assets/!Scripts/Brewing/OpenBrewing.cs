@@ -22,6 +22,8 @@ public class OpenBrewing : PlayerNear
     public InputActionReference inputAction;
     private InputAction action;
 
+    public InteractableSign interactableSign;
+
     public void Start()
     {
         currentRect = menus[0];
@@ -37,6 +39,14 @@ public class OpenBrewing : PlayerNear
         CalcDistance();
 
         action.started += _ => OnInteract();
+
+        if (isPlayerNear)
+        {
+            interactableSign.gameObject.SetActive(true);
+            interactableSign.ShowInteraction();
+        }
+        else
+            interactableSign.gameObject.SetActive(false);
 
         if (menuOpen && isPlayerNear)
         {
@@ -66,6 +76,7 @@ public class OpenBrewing : PlayerNear
                 tutorial.trigger.passivePassed = false;
                 tutorial.diaList[9].Done = true;
                 tutorial.newState = true;
+                tutorial.enablePopup = true;
             }
         }
 

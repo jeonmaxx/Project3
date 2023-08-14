@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -57,6 +58,12 @@ public class BrewingManager : MonoBehaviour
         CheckRecipe();
         CheckIngredients();
         action.started += _ => OnQte();
+
+        if(!brewing && tutorial.state == TutorialState.Brewing)
+        {
+            tutorial.diaList[10].Done = true;
+            tutorial.newState = true;
+        }
     }
 
     public void CheckRecipe()
@@ -124,6 +131,7 @@ public class BrewingManager : MonoBehaviour
                 tutorial.diaList[8].Done = true;
                 tutorial.newState = true;
                 tutorial.trigger.passivePassed = false;
+                tutorial.enablePopup = true;
             }
             checking = true;
             qte.QteMethode();
@@ -141,19 +149,7 @@ public class BrewingManager : MonoBehaviour
         if(checking)
         {
             Debug.Log("checking");
-            if (open.currentRect == open.menus[1])
-            {
-                open.state = BrewingStates.IngreTwo;
-                ChangingScreen(2);
-                Debug.Log("changed screen");
-            }
-            else if (open.currentRect == open.menus[2])
-            {
-                open.state = BrewingStates.Waiting;
-                ChangingScreen(3);
-                brewing = true;
-            }
-            checking = false;
+            StartCoroutine(WaitQte());
         }
     }
     private void ChangingScreen(int menu)
@@ -170,9 +166,9 @@ public class BrewingManager : MonoBehaviour
             for (int i = 0; i < (quantity + bonusPoints); i++)
             {
                 inventoryManager.AddItem(chosenRecipe.Drink);
-                if (tutorial.state == TutorialState.Brewing)
+                if (tutorial.state == TutorialState.Ready)
                 {
-                    tutorial.diaList[10].Done = true;
+                    tutorial.diaList[11].Done = true;
                     tutorial.newState = true;
                 }
             }
@@ -228,5 +224,24 @@ public class BrewingManager : MonoBehaviour
         {
             item.RefreshCount();
         }
+    }
+
+   private IEnumerator WaitQte()
+    {
+        yield return new WaitForEndOfFrame();
+        if (open.currentRect == open.menus[1])
+        {
+            open.state = BrewingStates.IngreTwo;
+            ChangingScreen(2);
+            Debug.Log("changed screen");
+        }
+        else if (open.currentRect == open.menus[2])
+        {
+            open.state = BrewingStates.Waiting;
+            ChangingScreen(3);
+            brewing = true;
+        }
+        checking = false;
+        StopCoroutine(WaitQte());
     }
 }

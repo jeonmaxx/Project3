@@ -122,6 +122,7 @@ public class QTE : MonoBehaviour
             }
             else
             {
+                Debug.Log("Blue Zone hit!");
                 done = true;
             }
         }

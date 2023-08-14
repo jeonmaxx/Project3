@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         dialogue = FindObjectOfType<DialogueManager>();
         if (!passivePassed)
         {
-            if(!dialogue.isActive)
+            if (!dialogue.isActive)
                 StartDialogue();
             StartCoroutine(PassiveNext());
         }

@@ -15,7 +15,17 @@ public class InputQuantity : MonoBehaviour
     {
         CheckInteractable();
         CheckQuant();
-        brewingManager.quantity = chosenQuant;
+
+        if (chosenQuant <= 10)
+        {
+            brewingManager.quantity = chosenQuant;
+        }
+        else if(chosenQuant > 10)
+        {
+            inputField.text = "10";
+            chosenQuant = 10;
+            brewingManager.quantity = chosenQuant;
+        }
     }
 
     private void CheckInteractable()

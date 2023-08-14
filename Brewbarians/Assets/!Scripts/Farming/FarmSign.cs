@@ -21,6 +21,8 @@ public class FarmSign : PlayerNear
     public InputActionReference inputAction;
     private InputAction action;
 
+    public InteractableSign interactableSign;
+
     public void Start()
     {
         seedWheel.transform.localScale = Vector3.zero;
@@ -34,6 +36,14 @@ public class FarmSign : PlayerNear
         CalcDistance();
 
         action.started += _ => OnInteract();
+
+        if (isPlayerNear && handManager.handItem.actionType == ActionType.Plant)
+        {
+            interactableSign.gameObject.SetActive(true);
+            interactableSign.ShowInteraction();
+        }
+        else
+            interactableSign.gameObject.SetActive(false);
 
         if (wheelOpen && !isPlayerNear)
         {

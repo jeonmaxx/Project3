@@ -19,7 +19,7 @@ public class DialogueList
         Done = done;
     }
 }
-public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, GoToMachine, ChooseRec, Qte, Brewing, Done}
+public enum TutorialState { Introduction, Shovel, Water, SeedPouch, Seed, Harvest, GoToBrewery, GoToMachine, ChooseRec, Qte, Brewing, Ready, Done}
 public class TutorialDialogue : PlayerNear
 {
     public DialogueTrigger trigger;
@@ -50,6 +50,9 @@ public class TutorialDialogue : PlayerNear
     public Item tutSeed;
 
     public bool enablePopup;
+    public bool recipeGiven;
+
+    public InteractableSign interactableSign;
 
     public void Start()
     {
@@ -112,7 +115,16 @@ public class TutorialDialogue : PlayerNear
         {
             trigger.PassiveDialogue();
             newState = false;
+            enablePopup = false;
         }
+
+        if(isPlayerNear)
+        {
+            interactableSign.gameObject.SetActive(true);
+            interactableSign.ShowInteraction();
+        }
+        else
+            interactableSign.gameObject.SetActive(false);
     }
 
     public void OnInteract()
@@ -153,9 +165,12 @@ public class TutorialDialogue : PlayerNear
                     break;
                 case TutorialState.GoToBrewery:
                     newState = false;
+                    recipeGiven = false;
                     break;
                 case TutorialState.GoToMachine:
-                    recipeManager.AddRecipe(recipe[0]);
+                    if(!recipeGiven)
+                        recipeManager.AddRecipe(recipe[0]);
+                    recipeGiven = true;
                     newState = false;
                     break;
                 case TutorialState.ChooseRec:
@@ -164,12 +179,23 @@ public class TutorialDialogue : PlayerNear
                 case TutorialState.Qte:
                     newState = false;
                     break;
-                case TutorialState.Brewing:
+                case TutorialState.Brewing:                    
                     newState = false;
                     break;
+                case TutorialState.Ready:
+                    newState = false;
+                    recipeGiven = false;
+                    break;
                 case TutorialState.Done:
-                    recipeManager.AddRecipe(recipe[1]);
-                    recipeManager.AddRecipe(recipe[2]);
+                    if (!recipeGiven)
+                    {
+                        recipeManager.AddRecipe(recipe[1]);
+                        recipeManager.AddRecipe(recipe[2]);
+                    }
+                    GiveItem(3, 10);
+                    GiveItem(5, 20);
+                    itemGiven = true;
+                    recipeGiven = true;
                     newState = false;
                     break;
 

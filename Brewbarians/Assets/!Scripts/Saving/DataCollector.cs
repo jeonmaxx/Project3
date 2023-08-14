@@ -35,13 +35,15 @@ public class Tutorial
     public TutorialState State;
     public bool NewState;
     public bool ItemGiven;
+    public bool EnablePopup;
 
-    public Tutorial(List<DialogueList> tutDia, TutorialState state, bool newState, bool itemGiven)
+    public Tutorial(List<DialogueList> tutDia, TutorialState state, bool newState, bool itemGiven, bool enablePopup)
     {
         TutDia = tutDia;
         State = state;
         NewState = newState;
         ItemGiven = itemGiven;
+        EnablePopup = enablePopup;
     }
 }
 
@@ -158,7 +160,7 @@ public class DataCollector : MonoBehaviour
         //Tutorial
         if (tutorial != null)
         {
-            tutorialList.Add(new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.itemGiven));
+            tutorialList.Add(new Tutorial(tutorial.diaList, tutorial.state, tutorial.newState, tutorial.itemGiven, tutorial.enablePopup));
             SaveGameManager.SaveToJSON<Tutorial>(tutorialList, "tutorial.json");
         }
 
@@ -237,6 +239,7 @@ public class DataCollector : MonoBehaviour
                 tutorial.state = tutorialList[i].State;
                 tutorial.newState = tutorialList[i].NewState;
                 tutorial.itemGiven = tutorialList[i].ItemGiven;
+                tutorial.enablePopup = tutorialList[i].EnablePopup;
             }
         }
     }

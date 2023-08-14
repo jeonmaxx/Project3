@@ -19,10 +19,16 @@ public class DialogueManager : MonoBehaviour
     public InputActionReference inputAction;
     private InputAction action;
 
+    public AudioClip openSound;
+    public AudioClip closeSound;
+
+    private AudioSource source;
+
     public void Start()
     {
         backgroundBox.transform.localScale = Vector3.zero;
         action = inputAction.action;
+        source = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -42,6 +48,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (!isActive)
         {
+            source.clip = openSound;
+            source.Play();
             currentMessages = messages;
             currentActors = actors;
             activeMessage = 0;                    
@@ -74,6 +82,8 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                source.clip = closeSound;
+                source.Play();
                 backgroundBox.transform.localScale = Vector3.zero;
                 StartCoroutine(EndDialogue());
                 Debug.Log("dialogue ended");

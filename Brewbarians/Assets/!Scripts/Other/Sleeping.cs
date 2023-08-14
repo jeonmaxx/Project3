@@ -21,6 +21,8 @@ public class Sleeping : PlayerNear
     public bool sleeping;
     public DataCollector collector;
 
+    public InteractableSign interactableSign;
+
     public void Start()
     {
         action = inputAction.action;
@@ -36,8 +38,16 @@ public class Sleeping : PlayerNear
         CalcDistance();
         action.started += _ => OnInteract();
 
+        if (isPlayerNear)
+        {
+            interactableSign.gameObject.SetActive(true);
+            interactableSign.ShowInteraction();
+        }
+        else
+            interactableSign.gameObject.SetActive(false);
 
-        if(increasing && sleeping)
+
+        if (increasing && sleeping)
         {
             if (backgroundAlpha < 1)
             {

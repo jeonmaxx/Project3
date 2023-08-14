@@ -7,6 +7,7 @@ public class DonkeyChest : PlayerNear
     private InputAction action;    
     public GameObject chest;
     public bool chestOpen;
+    public InteractableSign interactableSign;
 
 
     private void Start()
@@ -22,6 +23,8 @@ public class DonkeyChest : PlayerNear
         if (isPlayerNear)
         {
             action.started += _ => OnOpenChest();
+            interactableSign.gameObject.SetActive(true);
+            interactableSign.ShowInteraction();
             if (!chestOpen)
             {
                 chest.GetComponent<Canvas>().enabled = false;
@@ -33,6 +36,7 @@ public class DonkeyChest : PlayerNear
         }
         else
         {
+            interactableSign.gameObject.SetActive(false);
             chest.GetComponent<Canvas>().enabled = false;
             chestOpen = false;
         }
