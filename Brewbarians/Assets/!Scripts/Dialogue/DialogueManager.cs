@@ -40,13 +40,15 @@ public class DialogueManager : MonoBehaviour
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
-        currentMessages = messages;
-        currentActors = actors;
-        activeMessage = 0;
-        isActive = true;
-
-        DisplayMessage();
-        backgroundBox.transform.localScale = Vector3.one;
+        if (!isActive)
+        {
+            currentMessages = messages;
+            currentActors = actors;
+            activeMessage = 0;                    
+            DisplayMessage();
+            backgroundBox.transform.localScale = Vector3.one;
+            StartCoroutine(StartDialogue());
+        }
     }
 
     public void DisplayMessage()
@@ -63,15 +65,19 @@ public class DialogueManager : MonoBehaviour
 
     public void NextMessage()
     {
-        activeMessage++;
-        if(activeMessage < currentMessages.Length)
+        if (isActive)
         {
-            DisplayMessage();
-        }
-        else
-        {
-            backgroundBox.transform.localScale = Vector3.zero;
-            isActive = false;
+            activeMessage++;
+            if (activeMessage < currentMessages.Length)
+            {
+                DisplayMessage();
+            }
+            else
+            {
+                backgroundBox.transform.localScale = Vector3.zero;
+                StartCoroutine(EndDialogue());
+                Debug.Log("dialogue ended");
+            }
         }
     }
     
@@ -79,5 +85,19 @@ public class DialogueManager : MonoBehaviour
     {
         LeanTween.textAlpha(messageText.rectTransform, 0, 0);
         LeanTween.textAlpha(messageText.rectTransform, 1, 0.5f);
+    }
+
+    private IEnumerator EndDialogue()
+    {
+        yield return new WaitForEndOfFrame();
+        isActive = false;
+        StopCoroutine(EndDialogue());
+    }
+
+    private IEnumerator StartDialogue()
+    {
+        yield return new WaitForEndOfFrame();
+        isActive = true;
+        StopCoroutine(StartDialogue());
     }
 }
