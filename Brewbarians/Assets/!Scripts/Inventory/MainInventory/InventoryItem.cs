@@ -8,9 +8,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
     public Text countText;
 
-    [HideInInspector] public Item item;
+    public Item item;
     public int count = 1;
-    [HideInInspector] public Transform parentAfterDrag;
+    public Transform parentAfterDrag;
+    public Transform parentBeforeDrag;
 
     public Slider waterSlider;
 
@@ -21,6 +22,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             waterSlider.value = item.currentWater;
             waterSlider.maxValue = item.waterAmount;
         }
+
+        //if(transform.parent != null && transform.parent.GetComponent<InventorySlot>() != null)
+        //{
+        //    if (transform.parent.GetComponent<InventorySlot>().seedSlot)
+        //    {
+        //        transform.GetComponent<Image>().raycastTarget = false;
+        //    }
+        //}        
     }
 
     public void InitialiseItem(Item newItem)
@@ -37,6 +46,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         item = newItem;
         image.sprite = newItem.image;
+        parentBeforeDrag = transform.parent;
         RefreshCount();
     }
 
@@ -50,17 +60,42 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     // Drag and Drop
     public void OnBeginDrag(PointerEventData eventData)
     {
-        image.raycastTarget = false;
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        if (item.type != ItemType.Seed)
+        {
+            image.raycastTarget = false;
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+        }
+        else
+        {
+            image.raycastTarget = false;
+            transform.SetParent(parentBeforeDrag);
+            transform.position = parentBeforeDrag.position;
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        if (item.type != ItemType.Seed)
+            transform.position = Input.mousePosition;
+        else
+        {
+            transform.SetParent(parentBeforeDrag);
+            transform.position = parentBeforeDrag.position;
+        }
+
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        image.raycastTarget = true;
-        transform.SetParent(parentAfterDrag);
+        if (item.type != ItemType.Seed)
+        {
+            image.raycastTarget = true;
+            transform.SetParent(parentAfterDrag);
+        }
+        else
+        {
+            image.raycastTarget = true;
+            transform.SetParent(parentBeforeDrag);
+            transform.position = parentBeforeDrag.position;
+        }
     }
 }

@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     public InventoryManager inventoryManager;
 
     public bool brewingSlot = false;
+    public bool seedSlot = false;
 
     private void Awake()
     {
@@ -32,20 +33,17 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     // Drag and Drop
     public void OnDrop(PointerEventData eventData)
     {
-        if(transform.childCount == 0)
+        InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
+        if (brewingSlot)
         {
-            InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-            if (brewingSlot)
-            {
-                if (inventoryItem.item.type == ItemType.HarvestProd) 
-                {
-                    inventoryItem.parentAfterDrag = transform;
-                }
-            }
-            else if(!brewingSlot)
+            if (inventoryItem.item.type == ItemType.HarvestProd)
             {
                 inventoryItem.parentAfterDrag = transform;
             }
+        }
+        else if (!brewingSlot)
+        {
+            inventoryItem.parentAfterDrag = transform;
         }
     }
 

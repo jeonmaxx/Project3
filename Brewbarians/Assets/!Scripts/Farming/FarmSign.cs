@@ -37,7 +37,7 @@ public class FarmSign : PlayerNear
 
         action.started += _ => OnInteract();
 
-        if (isPlayerNear && handManager.handItem.actionType == ActionType.Plant)
+        if (handManager.handItem != null && (isPlayerNear && handManager.handItem.actionType == ActionType.Plant))
         {
             interactableSign.gameObject.SetActive(true);
             interactableSign.ShowInteraction();

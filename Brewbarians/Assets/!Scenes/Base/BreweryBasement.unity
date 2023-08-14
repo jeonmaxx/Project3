@@ -6888,6 +6888,7 @@ MonoBehaviour:
   notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
   inventoryManager: {fileID: 1555428666}
   brewingSlot: 1
+  seedSlot: 0
 --- !u!114 &305686665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7240,7 +7241,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2bf2aaa8a045c54f8e05679bd753343, type: 2}
   - {fileID: 11400000, guid: 4d5d814e8b1625f4290fa285f6ab7fb9, type: 2}
   - {fileID: 11400000, guid: 04ad89d01f04be047a0838bd08c88a65, type: 2}
-  - {fileID: 11400000, guid: 08645c23bd2549148be7944c4755a3cf, type: 2}
+  - {fileID: 11400000, guid: 7e6c362644e543f4f9b960dfd38ba742, type: 2}
   recipe:
   - {fileID: 11400000, guid: 0de35650dc29c7b47b4705a833c54404, type: 2}
   - {fileID: 11400000, guid: 721ec699896645d44bdd298c7b9120f4, type: 2}
@@ -9969,7 +9970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 1864498933, guid: 3e20032308996a043a9758e31abe7062, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10030,7 +10031,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: -0.15625286}
+  m_Offset: {x: -0.00000011920929, y: 0.0068249702}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10041,7 +10042,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.627321, y: 0.5325661}
+  m_Size: {x: 0.627321, y: 1.2048044}
   m_EdgeRadius: 0
 --- !u!114 &506596161
 MonoBehaviour:
@@ -12204,6 +12205,7 @@ MonoBehaviour:
   notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
   inventoryManager: {fileID: 1555428666}
   brewingSlot: 1
+  seedSlot: 0
 --- !u!114 &666488744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19698,9 +19700,9 @@ CompositeCollider2D:
       - X: 70000000
         Y: 100000000
       - X: 70000000
-        Y: 120000000
+        Y: 110000000
       - X: 60000000
-        Y: 120000000
+        Y: 110000000
       - X: 60000000
         Y: 140000000
       - X: 80000000
@@ -19773,8 +19775,8 @@ CompositeCollider2D:
       - {x: 8, y: 9.00003}
       - {x: 7.9999704, y: 10}
       - {x: 7, y: 10.00003}
-      - {x: 6.9999704, y: 12}
-      - {x: 6, y: 12.00003}
+      - {x: 6.9999704, y: 11}
+      - {x: 6, y: 11.00003}
       - {x: 6.0000296, y: 14}
       - {x: 8, y: 13.999971}
       - {x: 8.00003, y: 13}
@@ -20646,16 +20648,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 11, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 12, y: 11, z: 0}
     second:
       serializedVersion: 2
@@ -21028,13 +21020,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data: {fileID: 11400000, guid: d9891d93155d4624e97cf1256f209c34, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data: {fileID: -751689990, guid: f283abc7c5d08eb4c83c6079c45345d5, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data:
       e00: 1
       e01: 0
@@ -21053,7 +21045,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -24728,6 +24720,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6442762855491232903, guid: b96e14f4f427b5a47bd4d16dd928253a, type: 3}
   m_PrefabInstance: {fileID: 1484643420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1485492867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485492870}
+  - component: {fileID: 1485492868}
+  m_Layer: 0
+  m_Name: Triangle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &1485492868
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485492867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.98945713, y: 1.8857322}
+      - {x: -0.978374, y: -0.30910963}
+      - {x: 1.9319177, y: -0.30372614}
+--- !u!4 &1485492870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485492867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.03, y: 10.332, z: -0.029138938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485686179
 GameObject:
   m_ObjectHideFlags: 0
@@ -32616,7 +32668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792341413740217723, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -429639.78
+      value: -464580.78
       objectReference: {fileID: 0}
     - target: {fileID: 5574380894860116185, guid: 138025f25e4ed3d438dd2efc11d05d10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -34031,6 +34083,7 @@ MonoBehaviour:
   notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
   inventoryManager: {fileID: 1555428666}
   brewingSlot: 1
+  seedSlot: 0
 --- !u!1 &5273973768295657655
 GameObject:
   m_ObjectHideFlags: 0
@@ -34217,6 +34270,7 @@ MonoBehaviour:
   notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
   inventoryManager: {fileID: 1555428666}
   brewingSlot: 1
+  seedSlot: 0
 --- !u!114 &6765035719053304235
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -138,8 +138,12 @@ public class Planting : PlayerNear, IPointerDownHandler
                     plant = Instantiate(seed.Ph01, gameObject.transform.position, gameObject.transform.rotation, this.transform);
                     curPlantState = PlantStates.Phase01;
                     seedItem[i].count--;
-                    tutorial.diaList[4].Done = true;
-                    tutorial.newState = true;
+
+                    if (tutorial.state == TutorialState.Seed)
+                    {
+                        tutorial.diaList[4].Done = true;
+                        tutorial.newState = true;
+                    }
 
                     //wenn der counter bei 0 ist, wird das childobject gelöscht
                     if (seedItem[i].count <= 0)

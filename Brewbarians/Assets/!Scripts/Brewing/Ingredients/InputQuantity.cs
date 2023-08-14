@@ -16,14 +16,14 @@ public class InputQuantity : MonoBehaviour
         CheckInteractable();
         CheckQuant();
 
-        if (chosenQuant <= 10)
+        if (chosenQuant <= 5)
         {
             brewingManager.quantity = chosenQuant;
         }
-        else if(chosenQuant > 10)
+        else if(chosenQuant > 5)
         {
-            inputField.text = "10";
-            chosenQuant = 10;
+            inputField.text = "5";
+            chosenQuant = 5;
             brewingManager.quantity = chosenQuant;
         }
     }
